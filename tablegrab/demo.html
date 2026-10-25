@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Desk lamps – Lamp Corner (TableGrab practice page)</title>
+  <meta name="description" content="A practice page for the TableGrab Chrome extension: a made-up lamp store with product cards, three pages and an orders table.">
+  <link rel="icon" href="favicon.png">
+  <style>
+    :root { color-scheme: light; --ink: #1f2328; --muted: #6b7280; --line: #e5e7eb; --brand: #9a3412; --bg: #fbfaf8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 15px/1.5 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink); background: var(--bg); }
+    a { color: inherit; }
+    .practice { background: #0f766e; color: #fff; font-size: 13px; text-align: center; padding: 6px 12px; }
+    .practice a { color: #fff; font-weight: 600; }
+    .store-head { background: #fff; border-bottom: 1px solid var(--line); }
+    .store-head .in { max-width: 1080px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; gap: 24px; }
+    .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; color: var(--brand); text-decoration: none; }
+    .menu { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+    .menu a { text-decoration: none; color: var(--muted); }
+    .cart { margin-left: auto; font-size: 14px; color: var(--muted); }
+    main { max-width: 1080px; margin: 0 auto; padding: 22px 20px 40px; }
+    .welcome { background: #e6f4f1; border: 1px solid #b7e0d8; border-radius: 12px; padding: 16px 20px; margin-bottom: 22px; }
+    .welcome h2 { margin: 0 0 6px; font-size: 18px; color: #0b5f59; }
+    .welcome ol { margin: 6px 0 0; padding-left: 20px; }
+    .welcome li { margin: 3px 0; }
+    .crumbs { color: var(--muted); font-size: 13px; }
+    h1 { font-size: 28px; letter-spacing: -0.02em; margin: 4px 0 4px; }
+    .count { color: var(--muted); margin: 0 0 18px; font-size: 14px; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .product-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; position: relative; display: flex; flex-direction: column; }
+    .product-card img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #f3f4f6; }
+    .product-info { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 3px; flex: 1; }
+    .product-title { font-size: 15px; font-weight: 600; margin: 0; line-height: 1.3; }
+    .product-title a { text-decoration: none; }
+    .price { display: flex; gap: 8px; align-items: baseline; }
+    .price-current { font-weight: 700; font-size: 16px; }
+    .price-old { color: var(--muted); text-decoration: line-through; font-size: 13px; }
+    .rating { font-size: 13px; color: #b45309; }
+    .rating .reviews { color: var(--muted); }
+    .badge { position: absolute; top: 10px; left: 10px; background: #be123c; color: #fff; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+    .badge.new { background: #1d4ed8; }
+    .add { margin-top: auto; border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 6px; font: inherit; font-size: 13px; cursor: pointer; }
+    .pagination { display: flex; gap: 6px; align-items: center; margin: 22px 0 8px; flex-wrap: wrap; }
+    .pagination a, .pagination span { min-width: 36px; height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--line); background: #fff; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 14px; }
+    .pagination .current { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .pagination .disabled { color: #c0c4cc; }
+    h2.section { font-size: 20px; margin: 34px 0 10px; }
+    table.orders { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 14px; }
+    table.orders th, table.orders td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+    table.orders th { background: #f7f7f5; font-size: 13px; color: var(--muted); font-weight: 600; }
+    table.orders td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .status { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #ecfdf5; color: #047857; }
+    .status.Shipped { background: #eff6ff; color: #1d4ed8; }
+    .status.Refunded { background: #fef2f2; color: #b91c1c; }
+    footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    footer .in { max-width: 1080px; margin: 0 auto; padding: 18px 20px 30px; display: flex; gap: 16px; flex-wrap: wrap; }
+    footer ul { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; }
+    @media (max-width: 560px) { .menu { display: none; } .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+  </style>
+</head>
+<body>
+  <div class="practice">This is a practice page for the TableGrab extension. The store, products and orders are made up. <a href="./">About TableGrab</a></div>
+  <header class="store-head">
+    <div class="in">
+      <a class="logo" href="demo.html">Lamp Corner</a>
+      <nav aria-label="Store"><ul class="menu"><li><a href="demo.html">Desk lamps</a></li><li><a href="demo.html">Floor lamps</a></li><li><a href="demo.html">Bulbs</a></li><li><a href="demo.html">Sale</a></li></ul></nav>
+      <span class="cart">Cart (0)</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="welcome" id="welcome" hidden>
+      <h2>TableGrab is installed</h2>
+      <ol>
+        <li><b>Pin it:</b> click the puzzle-piece icon in Chrome's toolbar, then the pin next to TableGrab.</li>
+        <li><b>Try it here:</b> click the TableGrab icon. A panel opens on the right with the lamps below as rows and columns.</li>
+        <li><b>More pages:</b> in the panel, press <b>Find it</b> and then <b>Start</b> to collect all three pages.</li>
+        <li><b>Save:</b> press <b>CSV</b> or <b>Copy</b> and paste into your spreadsheet.</li>
+      </ol>
+    </section>
+
+    <div class="crumbs">Home › Lighting › Desk lamps</div>
+    <h1>Desk lamps</h1>
+    <p class="count" id="count"></p>
+    <div class="product-grid" id="grid"></div>
+    <nav class="pagination" aria-label="Pagination" id="pager"></nav>
+
+    <h2 class="section">Recent orders</h2>
+    <table class="orders">
+      <thead><tr><th>Order</th><th>Date</th><th>Customer</th><th>Country</th><th>Items</th><th>Total (USD)</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>#10421</td><td>2026-10-02</td><td>Maya R.</td><td>Canada</td><td class="num">2</td><td class="num">84.50</td><td><span class="status Paid">Paid</span></td></tr>
+        <tr><td>#10422</td><td>2026-10-03</td><td>Jonas K.</td><td>Germany</td><td class="num">1</td><td class="num">39.90</td><td><span class="status Shipped">Shipped</span></td></tr>
+        <tr><td>#10423</td><td>2026-10-05</td><td>Aiko T.</td><td>Japan</td><td class="num">3</td><td class="num">121.70</td><td><span class="status Shipped">Shipped</span></td></tr>
+        <tr><td>#10424</td><td>2026-10-06</td><td>Lucas M.</td><td>Brazil</td><td class="num">1</td><td class="num">27.00</td><td><span class="status Refunded">Refunded</span></td></tr>
+        <tr><td>#10425</td><td>2026-10-08</td><td>Siti N.</td><td>Indonesia</td><td class="num">2</td><td class="num">66.25</td><td><span class="status Paid">Paid</span></td></tr>
+        <tr><td>#10426</td><td>2026-10-09</td><td>Emma L.</td><td>United Kingdom</td><td class="num">4</td><td class="num">158.40</td><td><span class="status Shipped">Shipped</span></td></tr>
+        <tr><td>#10427</td><td>2026-10-11</td><td>Omar F.</td><td>Egypt</td><td class="num">1</td><td class="num">49.75</td><td><span class="status Paid">Paid</span></td></tr>
+        <tr><td>#10428</td><td>2026-10-12</td><td>Chloé D.</td><td>France</td><td class="num">2</td><td class="num">73.00</td><td><span class="status Shipped">Shipped</span></td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <div class="in">
+      <span>Lamp Corner is not a real store.</span>
+      <ul><li><a href="./">TableGrab</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var NAMES = ['Nordic', 'Arc', 'Clip-on', 'Banker', 'Swing Arm', 'Mushroom', 'Tripod', 'Architect', 'Glass Globe', 'Bamboo',
+        'Industrial', 'Touch Dimmer', 'Cordless', 'Retro Brass', 'Minimal LED', 'Paper Shade', 'Ceramic', 'Walnut', 'Star Night', 'Gooseneck',
+        'Drafting', 'Cube', 'Marble Base', 'Folding', 'Smart Wi-Fi', 'Edison Bulb', 'Rattan', 'Concrete', 'Moon', 'Aurora', 'Pine'];
+      var PER = 12;
+      var PAGES = Math.ceil(NAMES.length / PER);
+      var params = new URLSearchParams(location.search);
+      var page = Math.min(Math.max(parseInt(params.get('page'), 10) || 1, 1), PAGES);
+      if (params.get('welcome') === '1') document.getElementById('welcome').hidden = false;
+
+      function item(i) {
+        var n = i + 1;
+        var price = 19 + ((n * 37) % 90) + (n % 4 === 0 ? 0.5 : 0.99);
+        return {
+          n: n,
+          name: NAMES[i] + ' Desk Lamp',
+          price: price.toFixed(2),
+          old: n % 3 === 0 ? (price * 1.3).toFixed(2) : '',
+          rating: (3.6 + ((n * 7) % 14) / 10).toFixed(1),
+          reviews: 12 + ((n * 53) % 400),
+          badge: n % 3 === 0 ? 'Sale' : (n % 7 === 1 ? 'New' : '')
+        };
+      }
+      function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+      var start = (page - 1) * PER;
+      var html = '';
+      for (var i = start; i < Math.min(start + PER, NAMES.length); i += 1) {
+        var it = item(i);
+        var num = (it.n < 10 ? '0' : '') + it.n;
+        html += '<div class="product-card">'
+          + '<a class="product-link" href="demo.html?item=' + it.n + '"><img class="product-image" src="demo/lamp-' + num + '.svg" alt="' + esc(it.name) + '" width="400" height="300"></a>'
+          + '<div class="product-info">'
+          + '<h3 class="product-title"><a href="demo.html?item=' + it.n + '">' + esc(it.name) + '</a></h3>'
+          + '<div class="price"><span class="price-current">$' + it.price + '</span>' + (it.old ? '<span class="price-old">$' + it.old + '</span>' : '') + '</div>'
+          + '<div class="rating">★ ' + it.rating + ' <span class="reviews">(' + it.reviews + ' reviews)</span></div>'
+          + '<button class="add" type="button">Add to cart</button>'
+          + '</div>'
+          + (it.badge ? '<span class="badge' + (it.badge === 'New' ? ' new' : '') + '">' + it.badge + '</span>' : '')
+          + '</div>';
+      }
+      document.getElementById('grid').innerHTML = html;
+      document.getElementById('count').textContent = 'Showing ' + (start + 1) + '–' + Math.min(start + PER, NAMES.length) + ' of ' + NAMES.length + ' lamps · page ' + page + ' of ' + PAGES;
+      var pager = '';
+      pager += page > 1 ? '<a class="prev" rel="prev" href="demo.html?page=' + (page - 1) + '">‹ Previous</a>' : '<span class="prev disabled" aria-disabled="true">‹ Previous</span>';
+      for (var p = 1; p <= PAGES; p += 1) {
+        pager += p === page ? '<span class="page current" aria-current="page">' + p + '</span>' : '<a class="page" href="demo.html?page=' + p + '">' + p + '</a>';
+      }
+      pager += page < PAGES ? '<a class="next" rel="next" href="demo.html?page=' + (page + 1) + '">Next ›</a>' : '<span class="next disabled" aria-disabled="true">Next ›</span>';
+      document.getElementById('pager').innerHTML = pager;
+      document.addEventListener('click', function (e) {
+        var b = e.target.closest && e.target.closest('.add');
+        if (b) { b.textContent = 'Added (demo)'; }
+      });
+    })();
+  </script>
+</body>
+</html>

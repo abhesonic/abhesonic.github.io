@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get TableGrab Pro</title>
+  <meta name="description" content="TableGrab Pro is a one-time US$19 license that unlocks every Pro feature of the TableGrab Chrome extension.">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Checkout link of the live "TableGrab Pro" product in Lemon Squeezy.
+    // While it is empty, this page shows a short notice instead of the buy button.
+    window.TABLEGRAB_CHECKOUT = '';
+  </script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <img src="icon.png" alt="">
+      <a class="name" href="./">TableGrab</a>
+      <nav><a href="./#faq">FAQ</a><a href="terms.html">Terms</a><a href="mailto:muhakbaryusuf.ppp@gmail.com">Support</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <h1>TableGrab Pro</h1>
+      <p class="lead">One payment of <b>US$19</b> (plus tax where it applies). No subscription, no account. Pro unlocks:</p>
+      <ul>
+        <li>Up to 500 pages per run with Next buttons, "Load more" and endless scrolling (the free version collects 3)</li>
+        <li>Excel (.xlsx) and JSON files</li>
+        <li>Saved setup for each website: columns, names and Next button</li>
+        <li>Add the same data from all open tabs in one go</li>
+      </ul>
+
+      <div class="actions" id="buyBox">
+        <a class="btn" id="buyLink" href="#">Buy TableGrab Pro, US$19</a>
+      </div>
+      <p class="note" id="soon" hidden>Checkout opens in a few days, while our payment provider finishes setting up the store. Every free feature of TableGrab already works. Please check back soon.</p>
+
+      <p>Payments are handled by Lemon Squeezy, our online reseller and merchant of record. TableGrab Pro is sold by the TableGrab developer, not by Google. Refunds are available within 14 days; see the <a href="terms.html">terms of sale</a>.</p>
+
+      <h2>After you pay</h2>
+      <ol class="steps">
+        <li>Copy the <b>license key</b> from the confirmation page or from your receipt email.</li>
+        <li>Open TableGrab, click <b>Upgrade</b>, paste the key under <b>Already bought it?</b> and press <b>Activate</b>.</li>
+        <li>The key works in up to 5 Chrome browsers.</li>
+      </ol>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 TableGrab</span>
+      <a href="./">Home</a>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="terms.html">Terms of sale</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var url = window.TABLEGRAB_CHECKOUT;
+      if (url) {
+        document.getElementById('buyLink').href = url;
+        // The extension's "Get Pro" button opens this page with ?go=1: continue straight to checkout.
+        if (/[?&]go=1(&|$)/.test(location.search)) location.replace(url);
+      } else {
+        document.getElementById('buyBox').hidden = true;
+        document.getElementById('soon').hidden = false;
+      }
+    })();
+  </script>
+</body>
+</html>
