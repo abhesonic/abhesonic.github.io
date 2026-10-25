@@ -28,6 +28,7 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); }
+[hidden] { display: none !important; }
 a { color: var(--accent); }
 .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
 header.top { background: var(--surface); border-bottom: 1px solid var(--border); }

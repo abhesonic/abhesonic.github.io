@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get BatchGrab Pro</title>
+  <meta name="description" content="BatchGrab Pro is a one-time US$9.99 license that unlocks every Pro feature of the BatchGrab Chrome extension.">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Checkout link of the live "BatchGrab Pro" product in Lemon Squeezy.
+    // While it is empty, this page shows a short notice instead of the buy button.
+    window.BATCHGRAB_CHECKOUT = '';
+  </script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <img src="icon.png" alt="">
+      <a class="name" href="./">BatchGrab</a>
+      <nav><a href="./#faq">FAQ</a><a href="terms.html">Terms</a><a href="mailto:muhakbaryusuf.ppp@gmail.com">Support</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <h1>BatchGrab Pro</h1>
+      <p class="lead">One payment of <b>US$9.99</b> (plus tax where it applies). No subscription, no account. Pro unlocks:</p>
+      <ul>
+        <li>Unlimited files per batch (the free version saves 20 at a time)</li>
+        <li>Grab from all tabs in the window at once</li>
+        <li>Rename patterns with numbers, link text, domain and date</li>
+        <li>Auto-folders by site and file type</li>
+        <li>Save everything as one ZIP</li>
+        <li>Regex and minimum image size filters</li>
+        <li>Download history</li>
+      </ul>
+
+      <div class="actions" id="buyBox">
+        <a class="btn" id="buyLink" href="#">Buy BatchGrab Pro, US$9.99</a>
+      </div>
+      <p class="note" id="soon" hidden>Checkout opens in a few days, while our payment provider finishes setting up the store. Every free feature of BatchGrab already works. Please check back soon.</p>
+
+      <p>Payments are handled by Lemon Squeezy, our online reseller and merchant of record. BatchGrab Pro is sold by the BatchGrab developer, not by Google. Refunds are available within 14 days; see the <a href="terms.html">terms of sale</a>.</p>
+
+      <h2>After you pay</h2>
+      <ol class="steps">
+        <li>Copy the <b>license key</b> from the confirmation page or from your receipt email.</li>
+        <li>Open BatchGrab, click <b>Upgrade to Pro</b>, paste the key under <b>Already bought it?</b> and press <b>Activate</b>.</li>
+        <li>The key works in up to 5 Chrome browsers.</li>
+      </ol>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 BatchGrab</span>
+      <a href="./">Home</a>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="terms.html">Terms of sale</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var url = window.BATCHGRAB_CHECKOUT;
+      if (url) {
+        document.getElementById('buyLink').href = url;
+        // The extension's "Get Pro" button opens this page with ?go=1: continue straight to checkout.
+        if (/[?&]go=1(&|$)/.test(location.search)) location.replace(url);
+      } else {
+        document.getElementById('buyBox').hidden = true;
+        document.getElementById('soon').hidden = false;
+      }
+    })();
+  </script>
+</body>
+</html>
