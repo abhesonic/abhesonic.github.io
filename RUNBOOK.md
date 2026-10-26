@@ -17,6 +17,10 @@ This folder lives on the `factory` branch of github.com/abhesonic/abhesonic.gith
    - In the browser (Lemon Squeezy must be logged in), Products → New Product: name, description (paste `description_html` from listing.json as a text/html paste event into the tiptap editor),
      Single payment, price, Tax category "Digital Graphic / Template", license keys off, Confirmation modal message and Email receipt "Thank you note" = `thank_you`.
      Upload cover.png to Media and the zip to Files (Chrome extension `file_upload` on the file inputs if available; otherwise leave as draft and list it for Akbar).
-     Then set status Published. Never enter passwords; if logged out, stop and tell Akbar.
+     Then click "Publish product". KNOWN QUIRK: the price typed into the new-product form is often saved as the default $9.99.
+     After publishing, re-open the product (it stays open), triple-click the Price field, type the price (e.g. 29.00), press Tab, click "Save changes",
+     then open /products and confirm the list shows the right price. Never enter passwords; if logged out, stop and tell Akbar.
+     Chrome extension notes: file_upload works with container paths under /home/claude/... (e.g. /home/claude/factory/out/<file_base>/cover.png);
+     the description is a tiptap editor: focus it and dispatch a paste ClipboardEvent with text/html via javascript_tool; log in state lives in Akbar's Chrome.
 7. Update `catalog.json` (move the idea from `next` to `made` with date, price, LS id and status), commit, push to `factory`.
 8. Message Akbar in Bahasa Indonesia, short: which 2 templates were made, LS status, anything he must click.

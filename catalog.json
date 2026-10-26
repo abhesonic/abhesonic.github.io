@@ -9,7 +9,7 @@
    "price": 29,
    "made": "2026-10-26",
    "ls_product_id": 1473441,
-   "ls_status": "published (test), price still 19 -> change to 29"
+   "ls_status": "published (test), $29"
   },
   {
    "module": "budget_expense_planner",
@@ -17,15 +17,15 @@
    "price": 19,
    "made": "2026-10-26",
    "ls_product_id": 1474978,
-   "ls_status": "published (test); verify price shows 19.00 (first save stored 9.99, corrected and saved again)"
+   "ls_status": "published (test), $19"
   },
   {
    "module": "small_business_bookkeeping",
    "file_base": "Small-Business-Bookkeeping",
    "price": 29,
    "made": "2026-10-26",
-   "ls_product_id": null,
-   "ls_status": "not uploaded"
+   "ls_product_id": 1475010,
+   "ls_status": "published (test), $29"
   }
  ],
  "next": [
