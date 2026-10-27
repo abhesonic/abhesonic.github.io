@@ -7,7 +7,7 @@ This folder lives on the `factory` branch of github.com/abhesonic/abhesonic.gith
 1. Clone: `git clone -b factory https://github.com/abhesonic/abhesonic.github.io factory` (attach the repo with add_repo, access push, if needed).
 2. Read `catalog.json`. Stop and report if `made` already has 50 entries.
 3. Pick the next 2 ideas from `next` (skip any already made). A quick web search to confirm demand and sharpen features is fine.
-4. For each: write `templates/<module>.py` with `build(sample, path)` and `META` (copy the structure of `small_business_bookkeeping.py`).
+4. For each: write `templates/<module>.py` with `build(sample, path)` and `META` (copy the structure of `small_business_bookkeeping.py`, or reuse the shared helpers in `templates/_common.py` as `airbnb_host_tracker.py` does).
    Rules (xlsx skill): openpyxl, Arial, yellow input cells / grey formula cells, a Start Here sheet, Dashboard as the 2nd sheet,
    sample data in the SAMPLE copy only, Excel-2007 functions only (SUMIFS, COUNTIFS, INDEX/MATCH, IFERROR, SUMPRODUCT – never XLOOKUP/FILTER/UNIQUE/SORT/SEQUENCE),
    quote sheet names with spaces, no hardcoded results.

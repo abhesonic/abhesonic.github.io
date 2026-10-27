@@ -26,11 +26,25 @@
    "made": "2026-10-26",
    "ls_product_id": 1475010,
    "ls_status": "published (test), $29"
+  },
+  {
+   "module": "airbnb_host_tracker",
+   "file_base": "Airbnb-Host-Tracker",
+   "price": 24,
+   "made": "2026-10-27",
+   "ls_product_id": null,
+   "ls_status": "not uploaded (LS logged out in Chrome and built-in browser)"
+  },
+  {
+   "module": "wedding_planner_budget",
+   "file_base": "Wedding-Planner-Budget",
+   "price": 19,
+   "made": "2026-10-27",
+   "ls_product_id": null,
+   "ls_status": "not uploaded (LS logged out in Chrome and built-in browser)"
   }
  ],
  "next": [
-  "Airbnb / short-term rental host tracker (bookings, occupancy, payouts, cleaning, profit per listing)",
-  "Wedding planner & budget (guest list, RSVP, vendors, budget vs actual, timeline)",
   "Debt snowball & avalanche payoff calculator",
   "Content calendar & social media planner",
   "Simple CRM & sales pipeline",
