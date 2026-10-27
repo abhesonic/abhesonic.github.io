@@ -32,16 +32,16 @@
    "file_base": "Airbnb-Host-Tracker",
    "price": 24,
    "made": "2026-10-27",
-   "ls_product_id": null,
-   "ls_status": "not uploaded (LS logged out in Chrome and built-in browser)"
+   "ls_product_id": 1475972,
+   "ls_status": "published (test), $24"
   },
   {
    "module": "wedding_planner_budget",
    "file_base": "Wedding-Planner-Budget",
    "price": 19,
    "made": "2026-10-27",
-   "ls_product_id": null,
-   "ls_status": "not uploaded (LS logged out in Chrome and built-in browser)"
+   "ls_product_id": 1475983,
+   "ls_status": "published (test), $19"
   }
  ],
  "next": [

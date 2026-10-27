@@ -20,7 +20,8 @@ This folder lives on the `factory` branch of github.com/abhesonic/abhesonic.gith
      Then click "Publish product". KNOWN QUIRK: the price typed into the new-product form is often saved as the default $9.99.
      After publishing, re-open the product (it stays open), triple-click the Price field, type the price (e.g. 29.00), press Tab, click "Save changes",
      then open /products and confirm the list shows the right price. Never enter passwords; if logged out, stop and tell Akbar.
-     Chrome extension notes: file_upload works with container paths under /home/claude/... (e.g. /home/claude/factory/out/<file_base>/cover.png);
+     Chrome extension notes: file_upload only accepts files under /mnt/user-data/outputs/ (copy cover.png and the zip to /mnt/user-data/outputs/<file_base>/ first; /home/claude paths are rejected);
+     the Tax category also resets to SaaS on first publish, so re-select "Digital Graphic / Template" together with the price fix. Do NOT press Tab after the price (it opens the tax dropdown and froze the tab once): click Save changes directly;
      the description is a tiptap editor: focus it and dispatch a paste ClipboardEvent with text/html via javascript_tool; log in state lives in Akbar's Chrome.
 7. Update `catalog.json` (move the idea from `next` to `made` with date, price, LS id and status), commit, push to `factory`.
 8. Message Akbar in Bahasa Indonesia, short: which 2 templates were made, LS status, anything he must click.
