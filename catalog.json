@@ -110,5 +110,12 @@
   "Fundraising / nonprofit donor tracker",
   "Crypto portfolio & profit/loss tracker"
  ],
- "store_ready": false
+ "store_ready": false,
+ "lemonsqueezy_leftovers": {
+  "note": "Made by a parallel scheduled run on 2026-10-28 before it saw the Gumroad switch: test-mode LS products built from a different version of the same two templates. Not linked to the files in this repo; Akbar can delete them in LS.",
+  "ids": [
+   1482126,
+   1482134
+  ]
+ }
 }
