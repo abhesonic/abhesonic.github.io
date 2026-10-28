@@ -12,7 +12,7 @@ This folder lives on the `factory` branch of github.com/abhesonic/abhesonic.gith
    sample data in the SAMPLE copy only, Excel-2007 functions only (SUMIFS, COUNTIFS, INDEX/MATCH, IFERROR, SUMPRODUCT – never XLOOKUP/FILTER/UNIQUE/SORT/SEQUENCE),
    quote sheet names with spaces, no hardcoded results.
 5. `python3 -W ignore make.py <module>` → must print ok with zero formula errors. Check a few computed values with openpyxl data_only and look at out/<file_base>/cover.jpg.
-6. Upload to Gumroad (store: https://muhakbaryusuf.gumroad.com). Lemon Squeezy rejected the store on 2026-10-29: never upload there.
+6. Upload to Gumroad (store: https://abhesonic.gumroad.com). Lemon Squeezy rejected the store on 2026-10-29: never upload there.
    Only when catalog.json `store_ready` is true and Akbar's Chrome (Claude in Chrome extension) is online and logged in to gumroad.com.
    JavaScript is NOT allowed on gumroad.com, so use find / click / type / file_upload only. file_upload accepts files under the session's working directory
    (e.g. /home/<you>/factory/out/<file_base>/...); if a path is rejected, try /mnt/user-data/outputs/<file_base>/ after copying the files there.

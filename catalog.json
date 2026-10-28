@@ -1,7 +1,7 @@
 {
  "goal": 50,
  "per_run": 2,
- "store": "Gumroad – https://muhakbaryusuf.gumroad.com (Lemon Squeezy rejected the store on 2026-10-29 – never upload there again)",
+ "store": "Gumroad – https://abhesonic.gumroad.com (Lemon Squeezy rejected the store on 2026-10-29 – never upload there again)",
  "made": [
   {
    "module": "rental_property_manager",
@@ -9,7 +9,7 @@
    "price": 29,
    "made": "2026-10-26",
    "lemonsqueezy_test_id": 1473441,
-   "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/rental-property-manager",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/rental-property-manager",
    "status": "published",
    "gumroad_id": "thlxdu"
   },
@@ -19,7 +19,7 @@
    "price": 19,
    "made": "2026-10-26",
    "lemonsqueezy_test_id": 1474978,
-   "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/budget-expense-planner",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/budget-expense-planner",
    "status": "published",
    "gumroad_id": "engfxh"
   },
@@ -29,7 +29,7 @@
    "price": 29,
    "made": "2026-10-26",
    "lemonsqueezy_test_id": 1475010,
-   "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/small-business-bookkeeping",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/small-business-bookkeeping",
    "status": "published",
    "gumroad_id": "ifywem"
   },
@@ -39,7 +39,7 @@
    "price": 24,
    "made": "2026-10-27",
    "lemonsqueezy_test_id": 1475972,
-   "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/airbnb-host-tracker",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/airbnb-host-tracker",
    "status": "published",
    "gumroad_id": "mntysm"
   },
@@ -49,7 +49,7 @@
    "price": 19,
    "made": "2026-10-27",
    "lemonsqueezy_test_id": 1475983,
-   "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/wedding-planner-budget",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/wedding-planner-budget",
    "status": "published",
    "gumroad_id": "nzwehi"
   },
@@ -58,7 +58,7 @@
    "file_base": "Debt-Payoff-Planner",
    "price": 17,
    "made": "2026-10-29",
-   "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/debt-payoff-planner",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/debt-payoff-planner",
    "status": "published",
    "gumroad_id": "ribgen"
   },
@@ -67,7 +67,7 @@
    "file_base": "Content-Calendar-Planner",
    "price": 19,
    "made": "2026-10-29",
-   "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/content-calendar-planner",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/content-calendar-planner",
    "status": "published",
    "gumroad_id": "nhexjg"
   }
@@ -125,5 +125,21 @@
    1482126,
    1482134
   ]
+ },
+ "gumroad_extensions": {
+  "tablegrab_pro": {
+   "gumroad_id": "rptdf",
+   "product_id_for_api": "L1a3RQe83-RRutUwTdF65g==",
+   "url": "https://abhesonic.gumroad.com/l/tablegrab-pro",
+   "price": 19,
+   "status": "unpublished (extension update to Gumroad licenses pending)"
+  },
+  "batchgrab_pro": {
+   "gumroad_id": "jhwmby",
+   "product_id_for_api": "UD9LgZMqFc_6dJwZaJgLjQ==",
+   "url": "https://abhesonic.gumroad.com/l/batchgrab-pro",
+   "price": 9.99,
+   "status": "unpublished (extension update to Gumroad licenses pending)"
+  }
  }
 }
