@@ -1,52 +1,71 @@
 {
  "goal": 50,
  "per_run": 2,
- "store": "Lemon Squeezy store 'BatchGrab' (test mode until activated)",
+ "store": "Gumroad (Lemon Squeezy rejected the store on 2026-10-29 – never upload there again)",
  "made": [
   {
    "module": "rental_property_manager",
    "file_base": "Rental-Property-Manager",
    "price": 29,
    "made": "2026-10-26",
-   "ls_product_id": 1473441,
-   "ls_status": "published (test), $29"
+   "lemonsqueezy_test_id": 1473441,
+   "gumroad_url": null,
+   "status": "not uploaded"
   },
   {
    "module": "budget_expense_planner",
    "file_base": "Budget-Expense-Planner",
    "price": 19,
    "made": "2026-10-26",
-   "ls_product_id": 1474978,
-   "ls_status": "published (test), $19"
+   "lemonsqueezy_test_id": 1474978,
+   "gumroad_url": null,
+   "status": "not uploaded"
   },
   {
    "module": "small_business_bookkeeping",
    "file_base": "Small-Business-Bookkeeping",
    "price": 29,
    "made": "2026-10-26",
-   "ls_product_id": 1475010,
-   "ls_status": "published (test), $29"
+   "lemonsqueezy_test_id": 1475010,
+   "gumroad_url": null,
+   "status": "not uploaded"
   },
   {
    "module": "airbnb_host_tracker",
    "file_base": "Airbnb-Host-Tracker",
    "price": 24,
    "made": "2026-10-27",
-   "ls_product_id": 1475972,
-   "ls_status": "published (test), $24"
+   "lemonsqueezy_test_id": 1475972,
+   "gumroad_url": null,
+   "status": "not uploaded"
   },
   {
    "module": "wedding_planner_budget",
    "file_base": "Wedding-Planner-Budget",
    "price": 19,
    "made": "2026-10-27",
-   "ls_product_id": 1475983,
-   "ls_status": "published (test), $19"
+   "lemonsqueezy_test_id": 1475983,
+   "gumroad_url": null,
+   "status": "not uploaded"
+  },
+  {
+   "module": "debt_payoff_planner",
+   "file_base": "Debt-Payoff-Planner",
+   "price": 17,
+   "made": "2026-10-29",
+   "gumroad_url": null,
+   "status": "not uploaded"
+  },
+  {
+   "module": "content_calendar_planner",
+   "file_base": "Content-Calendar-Planner",
+   "price": 19,
+   "made": "2026-10-29",
+   "gumroad_url": null,
+   "status": "not uploaded"
   }
  ],
  "next": [
-  "Debt snowball & avalanche payoff calculator",
-  "Content calendar & social media planner",
   "Simple CRM & sales pipeline",
   "Project planner with Gantt chart",
   "Habit tracker (yearly, monthly heat-map)",
@@ -90,5 +109,6 @@
   "Weekly & daily planner (to-do, priorities)",
   "Fundraising / nonprofit donor tracker",
   "Crypto portfolio & profit/loss tracker"
- ]
+ ],
+ "store_ready": false
 }
