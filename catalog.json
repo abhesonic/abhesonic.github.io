@@ -10,7 +10,7 @@
    "made": "2026-10-26",
    "lemonsqueezy_test_id": 1473441,
    "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/rental-property-manager",
-   "status": "uploaded, unpublished (waiting for payout method)",
+   "status": "published",
    "gumroad_id": "thlxdu"
   },
   {
@@ -20,7 +20,7 @@
    "made": "2026-10-26",
    "lemonsqueezy_test_id": 1474978,
    "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/budget-expense-planner",
-   "status": "uploaded, unpublished (waiting for payout method)",
+   "status": "published",
    "gumroad_id": "engfxh"
   },
   {
@@ -30,7 +30,7 @@
    "made": "2026-10-26",
    "lemonsqueezy_test_id": 1475010,
    "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/small-business-bookkeeping",
-   "status": "uploaded, unpublished (waiting for payout method)",
+   "status": "published",
    "gumroad_id": "ifywem"
   },
   {
@@ -40,7 +40,7 @@
    "made": "2026-10-27",
    "lemonsqueezy_test_id": 1475972,
    "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/airbnb-host-tracker",
-   "status": "uploaded, unpublished (waiting for payout method)",
+   "status": "published",
    "gumroad_id": "mntysm"
   },
   {
@@ -50,7 +50,7 @@
    "made": "2026-10-27",
    "lemonsqueezy_test_id": 1475983,
    "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/wedding-planner-budget",
-   "status": "uploaded, unpublished (waiting for payout method)",
+   "status": "published",
    "gumroad_id": "nzwehi"
   },
   {
@@ -59,7 +59,7 @@
    "price": 17,
    "made": "2026-10-29",
    "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/debt-payoff-planner",
-   "status": "uploaded, unpublished (waiting for payout method)",
+   "status": "published",
    "gumroad_id": "ribgen"
   },
   {
@@ -68,7 +68,7 @@
    "price": 19,
    "made": "2026-10-29",
    "gumroad_url": "https://muhakbaryusuf.gumroad.com/l/content-calendar-planner",
-   "status": "uploaded, unpublished (waiting for payout method)",
+   "status": "published",
    "gumroad_id": "nhexjg"
   }
  ],
@@ -118,7 +118,7 @@
   "Crypto portfolio & profit/loss tracker"
  ],
  "store_ready": true,
- "store_note": "Products can be created and filled now. Publishing needs a payout method on Gumroad (Akbar must add his bank details in Settings > Payments). Until then products stay 'Unpublished'.",
+ "store_note": "Payout method connected on 2026-10-29; products publish immediately.",
  "lemonsqueezy_leftovers": {
   "note": "Made by a parallel scheduled run on 2026-10-28 before it saw the Gumroad switch: test-mode LS products built from a different version of the same two templates. Not linked to the files in this repo; Akbar can delete them in LS.",
   "ids": [
