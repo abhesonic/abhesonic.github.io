@@ -1,162 +1,166 @@
 {
- "goal": 50,
- "per_run": 2,
- "store": "Gumroad – https://abhesonic.gumroad.com (Lemon Squeezy rejected the store on 2026-10-29 – never upload there again)",
- "made": [
-  {
-   "module": "rental_property_manager",
-   "file_base": "Rental-Property-Manager",
-   "price": 29,
-   "made": "2026-10-26",
-   "lemonsqueezy_test_id": 1473441,
-   "gumroad_url": "https://abhesonic.gumroad.com/l/rental-property-manager",
-   "status": "published",
-   "gumroad_id": "thlxdu"
+  "goal": 50,
+  "per_run": 2,
+  "store": "Gumroad – https://abhesonic.gumroad.com (Lemon Squeezy rejected the store on 2026-10-29 – never upload there again)",
+  "made": [
+    {
+      "module": "rental_property_manager",
+      "file_base": "Rental-Property-Manager",
+      "price": 29,
+      "made": "2026-10-26",
+      "lemonsqueezy_test_id": 1473441,
+      "gumroad_url": "https://abhesonic.gumroad.com/l/rental-property-manager",
+      "status": "published",
+      "gumroad_id": "thlxdu"
+    },
+    {
+      "module": "budget_expense_planner",
+      "file_base": "Budget-Expense-Planner",
+      "price": 19,
+      "made": "2026-10-26",
+      "lemonsqueezy_test_id": 1474978,
+      "gumroad_url": "https://abhesonic.gumroad.com/l/budget-expense-planner",
+      "status": "published",
+      "gumroad_id": "engfxh"
+    },
+    {
+      "module": "small_business_bookkeeping",
+      "file_base": "Small-Business-Bookkeeping",
+      "price": 29,
+      "made": "2026-10-26",
+      "lemonsqueezy_test_id": 1475010,
+      "gumroad_url": "https://abhesonic.gumroad.com/l/small-business-bookkeeping",
+      "status": "published",
+      "gumroad_id": "ifywem"
+    },
+    {
+      "module": "airbnb_host_tracker",
+      "file_base": "Airbnb-Host-Tracker",
+      "price": 24,
+      "made": "2026-10-27",
+      "lemonsqueezy_test_id": 1475972,
+      "gumroad_url": "https://abhesonic.gumroad.com/l/airbnb-host-tracker",
+      "status": "published",
+      "gumroad_id": "mntysm"
+    },
+    {
+      "module": "wedding_planner_budget",
+      "file_base": "Wedding-Planner-Budget",
+      "price": 19,
+      "made": "2026-10-27",
+      "lemonsqueezy_test_id": 1475983,
+      "gumroad_url": "https://abhesonic.gumroad.com/l/wedding-planner-budget",
+      "status": "published",
+      "gumroad_id": "nzwehi"
+    },
+    {
+      "module": "debt_payoff_planner",
+      "file_base": "Debt-Payoff-Planner",
+      "price": 17,
+      "made": "2026-10-29",
+      "gumroad_url": "https://abhesonic.gumroad.com/l/debt-payoff-planner",
+      "status": "published",
+      "gumroad_id": "ribgen"
+    },
+    {
+      "module": "content_calendar_planner",
+      "file_base": "Content-Calendar-Planner",
+      "price": 19,
+      "made": "2026-10-29",
+      "gumroad_url": "https://abhesonic.gumroad.com/l/content-calendar-planner",
+      "status": "published",
+      "gumroad_id": "nhexjg"
+    },
+    {
+      "module": "simple_crm_pipeline",
+      "file_base": "Simple-CRM-Sales-Pipeline",
+      "price": 24,
+      "made": "2026-10-29",
+      "gumroad_url": "https://abhesonic.gumroad.com/l/simple-crm-sales-pipeline",
+      "status": "published",
+      "gumroad_id": "ltmefy"
+    },
+    {
+      "module": "project_planner_gantt",
+      "file_base": "Project-Planner-Gantt-Chart",
+      "price": 19,
+      "made": "2026-10-29",
+      "gumroad_url": null,
+      "status": "not uploaded (Gumroad limit: max 10 new products per day; retry next run)",
+      "gumroad_id": null
+    }
+  ],
+  "next": [
+    "Habit tracker (yearly, monthly heat-map)",
+    "Fitness & workout log with progress charts",
+    "Meal planner & grocery list with macro totals",
+    "Inventory & stock tracker for small shops (reorder alerts)",
+    "Etsy / online shop seller profit calculator (fees, shipping, margin per product)",
+    "Freelancer time tracker & invoicing",
+    "Paycheck budget (biweekly) planner",
+    "Savings challenge tracker (52-week, 100 envelopes)",
+    "Net worth tracker (assets, liabilities, monthly snapshots)",
+    "Dividend income & stock portfolio tracker",
+    "Rental property investment analysis (cap rate, cash-on-cash, mortgage)",
+    "House flipping budget & ROI calculator",
+    "Mortgage payoff & extra payment calculator",
+    "Event planner & budget (parties, conferences)",
+    "Travel planner & trip budget with itinerary",
+    "Employee schedule & shift planner",
+    "Payroll & timesheet calculator (hours, overtime)",
+    "Cleaning business client & job tracker",
+    "Real estate agent commission & lead tracker",
+    "Teacher gradebook & attendance",
+    "Homeschool planner & lesson tracker",
+    "Student assignment & exam planner",
+    "Job application tracker",
+    "Reading log & book tracker",
+    "Subscription tracker (renewals, yearly cost)",
+    "Bill payment tracker & calendar",
+    "Sinking funds tracker",
+    "Cash envelope budget system",
+    "Small bakery / food business pricing & recipe cost calculator",
+    "Restaurant food cost & inventory",
+    "Photography business tracker (clients, shoots, income)",
+    "Wedding guest list & seating planner",
+    "Baby tracker (feeding, sleep, diapers)",
+    "Pet care & expense tracker",
+    "Vehicle maintenance & fuel log",
+    "Home maintenance & renovation budget",
+    "Garden planner & planting calendar",
+    "Goal planner / OKR tracker",
+    "Weekly & daily planner (to-do, priorities)",
+    "Fundraising / nonprofit donor tracker",
+    "Crypto portfolio & profit/loss tracker"
+  ],
+  "store_ready": true,
+  "store_note": "Payout method connected on 2026-10-29; products publish immediately.",
+  "lemonsqueezy_leftovers": {
+    "note": "Made by a parallel scheduled run on 2026-10-28 before it saw the Gumroad switch: test-mode LS products built from a different version of the same two templates. Not linked to the files in this repo; Akbar can delete them in LS.",
+    "ids": [
+      1482126,
+      1482134
+    ]
   },
-  {
-   "module": "budget_expense_planner",
-   "file_base": "Budget-Expense-Planner",
-   "price": 19,
-   "made": "2026-10-26",
-   "lemonsqueezy_test_id": 1474978,
-   "gumroad_url": "https://abhesonic.gumroad.com/l/budget-expense-planner",
-   "status": "published",
-   "gumroad_id": "engfxh"
+  "gumroad_extensions": {
+    "tablegrab_pro": {
+      "gumroad_id": "rptdf",
+      "product_id_for_api": "L1a3RQe83-RRutUwTdF65g==",
+      "url": "https://abhesonic.gumroad.com/l/tablegrab-pro",
+      "price": 19,
+      "status": "published",
+      "gumroad_url": "https://abhesonic.gumroad.com/l/tablegrab-pro",
+      "published_on": "2026-10-29"
+    },
+    "batchgrab_pro": {
+      "gumroad_id": "jhwmby",
+      "product_id_for_api": "UD9LgZMqFc_6dJwZaJgLjQ==",
+      "url": "https://abhesonic.gumroad.com/l/batchgrab-pro",
+      "price": 9.99,
+      "status": "published",
+      "gumroad_url": "https://abhesonic.gumroad.com/l/batchgrab-pro",
+      "published_on": "2026-10-29"
+    }
   },
-  {
-   "module": "small_business_bookkeeping",
-   "file_base": "Small-Business-Bookkeeping",
-   "price": 29,
-   "made": "2026-10-26",
-   "lemonsqueezy_test_id": 1475010,
-   "gumroad_url": "https://abhesonic.gumroad.com/l/small-business-bookkeeping",
-   "status": "published",
-   "gumroad_id": "ifywem"
-  },
-  {
-   "module": "airbnb_host_tracker",
-   "file_base": "Airbnb-Host-Tracker",
-   "price": 24,
-   "made": "2026-10-27",
-   "lemonsqueezy_test_id": 1475972,
-   "gumroad_url": "https://abhesonic.gumroad.com/l/airbnb-host-tracker",
-   "status": "published",
-   "gumroad_id": "mntysm"
-  },
-  {
-   "module": "wedding_planner_budget",
-   "file_base": "Wedding-Planner-Budget",
-   "price": 19,
-   "made": "2026-10-27",
-   "lemonsqueezy_test_id": 1475983,
-   "gumroad_url": "https://abhesonic.gumroad.com/l/wedding-planner-budget",
-   "status": "published",
-   "gumroad_id": "nzwehi"
-  },
-  {
-   "module": "debt_payoff_planner",
-   "file_base": "Debt-Payoff-Planner",
-   "price": 17,
-   "made": "2026-10-29",
-   "gumroad_url": "https://abhesonic.gumroad.com/l/debt-payoff-planner",
-   "status": "published",
-   "gumroad_id": "ribgen"
-  },
-  {
-   "module": "content_calendar_planner",
-   "file_base": "Content-Calendar-Planner",
-   "price": 19,
-   "made": "2026-10-29",
-   "gumroad_url": "https://abhesonic.gumroad.com/l/content-calendar-planner",
-   "status": "published",
-   "gumroad_id": "nhexjg"
-  },
-  {
-   "module": "simple_crm_pipeline",
-   "file_base": "Simple-CRM-Sales-Pipeline",
-   "price": 24,
-   "made": "2026-10-29",
-   "gumroad_url": "https://abhesonic.gumroad.com/l/simple-crm-sales-pipeline",
-   "status": "published",
-   "gumroad_id": "ltmefy"
-  },
-  {
-   "module": "project_planner_gantt",
-   "file_base": "Project-Planner-Gantt-Chart",
-   "price": 19,
-   "made": "2026-10-29",
-   "gumroad_url": null,
-   "status": "not uploaded (Gumroad limit: max 10 new products per day; retry next run)",
-   "gumroad_id": null
-  }
- ],
- "next": [
-  "Habit tracker (yearly, monthly heat-map)",
-  "Fitness & workout log with progress charts",
-  "Meal planner & grocery list with macro totals",
-  "Inventory & stock tracker for small shops (reorder alerts)",
-  "Etsy / online shop seller profit calculator (fees, shipping, margin per product)",
-  "Freelancer time tracker & invoicing",
-  "Paycheck budget (biweekly) planner",
-  "Savings challenge tracker (52-week, 100 envelopes)",
-  "Net worth tracker (assets, liabilities, monthly snapshots)",
-  "Dividend income & stock portfolio tracker",
-  "Rental property investment analysis (cap rate, cash-on-cash, mortgage)",
-  "House flipping budget & ROI calculator",
-  "Mortgage payoff & extra payment calculator",
-  "Event planner & budget (parties, conferences)",
-  "Travel planner & trip budget with itinerary",
-  "Employee schedule & shift planner",
-  "Payroll & timesheet calculator (hours, overtime)",
-  "Cleaning business client & job tracker",
-  "Real estate agent commission & lead tracker",
-  "Teacher gradebook & attendance",
-  "Homeschool planner & lesson tracker",
-  "Student assignment & exam planner",
-  "Job application tracker",
-  "Reading log & book tracker",
-  "Subscription tracker (renewals, yearly cost)",
-  "Bill payment tracker & calendar",
-  "Sinking funds tracker",
-  "Cash envelope budget system",
-  "Small bakery / food business pricing & recipe cost calculator",
-  "Restaurant food cost & inventory",
-  "Photography business tracker (clients, shoots, income)",
-  "Wedding guest list & seating planner",
-  "Baby tracker (feeding, sleep, diapers)",
-  "Pet care & expense tracker",
-  "Vehicle maintenance & fuel log",
-  "Home maintenance & renovation budget",
-  "Garden planner & planting calendar",
-  "Goal planner / OKR tracker",
-  "Weekly & daily planner (to-do, priorities)",
-  "Fundraising / nonprofit donor tracker",
-  "Crypto portfolio & profit/loss tracker"
- ],
- "store_ready": true,
- "store_note": "Payout method connected on 2026-10-29; products publish immediately.",
- "lemonsqueezy_leftovers": {
-  "note": "Made by a parallel scheduled run on 2026-10-28 before it saw the Gumroad switch: test-mode LS products built from a different version of the same two templates. Not linked to the files in this repo; Akbar can delete them in LS.",
-  "ids": [
-   1482126,
-   1482134
-  ]
- },
- "gumroad_extensions": {
-  "tablegrab_pro": {
-   "gumroad_id": "rptdf",
-   "product_id_for_api": "L1a3RQe83-RRutUwTdF65g==",
-   "url": "https://abhesonic.gumroad.com/l/tablegrab-pro",
-   "price": 19,
-   "status": "unpublished (extension update to Gumroad licenses pending)"
-  },
-  "batchgrab_pro": {
-   "gumroad_id": "jhwmby",
-   "product_id_for_api": "UD9LgZMqFc_6dJwZaJgLjQ==",
-   "url": "https://abhesonic.gumroad.com/l/batchgrab-pro",
-   "price": 9.99,
-   "status": "unpublished (extension update to Gumroad licenses pending)"
-  }
- },
- "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29)."
+  "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29)."
 }
