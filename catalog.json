@@ -70,11 +70,27 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/content-calendar-planner",
    "status": "published",
    "gumroad_id": "nhexjg"
+  },
+  {
+   "module": "simple_crm_pipeline",
+   "file_base": "Simple-CRM-Sales-Pipeline",
+   "price": 24,
+   "made": "2026-10-29",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/simple-crm-sales-pipeline",
+   "status": "published",
+   "gumroad_id": "ltmefy"
+  },
+  {
+   "module": "project_planner_gantt",
+   "file_base": "Project-Planner-Gantt-Chart",
+   "price": 19,
+   "made": "2026-10-29",
+   "gumroad_url": null,
+   "status": "not uploaded (Gumroad limit: max 10 new products per day; retry next run)",
+   "gumroad_id": null
   }
  ],
  "next": [
-  "Simple CRM & sales pipeline",
-  "Project planner with Gantt chart",
   "Habit tracker (yearly, monthly heat-map)",
   "Fitness & workout log with progress charts",
   "Meal planner & grocery list with macro totals",
@@ -141,5 +157,6 @@
    "price": 9.99,
    "status": "unpublished (extension update to Gumroad licenses pending)"
   }
- }
+ },
+ "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29)."
 }

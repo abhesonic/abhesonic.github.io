@@ -36,6 +36,7 @@ This folder lives on the `factory` branch of github.com/abhesonic/abhesonic.gith
       Click "Save changes".
    e. If the yellow banner "You haven't connected a payout method yet" is gone, click "Publish and continue" so the product goes live; otherwise leave it
       unpublished and tell Akbar to add his bank details (Settings > Payments). Then also publish the earlier unpublished products.
+   Note: Gumroad allows at most 10 new products per day ("Sorry, you can only create 10 products per day"). If you see that, keep the template with status "not uploaded" and retry next run.
    f. Open https://gumroad.com/products and check the new product shows the right price and URL.
 7. Update `catalog.json` (move the idea from `next` to `made` with date, price, gumroad_id, gumroad_url and status), commit, push to `factory`.
 8. Message Akbar in Bahasa Indonesia, short: which 2 templates were made, Gumroad status (published or waiting), anything he must click.
