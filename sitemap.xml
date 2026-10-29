@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://abhesonic.github.io/</loc></url>
-<url><loc>https://abhesonic.github.io/templates/</loc></url>
-<url><loc>https://abhesonic.github.io/tablegrab/</loc></url>
-<url><loc>https://abhesonic.github.io/tablegrab/buy.html</loc></url>
-<url><loc>https://abhesonic.github.io/batchgrab/</loc></url>
-<url><loc>https://abhesonic.github.io/batchgrab/buy.html</loc></url>
+<url><loc>https://abhesonic.github.io/</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/guides/</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/tablegrab/</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/tablegrab/buy.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/batchgrab/</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/batchgrab/buy.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/rental-property-manager.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/budget-expense-planner.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/small-business-bookkeeping.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/airbnb-host-tracker.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/wedding-planner-budget.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/debt-payoff-planner.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/content-calendar-planner.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/simple-crm-sales-pipeline.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/project-planner-gantt-chart.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/guides/extract-table-from-website-to-excel.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/guides/download-all-images-from-a-webpage.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/guides/free-vs-paid-budget-spreadsheet.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/guides/rental-property-spreadsheet.html</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/guides/debt-snowball-vs-avalanche.html</loc><lastmod>2026-10-29</lastmod></url>
 </urlset>

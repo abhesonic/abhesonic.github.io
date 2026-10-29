@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Debt snowball vs avalanche: which pays off debt faster, and how to calculate it in a spreadsheet</title><meta name="description" content="The difference between the snowball and avalanche methods, a worked example with three debts, the spreadsheet logic behind a payoff plan, and a planner that compares both automatically.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/debt-snowball-vs-avalanche.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Debt snowball vs avalanche: which pays off debt faster, and how to calculate it in a spreadsheet", "description": "The difference between the snowball and avalanche methods, a worked example with three debts, the spreadsheet logic behind a payoff plan, and a planner that compares both automatically.", "datePublished": "2026-10-29", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+img.cover{width:100%;border-radius:14px;border:1px solid var(--border);margin:8px 0 22px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul{padding-left:20px}li{margin:4px 0}
+.faq p{margin:2px 0 12px}.faq b{display:block}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>Debt snowball vs avalanche: which pays off debt faster, and how to calculate it in a spreadsheet</h1><p class="meta">Updated 2026-10-29</p>
+
+<p class="lead">Both methods pay the minimum on every debt and throw everything extra at one target debt. They differ only in which debt is the target.</p>
+<h2>Snowball</h2><p>Target the <b>smallest balance</b> first. You clear accounts quickly, which keeps motivation high. Usually costs a little more interest.</p>
+<h2>Avalanche</h2><p>Target the <b>highest interest rate</b> first. Mathematically cheapest; the first payoff can take longer.</p>
+<h2>Worked example</h2>
+<p>Card A $2,000 at 24%, card B $6,000 at 19%, car loan $9,000 at 7%, minimums $60/$150/$280, plus $300 extra per month. Snowball clears A in about 6 months and everything in 29 months; avalanche also finishes in 29 months but saves roughly $150 of interest. With bigger rate gaps the avalanche saving grows; with similar rates the snowball's quick wins cost almost nothing.</p>
+<h2>The spreadsheet logic</h2>
+<p>Each month, for each debt: <code>balance = MAX(0, previous × (1 + rate/12) − minimum)</code>, then the extra (plus the minimums of debts already paid off, the "rollover") goes to the current target until it hits zero. A payoff planner repeats that for up to 30 years and counts the months.</p>
+<h2>Let a planner do it</h2>
+<p>The <a href="../templates/debt-payoff-planner.html">Debt Snowball &amp; Avalanche Payoff Planner</a> (US$17, Excel and Google Sheets) takes up to 10 debts and shows minimum-only vs snowball vs avalanche vs your own order side by side, with a month-by-month payment schedule and the interest saved.</p>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>

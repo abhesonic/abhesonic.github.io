@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to extract a table from a website to Excel or Google Sheets (3 ways, no coding)</title><meta name="description" content="Copy a web table or list into Excel or Google Sheets without the mess: plain copy-paste, Excel&#x27;s Get Data from Web, Google Sheets IMPORTHTML, and the TableGrab extension for pages that need Next or Load more.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/extract-table-from-website-to-excel.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to extract a table from a website to Excel or Google Sheets (3 ways, no coding)", "description": "Copy a web table or list into Excel or Google Sheets without the mess: plain copy-paste, Excel's Get Data from Web, Google Sheets IMPORTHTML, and the TableGrab extension for pages that need Next or Load more.", "datePublished": "2026-10-29", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+img.cover{width:100%;border-radius:14px;border:1px solid var(--border);margin:8px 0 22px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul{padding-left:20px}li{margin:4px 0}
+.faq p{margin:2px 0 12px}.faq b{display:block}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>How to extract a table from a website to Excel or Google Sheets (3 ways, no coding)</h1><p class="meta">Updated 2026-10-29</p>
+
+<p class="lead">You found a price list, a directory or search results on a web page and you want them in a spreadsheet. Here are the four ways that work in 2026, from quickest to most powerful.</p>
+<h2>1. Copy and paste (works for simple HTML tables)</h2>
+<p>Select the table with the mouse, press Ctrl+C, click a cell in Excel or Sheets and press Ctrl+V. If the result lands in one column, use <b>Paste special → Text</b> or <b>Data → Split text to columns</b>. It breaks on lists made of cards, on merged cells and on anything that loads as you scroll.</p>
+<h2>2. Excel: Data → Get Data → From Web</h2>
+<p>Paste the page address, let Excel's Power Query find the tables, pick one and press Load. Great for proper &lt;table&gt; elements on public pages; it cannot see data that appears only after you log in, scroll or click, and it does not work in Excel for Mac for every page.</p>
+<h2>3. Google Sheets: =IMPORTHTML</h2>
+<p>In a cell type <code>=IMPORTHTML("https://example.com/page", "table", 1)</code>. The last number is which table on the page you want (try 1, 2, 3...). Use "list" instead of "table" for bulleted lists. Same limits as above: public page, real HTML tables, nothing behind a login.</p>
+<h2>4. TableGrab (Chrome extension) – for lists, cards and multi-page results</h2>
+<p><a href="../tablegrab/">TableGrab</a> reads the page you are already looking at, including pages behind your own login, and finds both tables and repeated lists such as product cards or search results. Click the icon, untick the columns you do not need, rename them and press <b>CSV</b> (free) or <b>Excel</b> (Pro). Press <b>Find it</b> to point it at the page's Next button and it collects the following pages too. Everything stays in your browser; nothing is uploaded.</p>
+<ol><li>Install TableGrab from the <a href="https://chromewebstore.google.com/detail/bhgmdgiagpihobjmehmomnjbglemimpf">Chrome Web Store</a>.</li><li>Open the page with the data and click the TableGrab icon.</li><li>Check the preview, adjust columns, download.</li></ol>
+<p>Try it first on the <a href="../tablegrab/demo.html">practice page</a>, which has three pages of sample products.</p>
+<h2>Which one should you use?</h2>
+<ul><li>One small table on a public page → copy-paste or IMPORTHTML.</li><li>Tables that change every day and you want them to refresh → Excel Get Data from Web.</li><li>Cards, results, directories, pages with Next/Load more, or pages behind your login → TableGrab.</li></ul>
+<p>Please only collect data you are allowed to use, and respect each website's terms.</p>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>
