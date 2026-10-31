@@ -125,11 +125,29 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/inventory-stock-tracker",
    "status": "published",
    "gumroad_id": "gcgagv"
+  },
+  {
+   "module": "etsy_profit_calculator",
+   "file_base": "Etsy-Seller-Profit-Calculator",
+   "price": 17,
+   "made": "2026-10-31",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/etsy-seller-profit-calculator",
+   "status": "published",
+   "gumroad_id": "agyjeu",
+   "published_on": "2026-10-31"
+  },
+  {
+   "module": "freelancer_time_invoice",
+   "file_base": "Freelancer-Time-Tracker-Invoice",
+   "price": 19,
+   "made": "2026-10-31",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/freelancer-time-tracker-invoice",
+   "status": "published",
+   "gumroad_id": "nxssfii",
+   "published_on": "2026-10-31"
   }
  ],
  "next": [
-  "Etsy / online shop seller profit calculator (fees, shipping, margin per product)",
-  "Freelancer time tracker & invoicing",
   "Paycheck budget (biweekly) planner",
   "Savings challenge tracker (52-week, 100 envelopes)",
   "Net worth tracker (assets, liabilities, monthly snapshots)",
