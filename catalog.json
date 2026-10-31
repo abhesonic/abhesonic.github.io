@@ -107,11 +107,27 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/workout-log-progress-tracker",
    "status": "published",
    "gumroad_id": "hrqxua"
+  },
+  {
+   "module": "meal_planner",
+   "file_base": "Meal-Planner-Grocery-List",
+   "price": 14,
+   "made": "2026-10-31",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/meal-planner-grocery-list",
+   "status": "published",
+   "gumroad_id": "towijd"
+  },
+  {
+   "module": "inventory_tracker",
+   "file_base": "Inventory-Stock-Tracker",
+   "price": 19,
+   "made": "2026-10-31",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/inventory-stock-tracker",
+   "status": "published",
+   "gumroad_id": "gcgagv"
   }
  ],
  "next": [
-  "Meal planner & grocery list with macro totals",
-  "Inventory & stock tracker for small shops (reorder alerts)",
   "Etsy / online shop seller profit calculator (fees, shipping, margin per product)",
   "Freelancer time tracker & invoicing",
   "Paycheck budget (biweekly) planner",
@@ -180,5 +196,5 @@
   }
  },
  "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29).",
- "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua (the zip has a Start Here tab). Can be added later."
+ "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later."
 }
