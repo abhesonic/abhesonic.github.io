@@ -145,11 +145,29 @@
    "status": "published",
    "gumroad_id": "nxssfii",
    "published_on": "2026-10-31"
+  },
+  {
+   "module": "paycheck_budget_planner",
+   "file_base": "Paycheck-Budget-Planner",
+   "price": 15,
+   "made": "2026-11-01",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/paycheck-budget-planner",
+   "status": "published",
+   "gumroad_id": "kgiwzu",
+   "published_on": "2026-11-01"
+  },
+  {
+   "module": "savings_challenge_tracker",
+   "file_base": "Savings-Challenge-Tracker",
+   "price": 12,
+   "made": "2026-11-01",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/savings-challenge-tracker",
+   "status": "published",
+   "gumroad_id": "rkcrn",
+   "published_on": "2026-11-01"
   }
  ],
  "next": [
-  "Paycheck budget (biweekly) planner",
-  "Savings challenge tracker (52-week, 100 envelopes)",
   "Net worth tracker (assets, liabilities, monthly snapshots)",
   "Dividend income & stock portfolio tracker",
   "Rental property investment analysis (cap rate, cash-on-cash, mortgage)",
