@@ -165,11 +165,29 @@
    "status": "published",
    "gumroad_id": "rkcrn",
    "published_on": "2026-11-01"
+  },
+  {
+   "module": "net_worth_tracker",
+   "file_base": "Net-Worth-Tracker",
+   "price": 14,
+   "made": "2026-11-02",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/net-worth-tracker",
+   "status": "published",
+   "gumroad_id": "jpjann",
+   "published_on": "2026-11-02"
+  },
+  {
+   "module": "dividend_portfolio_tracker",
+   "file_base": "Dividend-Income-Portfolio-Tracker",
+   "price": 17,
+   "made": "2026-11-02",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/dividend-income-portfolio-tracker",
+   "status": "published",
+   "gumroad_id": "ewhjjd",
+   "published_on": "2026-11-02"
   }
  ],
  "next": [
-  "Net worth tracker (assets, liabilities, monthly snapshots)",
-  "Dividend income & stock portfolio tracker",
   "Rental property investment analysis (cap rate, cash-on-cash, mortgage)",
   "House flipping budget & ROI calculator",
   "Mortgage payoff & extra payment calculator",
@@ -232,5 +250,5 @@
   }
  },
  "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29).",
- "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later."
+ "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out)."
 }
