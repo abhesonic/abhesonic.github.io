@@ -185,11 +185,29 @@
    "status": "published",
    "gumroad_id": "ewhjjd",
    "published_on": "2026-11-02"
+  },
+  {
+   "module": "rental_property_analyzer",
+   "file_base": "Rental-Property-Investment-Analyzer",
+   "price": 24,
+   "made": "2026-11-03",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/rental-property-investment-analyzer",
+   "status": "published",
+   "gumroad_id": "iqpmsn",
+   "published_on": "2026-11-03"
+  },
+  {
+   "module": "house_flip_calculator",
+   "file_base": "House-Flipping-Calculator",
+   "price": 24,
+   "made": "2026-11-03",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/house-flipping-calculator",
+   "status": "published",
+   "gumroad_id": "ogmnoa",
+   "published_on": "2026-11-03"
   }
  ],
  "next": [
-  "Rental property investment analysis (cap rate, cash-on-cash, mortgage)",
-  "House flipping budget & ROI calculator",
   "Mortgage payoff & extra payment calculator",
   "Event planner & budget (parties, conferences)",
   "Travel planner & trip budget with itinerary",
@@ -250,5 +268,5 @@
   }
  },
  "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29).",
- "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out)."
+ "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out)."
 }
