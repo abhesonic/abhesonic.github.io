@@ -225,11 +225,29 @@
    "status": "published",
    "gumroad_id": "ccnicq",
    "published_on": "2026-11-03"
+  },
+  {
+   "module": "travel_planner_budget",
+   "file_base": "Travel-Planner-Trip-Budget",
+   "price": 15,
+   "made": "2026-11-04",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/travel-planner-trip-budget",
+   "status": "published",
+   "gumroad_id": "bximtb",
+   "published_on": "2026-11-04"
+  },
+  {
+   "module": "employee_shift_planner",
+   "file_base": "Employee-Shift-Schedule-Planner",
+   "price": 19,
+   "made": "2026-11-04",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/employee-shift-schedule-planner",
+   "status": "published",
+   "gumroad_id": "hwqoqh",
+   "published_on": "2026-11-04"
   }
  ],
  "next": [
-  "Travel planner & trip budget with itinerary",
-  "Employee schedule & shift planner",
   "Payroll & timesheet calculator (hours, overtime)",
   "Cleaning business client & job tracker",
   "Real estate agent commission & lead tracker",
@@ -286,7 +304,7 @@
   }
  },
  "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29).",
- "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out).",
+ "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots).",
  "duplicate_note": "2026-11-03 ~01:40 UTC: an unpublished draft 'Mortgage Payoff Calculator (Extra Payments, Amortization Schedule, PMI, Refinance)' (gumroad id xbdaxo) appeared, made by a parallel run at the same time. Not ours: the published one is svgrmu. Akbar can delete xbdaxo. If a parallel run is active, check catalog.json on origin/factory before building.",
  "stray_drafts": [
   {
