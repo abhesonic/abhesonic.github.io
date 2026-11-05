@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habit tracker spreadsheet: streaks, weekly goals and a year heat-map in Excel or Google Sheets</title><meta name="description" content="How to build a habit tracker in Google Sheets or Excel: daily log layout, formulas for current and longest streaks, weekly targets, monthly scores and a calendar heat-map with conditional formatting.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/habit-tracker-spreadsheet.html">
+<meta property="og:title" content="Habit tracker spreadsheet: streaks, weekly goals and a year heat-map in Excel or Google Sheets"><meta property="og:description" content="How to build a habit tracker in Google Sheets or Excel: daily log layout, formulas for current and longest streaks, weekly targets, monthly scores and a calendar heat-map with conditional formatting."><meta property="og:image" content="https://abhesonic.github.io/templates/img/habit-tracker-heatmap.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Habit tracker spreadsheet: streaks, weekly goals and a year heat-map in Excel or Google Sheets", "description": "How to build a habit tracker in Google Sheets or Excel: daily log layout, formulas for current and longest streaks, weekly targets, monthly scores and a calendar heat-map with conditional formatting.", "datePublished": "2026-11-05", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul,ol{padding-left:20px}li{margin:4px 0}
+code{font-size:14px;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:1px 5px;word-break:break-word}
+table{border-collapse:collapse;margin:8px 0 16px;font-size:15px}td,th{border:1px solid var(--border);padding:6px 10px;text-align:left}th{background:var(--surface)}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>Habit tracker spreadsheet: streaks, weekly goals and a year heat-map in Excel or Google Sheets</h1><p class="meta">Updated 2026-11-05</p>
+<p class="lead">Apps lock your history inside them. A spreadsheet habit tracker is yours, works on your phone through Google Sheets, and can show streaks and a heat-map of your whole year. Here is the layout and the formulas.</p>
+<h2>Layout: one row per day, one column per habit</h2>
+<p>Put dates in column A (one row per day for the whole year) and one habit per column from B onward. Mark a done day with <code>x</code>. Freeze the first row and column so the names stay visible on a phone. A conditional format with <code>=$A2=TODAY()</code> highlights today's row.</p>
+<h2>The formulas</h2>
+<ul><li><b>Done today</b> (all habits): <code>=COUNTIF(INDEX(B:P,MATCH(TODAY(),A:A,0),0),"x")</code></li>
+<li><b>Streak helper</b> for a habit in column B, starting in row 2: <code>=IF(B2="x",N(Z1)+1,0)</code> in a helper column Z, filled down. Each cell counts the days in a row up to that date.</li>
+<li><b>Current streak</b>: the helper value on today's row, or yesterday's if today is not ticked yet: <code>=MAX(INDEX(Z:Z,MATCH(TODAY(),A:A,0)),INDEX(Z:Z,MATCH(TODAY()-1,A:A,0)))</code></li>
+<li><b>Longest streak</b>: <code>=MAX(Z:Z)</code></li>
+<li><b>This week</b> (week starting Monday): <code>=COUNTIFS(A:A,"&gt;="&amp;TODAY()-WEEKDAY(TODAY(),2)+1,A:A,"&lt;="&amp;TODAY(),B:B,"x")</code>. Compare it with a weekly target such as "gym 4× a week" – weekly targets are kinder than perfect daily streaks.</li>
+<li><b>Month score</b>: ticks this month ÷ days passed this month, formatted as a percentage.</li></ul>
+<h2>The year heat-map</h2>
+<p>Build a calendar grid (12 rows for months, 31 columns for days). In each cell, count whether the habit was done on that date, for example <code>=COUNTIFS($A:$A,DATE(year,month,day),B:B,"x")</code>, then add a colour-scale conditional format. One look shows the weeks you slipped and the months you were strongest.</p>
+<h2>Tips that make it stick</h2>
+<ol><li>Start with 3–5 habits. You can add more once ticking takes ten seconds.</li>
+<li>Track the smallest version of the habit ("read 1 page"), not the ideal one.</li>
+<li>Do not reset to zero emotionally after a missed day: the "never miss twice" rule beats a perfect streak.</li></ol>
+<h2>Ready-made option</h2>
+<p>The <a href="../templates/habit-tracker-heatmap.html">Habit Tracker with Yearly &amp; Monthly Heat-Map</a> (US$12, Excel and Google Sheets) has all of this for up to 15 habits: dashboard with streaks and weekly goals, a monthly heat-map for every habit, a monthly ✓ grid and a full-year calendar heat-map. Pair it with the <a href="../templates/workout-log-progress-tracker.html">Workout Log</a> or the <a href="../templates/meal-planner-grocery-list.html">Meal Planner</a> if your goals are fitness or food.</p>
+<a class="btn" href="../templates/habit-tracker-heatmap.html">See the template</a>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="./">More guides</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>

@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>52-week savings challenge spreadsheet: totals, the reverse version and how to actually finish</title><meta name="description" content="How the 52-week money challenge works ($1,378, $6,890 or $13,780), why the reverse version is easier to finish, the spreadsheet formulas to track it, and the 100 envelope challenge.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/52-week-savings-challenge-spreadsheet.html">
+<meta property="og:title" content="52-week savings challenge spreadsheet: totals, the reverse version and how to actually finish"><meta property="og:description" content="How the 52-week money challenge works ($1,378, $6,890 or $13,780), why the reverse version is easier to finish, the spreadsheet formulas to track it, and the 100 envelope challenge."><meta property="og:image" content="https://abhesonic.github.io/templates/img/savings-challenge-tracker.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "52-week savings challenge spreadsheet: totals, the reverse version and how to actually finish", "description": "How the 52-week money challenge works ($1,378, $6,890 or $13,780), why the reverse version is easier to finish, the spreadsheet formulas to track it, and the 100 envelope challenge.", "datePublished": "2026-11-05", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul,ol{padding-left:20px}li{margin:4px 0}
+code{font-size:14px;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:1px 5px;word-break:break-word}
+table{border-collapse:collapse;margin:8px 0 16px;font-size:15px}td,th{border:1px solid var(--border);padding:6px 10px;text-align:left}th{background:var(--surface)}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>52-week savings challenge spreadsheet: totals, the reverse version and how to actually finish</h1><p class="meta">Updated 2026-11-05</p>
+<p class="lead">Save $1 in week 1, $2 in week 2 and so on until $52 in week 52. It sounds small, but by the end of the year you have $1,378 – and a habit. Here is how to set it up in Excel or Google Sheets so you can see at a glance whether you are on track.</p>
+<h2>How much you end up with</h2>
+<p>The weekly amounts are 1 + 2 + … + 52, which adds up to 52 × 53 ÷ 2 = <b>1,378</b>. Change the step and the total scales with it:</p>
+<table><tr><th>Weekly step</th><th>Week 52 deposit</th><th>Total after 52 weeks</th></tr>
+<tr><td>$1</td><td>$52</td><td>$1,378</td></tr><tr><td>$5</td><td>$260</td><td>$6,890</td></tr><tr><td>$10</td><td>$520</td><td>$13,780</td></tr></table>
+<h2>Three versions, and which one people finish</h2>
+<ul><li><b>Classic (increasing):</b> easy start, but the biggest deposits land in November and December, right when holiday spending peaks. This is where most people quit.</li>
+<li><b>Reverse (decreasing):</b> start with $52 in January, when motivation is highest, and finish with $1 in December. Same total, much easier last quarter.</li>
+<li><b>Same amount:</b> $26.50 every week also gives $1,378. Boring, but the easiest to automate with a standing transfer.</li></ul>
+<h2>The spreadsheet in five columns</h2>
+<p>Put your step (for example 1, 5 or 10) in cell <code>B1</code> and a start date in <code>B2</code>. Then build a 52-row table starting in row 5:</p>
+<ul><li><b>Week</b> (A): 1 to 52.</li>
+<li><b>Due date</b> (B): <code>=$B$2+(A5-1)*7</code></li>
+<li><b>Amount</b> (C): classic <code>=A5*$B$1</code>, reverse <code>=(53-A5)*$B$1</code>.</li>
+<li><b>Saved?</b> (D): a checkbox (Google Sheets: Insert → Checkbox) or an "x".</li>
+<li><b>Running total</b> (E): <code>=SUM($C$5:C5)</code></li></ul>
+<p>Then three summary cells tell you everything:</p>
+<ul><li>Saved so far: <code>=SUMIF(D5:D56,TRUE,C5:C56)</code> (use <code>"x"</code> instead of TRUE if you type x).</li>
+<li>Should have saved by today: <code>=SUMIF(B5:B56,"&lt;="&amp;TODAY(),C5:C56)</code></li>
+<li>Ahead or behind: the difference between the two. A conditional format that turns it red when negative is enough motivation for most people.</li></ul>
+<h2>The 100 envelope challenge</h2>
+<p>Number 100 envelopes from 1 to 100, pull one at random and put that many dollars in it. All 100 envelopes add up to 100 × 101 ÷ 2 = <b>$5,050</b>. Doubling every envelope gives $10,100. In a spreadsheet a 10 × 10 grid of numbers with a "done" mark and a green conditional format works better than a long list, because you can see which envelopes are left.</p>
+<h2>How to actually finish</h2>
+<ol><li>Keep the money in a separate savings account so it does not get spent by accident.</li>
+<li>Set a recurring transfer for the average weekly amount and top up the difference on the weekly check-in.</li>
+<li>Missed a week? Do not restart. Add the missed amount to the next two weeks; the "behind" cell shows you exactly how much.</li></ol>
+<h2>Ready-made option</h2>
+<p>The <a href="../templates/savings-challenge-tracker.html">Savings Challenge Tracker</a> (US$12, Excel and Google Sheets) has the 52-week challenge in all three styles with any weekly step, the 100 envelope grid, up to 10 savings goals with what you need per week, and a dashboard with progress bars.</p>
+<a class="btn" href="../templates/savings-challenge-tracker.html">See the template</a>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="./">More guides</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>

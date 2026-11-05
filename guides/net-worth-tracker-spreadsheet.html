@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Net worth tracker spreadsheet: what to include and how to update it in 10 minutes a month</title><meta name="description" content="What counts as an asset or a debt, the monthly snapshot layout, formulas for net worth, change and debt-to-asset ratio, and how to set a net worth goal and FI number (25× yearly spending).">
+<link rel="canonical" href="https://abhesonic.github.io/guides/net-worth-tracker-spreadsheet.html">
+<meta property="og:title" content="Net worth tracker spreadsheet: what to include and how to update it in 10 minutes a month"><meta property="og:description" content="What counts as an asset or a debt, the monthly snapshot layout, formulas for net worth, change and debt-to-asset ratio, and how to set a net worth goal and FI number (25× yearly spending)."><meta property="og:image" content="https://abhesonic.github.io/templates/img/net-worth-tracker.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Net worth tracker spreadsheet: what to include and how to update it in 10 minutes a month", "description": "What counts as an asset or a debt, the monthly snapshot layout, formulas for net worth, change and debt-to-asset ratio, and how to set a net worth goal and FI number (25\u00d7 yearly spending).", "datePublished": "2026-11-05", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul,ol{padding-left:20px}li{margin:4px 0}
+code{font-size:14px;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:1px 5px;word-break:break-word}
+table{border-collapse:collapse;margin:8px 0 16px;font-size:15px}td,th{border:1px solid var(--border);padding:6px 10px;text-align:left}th{background:var(--surface)}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>Net worth tracker spreadsheet: what to include and how to update it in 10 minutes a month</h1><p class="meta">Updated 2026-11-05</p>
+<p class="lead">Net worth is the one number that shows whether your money is moving in the right direction: everything you own minus everything you owe. Updating it once a month in a spreadsheet takes about ten minutes and is more motivating than any budget.</p>
+<h2>What to include</h2>
+<table><tr><th>Assets</th><th>Debts</th></tr>
+<tr><td>Checking and savings accounts</td><td>Mortgage</td></tr>
+<tr><td>Brokerage and investment accounts</td><td>Car loans</td></tr>
+<tr><td>Retirement accounts (401(k), IRA, pension value)</td><td>Student loans</td></tr>
+<tr><td>Home (a conservative estimate, minus ~6% selling costs)</td><td>Credit card balances</td></tr>
+<tr><td>Vehicles (what they would sell for today)</td><td>Personal loans, buy-now-pay-later</td></tr></table>
+<p>Leave out furniture, electronics and clothes: they are hard to value and rarely sold.</p>
+<h2>The monthly snapshot layout</h2>
+<p>One row per account, with a column for its type (Asset or Debt) and a category, then one column per month. On the first of each month, type the current balances into the new column. Never overwrite old months: the history is the point.</p>
+<h2>The formulas</h2>
+<ul><li><b>Total assets</b> for the month in column D: <code>=SUMIF($B:$B,"Asset",D:D)</code></li>
+<li><b>Total debts</b>: <code>=SUMIF($B:$B,"Debt",D:D)</code></li>
+<li><b>Net worth</b>: assets − debts.</li>
+<li><b>Change vs last month</b>: this month's net worth − last month's; and since the start: this month − the first month.</li>
+<li><b>Debt-to-asset ratio</b>: debts ÷ assets. Watching it fall is often more encouraging than watching net worth rise.</li>
+<li><b>Months to your goal</b>: (goal − current net worth) ÷ average monthly growth. Average monthly growth = (latest − first) ÷ number of months.</li></ul>
+<h2>Your FI number</h2>
+<p>A common rule of thumb for financial independence is <b>yearly spending × 25</b> (the same as dividing by 4%, the "4% rule"). Spending $40,000 a year gives an FI number of $1,000,000. Treat it as a direction, not a guarantee: returns, inflation and taxes all move it.</p>
+<h2>Ready-made option</h2>
+<p>The <a href="../templates/net-worth-tracker.html">Net Worth Tracker</a> (US$14, Excel and Google Sheets) tracks up to 40 accounts for 24 months, calculates change, debt-to-asset ratio, your goal and FI number with progress bars, and charts net worth, assets vs debts and assets by category. To grow the number, see the <a href="../templates/debt-payoff-planner.html">Debt Payoff Planner</a> and the <a href="../templates/dividend-income-portfolio-tracker.html">Dividend Income &amp; Portfolio Tracker</a>.</p>
+<p class="meta">This guide explains common calculations; it is not financial advice.</p>
+<a class="btn" href="../templates/net-worth-tracker.html">See the template</a>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="./">More guides</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>

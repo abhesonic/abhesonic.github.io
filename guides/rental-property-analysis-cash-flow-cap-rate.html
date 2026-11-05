@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rental property analysis in a spreadsheet: cash flow, cap rate, cash-on-cash and the 1% rule</title><meta name="description" content="The formulas investors use to judge a rental property – NOI, cap rate, cash flow, cash-on-cash return, DSCR, the 1% and 50% rules – with a worked example and the 70% rule for flips.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/rental-property-analysis-cash-flow-cap-rate.html">
+<meta property="og:title" content="Rental property analysis in a spreadsheet: cash flow, cap rate, cash-on-cash and the 1% rule"><meta property="og:description" content="The formulas investors use to judge a rental property – NOI, cap rate, cash flow, cash-on-cash return, DSCR, the 1% and 50% rules – with a worked example and the 70% rule for flips."><meta property="og:image" content="https://abhesonic.github.io/templates/img/rental-property-investment-analyzer.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Rental property analysis in a spreadsheet: cash flow, cap rate, cash-on-cash and the 1% rule", "description": "The formulas investors use to judge a rental property \u2013 NOI, cap rate, cash flow, cash-on-cash return, DSCR, the 1% and 50% rules \u2013 with a worked example and the 70% rule for flips.", "datePublished": "2026-11-05", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul,ol{padding-left:20px}li{margin:4px 0}
+code{font-size:14px;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:1px 5px;word-break:break-word}
+table{border-collapse:collapse;margin:8px 0 16px;font-size:15px}td,th{border:1px solid var(--border);padding:6px 10px;text-align:left}th{background:var(--surface)}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>Rental property analysis in a spreadsheet: cash flow, cap rate, cash-on-cash and the 1% rule</h1><p class="meta">Updated 2026-11-05</p>
+<p class="lead">A rental can look fine on the listing and still lose money every month. Five numbers tell you quickly whether a deal works: NOI, cap rate, cash flow, cash-on-cash return and DSCR. Here is how to calculate each one, with a worked example you can copy into Excel or Google Sheets.</p>
+<h2>Step 1: net operating income (NOI)</h2>
+<p>NOI is the yearly rent you actually collect minus the costs of running the property. It does <b>not</b> include the mortgage.</p>
+<ul><li>Gross rent = monthly rent × 12</li><li>Effective gross income = gross rent − vacancy (5–8% is a common assumption)</li>
+<li>Operating expenses = property tax + insurance + maintenance + capital expenses reserve + management + HOA + any utilities you pay</li>
+<li><b>NOI = effective gross income − operating expenses</b></li></ul>
+<h2>Step 2: the five numbers</h2>
+<table><tr><th>Metric</th><th>Formula</th><th>What it tells you</th></tr>
+<tr><td>Cap rate</td><td>NOI ÷ purchase price</td><td>Return of the property itself, ignoring financing</td></tr>
+<tr><td>Mortgage payment</td><td><code>=PMT(rate/12, years*12, -loan)</code></td><td>Monthly principal + interest</td></tr>
+<tr><td>Cash flow</td><td>NOI − yearly mortgage payments</td><td>What lands in your pocket</td></tr>
+<tr><td>Cash-on-cash return</td><td>yearly cash flow ÷ cash you put in (down payment + closing costs + repairs)</td><td>Return on your own money</td></tr>
+<tr><td>DSCR</td><td>NOI ÷ yearly mortgage payments</td><td>Lenders usually want 1.25 or more</td></tr></table>
+<h2>Worked example</h2>
+<p>A $200,000 house rents for $1,800 a month. You put 25% down ($50,000) plus $6,000 closing costs and borrow $150,000 at 7% for 30 years.</p>
+<ul><li>Gross rent $21,600; 5% vacancy → effective income $20,520</li>
+<li>Expenses: tax $2,400, insurance $1,200, maintenance 8% ($1,728), capex reserve 5% ($1,080), management 8% ($1,728) = $8,136</li>
+<li><b>NOI = $12,384</b> → cap rate <b>6.2%</b></li>
+<li>Mortgage: <code>=PMT(7%/12,360,-150000)</code> = $998 a month, $11,975 a year</li>
+<li>Cash flow = $12,384 − $11,975 = <b>$409 a year</b> (about $34 a month)</li>
+<li>Cash-on-cash = $409 ÷ $56,000 = <b>0.7%</b>; DSCR = <b>1.03</b>; break-even occupancy ≈ 93%</li></ul>
+<p>A 6% cap rate sounds acceptable, but at 7% interest the financing eats almost everything. One bad repair and the year is negative. This is exactly what the spreadsheet is for: change the price, rent or down payment and watch whether the deal survives.</p>
+<h2>Quick screens before the full analysis</h2>
+<ul><li><b>1% rule:</b> monthly rent should be at least 1% of the price. Here $1,800 &lt; $2,000, so it fails – a warning sign, not a verdict.</li>
+<li><b>50% rule:</b> operating expenses tend to be about half of rent over time. If your estimate is far below 50%, check what you left out.</li>
+<li><b>Gross rent multiplier:</b> price ÷ yearly gross rent (here 9.3). Lower is better; compare it with other listings in the same area.</li></ul>
+<h2>If you flip instead of rent: the 70% rule</h2>
+<p>For a fix-and-flip, the maximum you should offer is <b>after-repair value × 70% − repair costs</b>. A house worth $300,000 after a $45,000 rehab supports an offer of at most $300,000 × 0.7 − $45,000 = $165,000. The remaining 30% covers closing, holding, selling costs and your profit.</p>
+<h2>Ready-made options</h2>
+<p>The <a href="../templates/rental-property-investment-analyzer.html">Rental Property Investment Analyzer</a> (US$24) does all of the above for up to 5 properties side by side, adds a 10-year projection with IRR, and gives a quick verdict. For flips, the <a href="../templates/house-flipping-calculator.html">House Flipping Calculator</a> (US$24) covers the 70% rule, rehab budget, hard-money costs and a what-if table. Once you own the property, the <a href="../templates/rental-property-manager.html">Rental Property Manager</a> tracks rent and expenses.</p>
+<p class="meta">This guide explains common calculations; it is not financial or tax advice.</p>
+<a class="btn" href="../templates/rental-property-investment-analyzer.html">See the template</a>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="./">More guides</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>
