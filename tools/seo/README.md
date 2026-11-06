@@ -13,3 +13,4 @@ Published guides (do not duplicate topics):
   rental-property-spreadsheet, debt-snowball-vs-avalanche (29 Oct 2026)
 - 52-week-savings-challenge-spreadsheet, rental-property-analysis-cash-flow-cap-rate, habit-tracker-spreadsheet,
   net-worth-tracker-spreadsheet (5 Nov 2026)
+- import-table-from-website-to-google-sheets (6 Nov 2026)
