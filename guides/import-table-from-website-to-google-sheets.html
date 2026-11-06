@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to scrape a table from a website into Google Sheets with IMPORTHTML (and what to do when it fails)</title><meta name="description" content="Pull a web table or list into Google Sheets with IMPORTHTML, pick only the columns you need with INDEX and QUERY, combine several pages, fix #N/A and &quot;Imported content is empty&quot; errors, and know when a Chrome extension is the better tool.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/import-table-from-website-to-google-sheets.html">
+<meta property="og:title" content="How to scrape a table from a website into Google Sheets with IMPORTHTML (and what to do when it fails)"><meta property="og:description" content="Pull a web table or list into Google Sheets with IMPORTHTML, pick only the columns you need with INDEX and QUERY, combine several pages, fix #N/A and &quot;Imported content is empty&quot; errors, and know when a Chrome extension is the better tool."><meta property="og:image" content="https://abhesonic.github.io/tablegrab/screenshot.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to scrape a table from a website into Google Sheets with IMPORTHTML (and what to do when it fails)", "description": "Pull a web table or list into Google Sheets with IMPORTHTML, pick only the columns you need with INDEX and QUERY, combine several pages, fix #N/A and \"Imported content is empty\" errors, and know when a Chrome extension is the better tool.", "datePublished": "2026-11-06", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul,ol{padding-left:20px}li{margin:4px 0}
+code{font-size:14px;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:1px 5px;word-break:break-word}
+table{border-collapse:collapse;margin:8px 0 16px;font-size:15px}td,th{border:1px solid var(--border);padding:6px 10px;text-align:left}th{background:var(--surface)}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>How to scrape a table from a website into Google Sheets with IMPORTHTML (and what to do when it fails)</h1><p class="meta">Updated 2026-11-06</p>
+<p class="lead">Google Sheets can read a table straight off a public web page with one formula, and keep it updated. It is free and needs no add-on. It also fails on many modern sites. Here is how to use it properly, how to read its errors, and what to do when it simply cannot see the data.</p>
+<h2>1. The basic formula</h2>
+<p>In an empty cell type:</p>
+<p><code>=IMPORTHTML("https://example.com/prices", "table", 1)</code></p>
+<ul><li><b>URL</b> – the full address in quotes, including <code>https://</code>. You can also put the address in a cell (say <code>B1</code>) and write <code>=IMPORTHTML(B1, "table", 1)</code>, which makes it easy to swap pages.</li>
+<li><b>"table" or "list"</b> – <code>"table"</code> reads HTML <code>&lt;table&gt;</code> elements; <code>"list"</code> reads bulleted and numbered lists (<code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code>).</li>
+<li><b>Index</b> – which table or list on the page, counting from 1 in the order they appear in the page code. Pages often contain hidden or layout tables, so if 1 gives the wrong data, try 2, 3, 4 and so on.</li></ul>
+<p>The result spills down and to the right, so leave enough empty cells. If anything is already in the way you get a <code>#REF!</code> "would overwrite data" error; clear the cells and it fills in.</p>
+<h2>2. Keep only the columns and rows you need</h2>
+<p>You rarely want the whole table. Wrap the import instead of deleting columns by hand (deleting cells inside the result breaks it):</p>
+<ul><li><b>One column</b>: <code>=INDEX(IMPORTHTML(B1,"table",1),0,2)</code> returns the whole second column. The <code>0</code> means "all rows".</li>
+<li><b>Several columns, filtered and sorted</b>: <code>=QUERY(IMPORTHTML(B1,"table",1),"select Col1, Col3 where Col3 &gt; 100 order by Col3 desc",1)</code>. With imported data, QUERY names the columns <code>Col1</code>, <code>Col2</code>… (capital C, no letters like A or B). The last <code>1</code> tells it the first row is a header.</li>
+<li><b>Drop the header row</b>: <code>=QUERY(IMPORTHTML(B1,"table",1),"select * offset 1",0)</code>. The <code>0</code> at the end says there is no header, so <code>offset 1</code> skips the first row.</li>
+<li><b>First 20 rows only</b>: add <code>limit 20</code> to the end of the QUERY text.</li></ul>
+<p>If numbers come in as text (for example <code>$1,299</code> or <code>12 345</code>), QUERY may treat the column as text and the <code>&gt; 100</code> filter will not work. Add a helper column with <code>=VALUE(REGEXREPLACE(C2,"[^0-9.\-]",""))</code> to strip currency signs and thousands separators. If the page uses a comma as the decimal mark, use the optional fourth argument for the page's locale, for example <code>=IMPORTHTML(B1,"table",1,"de_DE")</code>.</p>
+<h2>3. Combine several pages into one list</h2>
+<p>When the same table is split across page 1, page 2 and page 3, put the three addresses in <code>B1:B3</code> and stack the results:</p>
+<p><code>=VSTACK(IMPORTHTML(B1,"table",1), QUERY(IMPORTHTML(B2,"table",1),"select * offset 1",0), QUERY(IMPORTHTML(B3,"table",1),"select * offset 1",0))</code></p>
+<p>The first import keeps its header; the others skip it so the header is not repeated. All parts must have the same number of columns. This is fine for a handful of pages; every extra import makes the sheet slower and Google limits how much a single sheet can fetch, so it is not practical for 50 pages.</p>
+<h2>4. Data that is not in a table: IMPORTXML</h2>
+<p>Product cards, search results and directories are usually built from <code>&lt;div&gt;</code> boxes, not tables, so IMPORTHTML returns nothing. IMPORTXML can pick elements with an XPath expression:</p>
+<ul><li>All second-level headings: <code>=IMPORTXML(B1,"//h2")</code></li>
+<li>All link addresses on the page: <code>=IMPORTXML(B1,"//a/@href")</code></li>
+<li>Elements with a certain class: <code>=IMPORTXML(B1,"//div[@class='price']")</code></li></ul>
+<p>To find the right class, right-click the value in Chrome and choose <b>Inspect</b>. Each IMPORTXML returns one column, so building a full table (name, price, link) means one formula per column and hoping the rows line up. It works, but it is fiddly and breaks when the site changes its code.</p>
+<h2>5. Common errors and what they mean</h2>
+<table><tr><th>Message</th><th>Usual cause</th><th>What to try</th></tr>
+<tr><td>Imported content is empty</td><td>The data is added by JavaScript after the page loads, so Google's fetcher sees an empty page.</td><td>IMPORTHTML cannot fix this. Use a browser-based tool (below).</td></tr>
+<tr><td>#N/A Could not fetch URL</td><td>The page needs a login, blocks automated requests, or the address is wrong.</td><td>Open the URL in a private window. If you must sign in to see it, Sheets cannot see it either.</td></tr>
+<tr><td>Wrong table or a tiny table</td><td>The index points to a layout or hidden table.</td><td>Try index 2, 3, 4…</td></tr>
+<tr><td>Loading… for a long time</td><td>Slow site or too many import formulas in one file.</td><td>Reduce the number of imports; put each source on its own tab.</td></tr></table>
+<h2>6. Refreshing and freezing the data</h2>
+<p>Import formulas are refreshed by Google on its own schedule (typically about once an hour while the file is in use), and you cannot force an exact time. Changing the URL cell re-fetches immediately. If you want a fixed snapshot – yesterday's prices, for example – select the result, copy it, and use <b>Paste special → Values only</b> on another tab. That copy will never change.</p>
+<h2>When IMPORTHTML is the wrong tool</h2>
+<p>Use the formula for public pages with real HTML tables that you want to keep live. It struggles with:</p>
+<ul><li>pages you can only see after signing in (your own dashboards, supplier portals, marketplaces);</li>
+<li>results that appear as cards or tiles, or load more as you scroll;</li>
+<li>data spread over many pages with a <b>Next</b> or <b>Load more</b> button.</li></ul>
+<p>For those, a tool that reads the page in your own browser is simpler. <a href="../tablegrab/">TableGrab</a> is a Chrome extension (free, with an optional one-time Pro upgrade) that finds the tables and repeated lists on the page you are looking at, lets you untick or rename columns, and copies the rows so you can paste them into Google Sheets, or downloads a CSV. It can follow the page's Next button and press Load more to collect more pages (3 pages per run on the free plan). Everything runs in your browser and nothing is uploaded. You can try it on the <a href="../tablegrab/demo.html">practice page</a>, which has three pages of sample products.</p>
+<p>If you also want Excel's built-in options, see <a href="extract-table-from-website-to-excel.html">how to extract a table from a website to Excel or Google Sheets</a>.</p>
+<p class="meta">Please only collect data you are allowed to use, and respect each website's terms of use.</p>
+<a class="btn" href="../tablegrab/">See TableGrab</a>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="./">More guides</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>

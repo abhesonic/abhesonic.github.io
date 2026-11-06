@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://abhesonic.github.io/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/</loc><lastmod>2026-10-29</lastmod></url>
-<url><loc>https://abhesonic.github.io/guides/</loc><lastmod>2026-10-29</lastmod></url>
+<url><loc>https://abhesonic.github.io/guides/</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://abhesonic.github.io/tablegrab/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://abhesonic.github.io/tablegrab/buy.html</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://abhesonic.github.io/batchgrab/</loc><lastmod>2026-10-29</lastmod></url>
@@ -41,4 +41,5 @@
 <url><loc>https://abhesonic.github.io/guides/rental-property-analysis-cash-flow-cap-rate.html</loc><lastmod>2026-11-05</lastmod></url>
 <url><loc>https://abhesonic.github.io/guides/habit-tracker-spreadsheet.html</loc><lastmod>2026-11-05</lastmod></url>
 <url><loc>https://abhesonic.github.io/guides/net-worth-tracker-spreadsheet.html</loc><lastmod>2026-11-05</lastmod></url>
+<url><loc>https://abhesonic.github.io/guides/import-table-from-website-to-google-sheets.html</loc><lastmod>2026-11-06</lastmod></url>
 </urlset>
