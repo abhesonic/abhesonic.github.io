@@ -245,11 +245,25 @@
    "status": "published",
    "gumroad_id": "hwqoqh",
    "published_on": "2026-11-04"
+  },
+  {
+   "module": "payroll_timesheet_calculator",
+   "file_base": "Payroll-Timesheet-Calculator",
+   "price": 19,
+   "made": "2026-11-06",
+   "status": "not uploaded",
+   "note": "Gumroad was logged out in Chrome on 2026-11-06; upload next run."
+  },
+  {
+   "module": "cleaning_business_tracker",
+   "file_base": "Cleaning-Business-Client-Job-Tracker",
+   "price": 19,
+   "made": "2026-11-06",
+   "status": "not uploaded",
+   "note": "Gumroad was logged out in Chrome on 2026-11-06; upload next run."
   }
  ],
  "next": [
-  "Payroll & timesheet calculator (hours, overtime)",
-  "Cleaning business client & job tracker",
   "Real estate agent commission & lead tracker",
   "Teacher gradebook & attendance",
   "Homeschool planner & lesson tracker",
