@@ -252,7 +252,7 @@
    "price": 19,
    "made": "2026-11-06",
    "status": "not uploaded",
-   "note": "Gumroad was logged out in Chrome on 2026-11-06; upload next run."
+   "note": "Gumroad was logged out in Chrome on 2026-11-06 and 2026-11-07; upload next run."
   },
   {
    "module": "cleaning_business_tracker",
@@ -260,12 +260,26 @@
    "price": 19,
    "made": "2026-11-06",
    "status": "not uploaded",
-   "note": "Gumroad was logged out in Chrome on 2026-11-06; upload next run."
+   "note": "Gumroad was logged out in Chrome on 2026-11-06 and 2026-11-07; upload next run."
+  },
+  {
+   "module": "real_estate_commission_tracker",
+   "file_base": "Real-Estate-Agent-Commission-Tracker",
+   "price": 19,
+   "made": "2026-11-07",
+   "status": "not uploaded",
+   "note": "Gumroad was logged out in Chrome on 2026-11-07; upload next run."
+  },
+  {
+   "module": "teacher_gradebook",
+   "file_base": "Teacher-Gradebook-Attendance-Tracker",
+   "price": 14,
+   "made": "2026-11-07",
+   "status": "not uploaded",
+   "note": "Gumroad was logged out in Chrome on 2026-11-07; upload next run."
   }
  ],
  "next": [
-  "Real estate agent commission & lead tracker",
-  "Teacher gradebook & attendance",
   "Homeschool planner & lesson tracker",
   "Student assignment & exam planner",
   "Job application tracker",
