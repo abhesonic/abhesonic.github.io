@@ -281,22 +281,30 @@
    "file_base": "Teacher-Gradebook-Attendance-Tracker",
    "price": 14,
    "made": "2026-11-07",
-   "status": "not uploaded",
-   "note": "Gumroad was logged out in Chrome on 2026-11-07; upload next run."
+   "status": "published",
+   "gumroad_id": "hxfufi",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/teacher-gradebook-attendance-tracker",
+   "published_on": "2026-11-07"
   },
   {
    "module": "job_application_tracker",
    "file_base": "Job-Application-Tracker",
    "price": 12,
    "made": "2026-11-07",
-   "status": "not uploaded"
+   "status": "published",
+   "gumroad_id": "nlfbg",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/job-application-tracker",
+   "published_on": "2026-11-07"
   },
   {
    "module": "subscription_tracker",
    "file_base": "Subscription-Tracker",
    "price": 9,
    "made": "2026-11-07",
-   "status": "not uploaded"
+   "status": "published",
+   "gumroad_id": "pqthzs",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/subscription-tracker",
+   "published_on": "2026-11-07"
   }
  ],
  "next": [
