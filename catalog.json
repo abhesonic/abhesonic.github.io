@@ -251,24 +251,30 @@
    "file_base": "Payroll-Timesheet-Calculator",
    "price": 19,
    "made": "2026-11-06",
-   "status": "not uploaded",
-   "note": "Gumroad was logged out in Chrome on 2026-11-06 and 2026-11-07; upload next run."
+   "status": "published",
+   "gumroad_id": "myiljm",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/payroll-timesheet-calculator",
+   "published_on": "2026-11-07"
   },
   {
    "module": "cleaning_business_tracker",
    "file_base": "Cleaning-Business-Client-Job-Tracker",
    "price": 19,
    "made": "2026-11-06",
-   "status": "not uploaded",
-   "note": "Gumroad was logged out in Chrome on 2026-11-06 and 2026-11-07; upload next run."
+   "status": "published",
+   "gumroad_id": "mcyqn",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/cleaning-business-client-job-tracker",
+   "published_on": "2026-11-07"
   },
   {
    "module": "real_estate_commission_tracker",
    "file_base": "Real-Estate-Agent-Commission-Tracker",
    "price": 19,
    "made": "2026-11-07",
-   "status": "not uploaded",
-   "note": "Gumroad was logged out in Chrome on 2026-11-07; upload next run."
+   "status": "published",
+   "gumroad_id": "gackcx",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/real-estate-agent-commission-tracker",
+   "published_on": "2026-11-07"
   },
   {
    "module": "teacher_gradebook",
