@@ -277,14 +277,26 @@
    "made": "2026-11-07",
    "status": "not uploaded",
    "note": "Gumroad was logged out in Chrome on 2026-11-07; upload next run."
+  },
+  {
+   "module": "job_application_tracker",
+   "file_base": "Job-Application-Tracker",
+   "price": 12,
+   "made": "2026-11-07",
+   "status": "not uploaded"
+  },
+  {
+   "module": "subscription_tracker",
+   "file_base": "Subscription-Tracker",
+   "price": 9,
+   "made": "2026-11-07",
+   "status": "not uploaded"
   }
  ],
  "next": [
   "Homeschool planner & lesson tracker",
   "Student assignment & exam planner",
-  "Job application tracker",
   "Reading log & book tracker",
-  "Subscription tracker (renewals, yearly cost)",
   "Bill payment tracker & calendar",
   "Sinking funds tracker",
   "Cash envelope budget system",
