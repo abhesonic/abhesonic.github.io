@@ -239,7 +239,7 @@ def main():
                 "custom_summary": item["summary"],
                 "tags[]": item["tags"],
             })
-            print(("OK   " if r.get("success") else "FAIL ") + item["slug"])
+            print(("OK   " if r.get("success") else f"FAIL ({json.dumps(r)[:300]}) ") + item["slug"])
             ok += r.get("success", False)
             fail += not r.get("success", False)
         except Exception as e:  # noqa
