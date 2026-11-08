@@ -1,0 +1,27 @@
+name: Gumroad listings update
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "apply (true) or dry-run (false)"
+        default: "false"
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: factory, path: factory }
+      - uses: actions/checkout@v4
+        with: { ref: main, path: site }
+      - name: Run
+        env:
+          GUMROAD_TOKEN: ${{ secrets.GUMROAD_TOKEN }}
+        run: |
+          cd factory
+          if [ "${{ github.event.inputs.apply }}" = "true" ]; then
+            python3 tools/gumroad/update_listings.py --site ../site --catalog catalog.json --apply
+          else
+            python3 tools/gumroad/update_listings.py --site ../site --catalog catalog.json --dry-run
+          fi
+      - uses: actions/upload-artifact@v4
+        with: { name: listings, path: factory/out/listings }
