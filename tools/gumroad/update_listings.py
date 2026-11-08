@@ -94,7 +94,7 @@ def audience_for(slug: str) -> str:
 
 
 def tags_for(slug: str, h1: str) -> list:
-    base = ["spreadsheet", "excel template", "google sheets template"]
+    base = ["spreadsheet", "excel template", "google sheets"]
     words = re.findall(r"[a-z]+", (slug + " " + h1).lower())
     extra = [w for w in words if w not in {"and", "the", "tracker", "template", "excel", "google", "sheets", "planner", "calculator", "spreadsheet", "with", "for"}]
     seen, out = set(), []
@@ -102,7 +102,7 @@ def tags_for(slug: str, h1: str) -> list:
         if w not in seen and len(w) > 3:
             seen.add(w)
             out.append(w)
-    return (base + out)[:10]
+    return [t for t in base + out if len(t) < 20][:10]
 
 
 def build_description(d: dict, store_url: str) -> str:
