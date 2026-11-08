@@ -17,7 +17,7 @@ Usage:
 
 The token is read from the environment only. Never print it.
 """
-import argparse, glob, html, json, os, re, sys, time, urllib.parse, urllib.request
+import argparse, glob, html, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 
 API = "https://api.gumroad.com/v2"
 
@@ -154,10 +154,32 @@ def build_description(d: dict, store_url: str) -> str:
 
 
 def api(method: str, path: str, token: str, data: dict = None):
-    body = urllib.parse.urlencode({"access_token": token, **(data or {})}, doseq=True).encode()
-    req = urllib.request.Request(f"{API}{path}", data=body, method=method)
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.loads(r.read().decode())
+    params = {"access_token": token, **(data or {})}
+    if method == "GET":
+        url = f"{API}{path}?{urllib.parse.urlencode(params, doseq=True)}"
+        req = urllib.request.Request(url, method="GET")
+    else:
+        req = urllib.request.Request(f"{API}{path}", data=urllib.parse.urlencode(params, doseq=True).encode(), method=method)
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.loads(r.read().decode())
+    except urllib.error.HTTPError as e:
+        body = e.read().decode(errors="replace")[:400]
+        raise RuntimeError(f"HTTP {e.code}: {body}") from None
+
+
+def all_products(token: str):
+    """GET /products, following next_page_key until exhausted."""
+    out, extra, seen = [], {}, set()
+    for _ in range(50):
+        r = api("GET", "/products", token, extra)
+        out.extend(r.get("products", []))
+        key = r.get("next_page_key")
+        if not key or key in seen:
+            break
+        seen.add(key)
+        extra = {"page_key": key}
+    return out
 
 
 def main():
@@ -198,7 +220,8 @@ def main():
     token = os.environ.get("GUMROAD_TOKEN")
     if not token:
         sys.exit("GUMROAD_TOKEN missing")
-    products = api("GET", "/products", token)["products"]
+    products = all_products(token)
+    print(f"{len(products)} products on Gumroad")
     by_slug = {}
     for p in products:
         slug = (p.get("custom_permalink") or p.get("short_url", "").rstrip("/").split("/")[-1] or "").lower()
@@ -220,7 +243,7 @@ def main():
             ok += r.get("success", False)
             fail += not r.get("success", False)
         except Exception as e:  # noqa
-            print(f"FAIL {item['slug']}: {type(e).__name__}")
+            print(f"FAIL {item['slug']}: {e}")
             fail += 1
         time.sleep(1.2)
     print(f"done: {ok} updated, {fail} failed")
