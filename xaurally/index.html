@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XAUrally – Gold Expert Advisor for MetaTrader 5</title>
+<meta name="description" content="XAUrally is a gold (XAUUSD) Expert Advisor for MetaTrader 5 with three engines on one M1 chart and built-in account protection. See the full backtest, flat years included, and try the free demo on MQL5.">
+<meta property="og:title" content="XAUrally – Gold Expert Advisor for MetaTrader 5">
+<meta property="og:description" content="Three engines on one XAUUSD M1 chart, account protection built in. Full backtest, flat years included. Free demo on MQL5.">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+<script>
+  // ===== PENGATURAN HALAMAN (cukup ubah 3 baris ini) =====
+  window.XR = {
+    adsId: '',      // ID Google tag dari Google Ads, contoh: 'AW-123456789'
+    demoLabel: '',  // label konversi "Klik Free demo", contoh: 'AbCdEf12GhIj'
+    signalUrl: ''   // tautan sinyal MQL5, contoh: 'https://www.mql5.com/en/signals/1234567'
+  };
+  // ========================================================
+  if (window.XR.adsId) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.XR.adsId;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', window.XR.adsId);
+  }
+</script>
+
+<style>
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    font-stretch: 62% 125%;
+    src: url(assets/fonts/archivo-latin-wdth-normal.woff2) format('woff2-variations'),
+         url(assets/fonts/archivo-latin-wdth-normal.woff2) format('woff2');
+  }
+  :root {
+    --navy: #141B2B;
+    --navy-line: #2A3550;
+    --paper: #EEF1F4;
+    --white: #FFFFFF;
+    --gold: #D9B65A;
+    --gold-light: #F0D27A;
+    --gold-deep: #8C6A1F;
+    --slate: #4A5568;
+    --mist: #A9B3C2;
+    --rule: #C9D1DB;
+    --loss: #A8382C;
+    --measure: 66ch;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--navy);
+    font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-stretch: 100%;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  figure { margin: 0; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-stretch: 116%; line-height: 1.08; margin: 0; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(1.65rem, 3.2vw, 2.4rem); font-weight: 760; max-width: 24ch; }
+  h3 { font-size: 1.15rem; font-weight: 720; }
+  p { margin: 0; }
+  .lede { max-width: var(--measure); color: var(--slate); margin-top: 14px; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 22px; border-radius: 6px;
+    font: inherit; font-weight: 680; font-stretch: 108%; text-decoration: none;
+    border: 1px solid transparent; cursor: pointer;
+  }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-line { border-color: rgba(255,255,255,.38); color: var(--white); }
+  .btn-line:hover { border-color: var(--white); }
+  .btn-ink { background: var(--navy); color: var(--white); }
+  .btn-ink:hover { background: #222C44; }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--gold-light); outline-offset: 3px; border-radius: 4px;
+  }
+
+  /* top bar + hero */
+  .hero { background: var(--navy); color: var(--white); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 18px; padding-bottom: 18px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 40px; height: 40px; border-radius: 50%; }
+  .brand span { font-size: 1.35rem; font-weight: 800; font-stretch: 125%; letter-spacing: -0.01em; }
+  .bar .btn { min-height: 42px; padding: 9px 16px; font-size: .95rem; }
+  .hero-copy { padding-top: clamp(28px, 6vw, 72px); }
+  .hero h1 { font-size: clamp(2.5rem, 6.4vw, 5rem); font-weight: 780; font-stretch: 122%; max-width: 15ch; line-height: 1.0; }
+  .hero .lede { color: var(--mist); font-size: 1.12rem; margin-top: 22px; max-width: 58ch; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+  /* chart */
+  .chart { position: relative; margin-top: clamp(36px, 6vw, 64px); }
+  .plot { position: relative; height: 300px; }
+  .plot svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .plot .grid line { stroke: var(--navy-line); stroke-width: 1; stroke-dasharray: 3 5; vector-effect: non-scaling-stroke; }
+  .plot .band { fill: rgba(217,182,90,.06); }
+  .plot .line { fill: none; stroke: var(--gold); stroke-width: 2.4; stroke-linejoin: round; vector-effect: non-scaling-stroke;
+                stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.2s cubic-bezier(.3,.1,.2,1) .25s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .gl { position: absolute; left: 0; transform: translateY(-120%); font-size: .78rem; color: #7C879A; }
+  .pt { position: absolute; font-size: .9rem; color: var(--white); font-weight: 650; white-space: nowrap; }
+  .pt small { display: block; color: var(--mist); font-weight: 400; font-size: .78rem; }
+  .pt-start { left: 0; transform: translateY(-140%); }
+  .pt-end { right: 8%; text-align: right; transform: translateY(-50%); }
+  .band-note { position: absolute; top: 34%; font-size: .82rem; color: var(--gold-light); line-height: 1.35; padding-left: 10px; border-left: 1px solid rgba(240,210,122,.5); }
+  .years { position: relative; height: 28px; margin-top: 10px; border-top: 1px solid var(--navy-line); }
+  .yr { position: absolute; top: 6px; font-size: .8rem; color: #7C879A; }
+  .caption { color: var(--mist); font-size: .85rem; max-width: 80ch; padding: 18px 0 44px; }
+  .caption strong { color: var(--white); font-weight: 650; }
+
+  /* sections */
+  section { padding: clamp(56px, 8vw, 96px) 0; }
+  section + section { border-top: 1px solid var(--rule); }
+
+  /* report */
+  .report-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(28px, 5vw, 64px); margin-top: 36px; align-items: start; }
+  .figures { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 6px 22px; }
+  .figures div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid #E3E8EE; }
+  .figures div:last-child { border-bottom: 0; }
+  .figures dt { color: var(--slate); }
+  .figures dd { margin: 0; font-weight: 650; text-align: right; font-variant-numeric: tabular-nums; }
+  .figures .bad dd { color: var(--loss); }
+  .years-bars h3 { margin-bottom: 14px; }
+  .yb { display: grid; grid-template-columns: 7.5ch 1fr; align-items: center; gap: 12px; padding: 7px 0; }
+  .yb span:first-child { color: var(--slate); font-variant-numeric: tabular-nums; }
+  .yb .track { display: flex; align-items: center; gap: 10px; }
+  .yb .fill { height: 14px; background: var(--gold-deep); border-radius: 2px; min-width: 3px; }
+  .yb .val { font-weight: 650; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .yb.flat .fill { background: #9AA5B4; }
+  .note { margin-top: 18px; font-size: .92rem; color: var(--slate); max-width: var(--measure); }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+  .shots figure { margin: 0; }
+  .shots a { display: block; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--white); }
+  .shots figcaption { font-size: .85rem; color: var(--slate); margin-top: 8px; }
+
+  /* signal */
+  .signal { background: var(--white); }
+  .signal-box { border-left: 4px solid var(--gold); padding: 6px 0 6px 22px; max-width: 72ch; }
+  .signal-box p { margin-top: 12px; color: var(--slate); }
+  .signal-box .btn { margin-top: 20px; }
+  .status { display: inline-block; margin-top: 16px; font-size: .9rem; font-weight: 650; color: var(--gold-deep); }
+
+  /* engines */
+  .engines { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 36px; border-top: 2px solid var(--navy); }
+  .engine { padding: 22px 24px 8px 0; }
+  .engine + .engine { padding-left: 24px; border-left: 1px solid var(--rule); }
+  .engine p { margin-top: 10px; color: var(--slate); }
+  .guards-title { margin-top: 48px; }
+  .guards { margin: 16px 0 0; padding: 0; list-style: none; max-width: 78ch; }
+  .guards li { padding: 14px 0; border-top: 1px solid var(--rule); color: var(--slate); }
+  .guards li strong { color: var(--navy); font-weight: 680; }
+
+  /* try */
+  .try-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(28px, 5vw, 64px); margin-top: 36px; align-items: start; }
+  .steps { list-style: none; counter-reset: s; margin: 0; padding: 0; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 52px 1fr; gap: 14px; padding: 16px 0; border-top: 1px solid var(--rule); }
+  .steps li::before { content: counter(s); font-size: 2rem; font-weight: 780; font-stretch: 122%; line-height: 1; color: var(--gold-deep); }
+  .steps li p { color: var(--slate); }
+  .steps li strong { color: var(--navy); }
+  .req { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 22px; }
+  .req dl { margin: 12px 0 0; }
+  .req dt { font-weight: 650; margin-top: 12px; }
+  .req dd { margin: 2px 0 0; color: var(--slate); }
+  .price { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+  .price p { color: var(--slate); max-width: 52ch; }
+
+  /* video */
+  .video-frame { position: relative; aspect-ratio: 16 / 9; margin-top: 32px; background: var(--navy); border-radius: 8px; overflow: hidden; max-width: 880px; }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .small { font-size: .88rem; color: var(--slate); margin-top: 10px; }
+
+  /* risk + faq */
+  .risk { background: var(--white); }
+  .risk-text { max-width: var(--measure); margin-top: 22px; color: var(--navy); }
+  .risk-text p + p { margin-top: 14px; }
+  .faq { margin-top: 30px; max-width: 78ch; }
+  .faq details { border-top: 1px solid var(--rule); padding: 4px 0; }
+  .faq details:last-child { border-bottom: 1px solid var(--rule); }
+  .faq summary { cursor: pointer; font-weight: 650; padding: 14px 0; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; font-weight: 400; font-size: 1.3rem; line-height: 1; color: var(--gold-deep); }
+  .faq details[open] summary::after { content: '\2212'; }
+  .faq details p { color: var(--slate); padding: 0 0 16px; max-width: var(--measure); }
+
+  /* footer */
+  footer { background: var(--navy); color: var(--mist); font-size: .88rem; padding: 40px 0 48px; }
+  footer p + p { margin-top: 10px; max-width: 90ch; }
+  footer a { color: var(--white); }
+
+  @media (max-width: 860px) {
+    .report-grid, .try-grid, .shots { grid-template-columns: 1fr; }
+    .engines { grid-template-columns: 1fr; }
+    .engine, .engine + .engine { padding: 20px 0 6px; border-left: 0; }
+    .engine + .engine { border-top: 1px solid var(--rule); }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding-left: 16px; padding-right: 16px; }
+    body { font-size: 16px; }
+    .plot { height: 210px; }
+    .bar .btn { display: none; }
+    .band-note { top: 22%; font-size: .74rem; }
+    .gl { font-size: .7rem; }
+    .yr { font-size: .7rem; }
+    .yr:nth-child(even) { display: none; }
+    .cta-row .btn { width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .plot .line { animation: none; stroke-dashoffset: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="XAUrally home">
+      <img src="assets/logo.png" alt="" width="40" height="40">
+      <span>XAUrally</span>
+    </a>
+    <a class="btn btn-gold" data-demo href="https://www.mql5.com/en/market/product/204969" target="_blank" rel="noopener">Try the free demo</a>
+  </div>
+
+  <div class="wrap hero-copy" id="top">
+    <h1>Check this gold EA before you trust it.</h1>
+    <p class="lede">XAUrally runs three trading engines on one XAUUSD M1 chart in MetaTrader&nbsp;5, with account protection built in. Every result on this page comes from the MT5 Strategy Tester, the flat years included.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" data-demo href="https://www.mql5.com/en/market/product/204969" target="_blank" rel="noopener">Try the free demo on MQL5</a>
+      <a class="btn btn-line" href="#video">Watch the 54-second video</a>
+    </div>
+
+    <figure class="chart" aria-labelledby="chart-cap">
+      <div class="plot">
+        <svg viewBox="0 0 1000 300" preserveAspectRatio="none" role="img" aria-label="Backtest balance from 1,000 USD in January 2020 to 7,886 USD in October 2026, with a flat stretch in 2022 and 2023.">
+          <rect class="band" x="293.2" y="0" width="292.8" height="300"/>
+          <g class="grid">
+<line x1="0" x2="1000" y1="252.6" y2="252.6"/>
+<line x1="0" x2="1000" y1="173.7" y2="173.7"/>
+<line x1="0" x2="1000" y1="94.7" y2="94.7"/>
+<line x1="0" x2="1000" y1="15.8" y2="15.8"/>
+          </g>
+          <path class="line" pathLength="1" d="M0.0,291.7 L2.1,291.0 L4.2,290.9 L6.3,290.9 L8.4,290.6 L10.4,290.1 L12.5,290.8 L14.6,291.0 L16.7,291.5 L18.8,290.6 L20.9,289.5 L23.0,290.1 L25.1,288.4 L27.1,288.9 L29.2,286.3 L31.3,284.7 L33.4,284.5 L35.5,283.9 L37.6,283.3 L39.7,283.0 L41.8,282.8 L43.8,282.0 L45.9,282.5 L48.0,282.7 L50.1,282.7 L52.2,282.1 L54.3,282.1 L56.4,282.4 L58.5,282.5 L60.5,282.4 L62.6,281.8 L64.7,282.2 L66.8,281.8 L68.9,281.6 L71.0,281.7 L73.1,282.3 L75.2,281.8 L77.2,282.6 L79.3,282.3 L81.4,281.8 L83.5,280.1 L85.6,279.7 L87.7,279.5 L89.8,277.9 L91.9,277.1 L93.9,276.3 L96.0,275.4 L98.1,277.5 L100.2,277.0 L102.3,277.9 L104.4,278.5 L106.5,278.7 L108.6,279.0 L110.6,279.5 L112.7,279.5 L114.8,279.5 L116.9,279.3 L119.0,279.3 L121.1,279.3 L123.2,279.0 L125.3,278.8 L127.3,278.8 L129.4,278.7 L131.5,278.6 L133.6,278.6 L135.7,278.2 L137.8,278.1 L139.9,278.0 L142.0,277.3 L144.1,277.5 L146.1,277.4 L148.2,276.1 L150.3,275.4 L152.4,274.6 L154.5,273.6 L156.6,273.8 L158.7,273.8 L160.8,273.8 L162.8,273.4 L164.9,273.4 L167.0,272.7 L169.1,270.5 L171.2,269.9 L173.3,269.0 L175.4,269.6 L177.5,269.3 L179.5,270.2 L181.6,268.9 L183.7,269.3 L185.8,268.8 L187.9,268.3 L190.0,268.3 L192.1,268.6 L194.2,268.9 L196.2,266.9 L198.3,267.8 L200.4,266.8 L202.5,267.6 L204.6,267.7 L206.7,267.7 L208.8,266.8 L210.9,267.2 L212.9,266.8 L215.0,266.6 L217.1,266.5 L219.2,266.2 L221.3,266.7 L223.4,267.2 L225.5,267.6 L227.6,267.9 L229.6,267.9 L231.7,267.9 L233.8,267.9 L235.9,267.6 L238.0,267.6 L240.1,267.5 L242.2,267.8 L244.3,267.7 L246.3,267.7 L248.4,267.7 L250.5,267.6 L252.6,267.2 L254.7,267.1 L256.8,267.0 L258.9,267.0 L261.0,266.8 L263.0,266.8 L265.1,266.9 L267.2,267.1 L269.3,267.1 L271.4,266.8 L273.5,266.7 L275.6,266.7 L277.7,266.5 L279.7,266.1 L281.8,266.1 L283.9,266.1 L286.0,265.9 L288.1,265.9 L290.2,265.9 L292.3,265.7 L294.4,265.5 L296.5,265.3 L298.5,265.3 L300.6,264.9 L302.7,275.5 L304.8,275.3 L306.9,275.4 L309.0,275.4 L311.1,273.8 L313.2,273.6 L315.2,272.9 L317.3,271.6 L319.4,269.9 L321.5,270.0 L323.6,270.7 L325.7,268.7 L327.8,268.7 L329.9,268.9 L331.9,268.6 L334.0,267.0 L336.1,267.7 L338.2,268.2 L340.3,268.7 L342.4,268.1 L344.5,266.9 L346.6,265.1 L348.6,265.8 L350.7,265.9 L352.8,265.9 L354.9,265.1 L357.0,264.6 L359.1,264.7 L361.2,265.6 L363.3,266.1 L365.3,267.3 L367.4,266.3 L369.5,266.7 L371.6,265.9 L373.7,266.3 L375.8,266.2 L377.9,266.7 L380.0,266.6 L382.0,266.9 L384.1,266.9 L386.2,266.8 L388.3,266.8 L390.4,266.7 L392.5,266.8 L394.6,266.7 L396.7,266.7 L398.7,266.3 L400.8,266.0 L402.9,265.8 L405.0,265.7 L407.1,265.7 L409.2,265.7 L411.3,265.3 L413.4,265.1 L415.4,265.1 L417.5,265.0 L419.6,264.4 L421.7,264.5 L423.8,264.7 L425.9,264.8 L428.0,264.4 L430.1,265.0 L432.2,265.2 L434.2,264.8 L436.3,265.0 L438.4,264.9 L440.5,264.8 L442.6,264.8 L444.7,265.6 L446.8,265.2 L448.9,264.9 L450.9,265.0 L453.0,264.8 L455.1,264.8 L457.2,264.7 L459.3,264.5 L461.4,264.5 L463.5,264.4 L465.6,264.4 L467.6,264.1 L469.7,263.1 L471.8,262.9 L473.9,262.5 L476.0,262.2 L478.1,261.5 L480.2,261.3 L482.3,261.3 L484.3,261.4 L486.4,261.1 L488.5,260.8 L490.6,258.7 L492.7,258.7 L494.8,258.7 L496.9,258.6 L499.0,258.8 L501.0,258.6 L503.1,258.3 L505.2,258.2 L507.3,258.2 L509.4,258.2 L511.5,258.1 L513.6,258.1 L515.7,257.9 L517.7,258.0 L519.8,257.9 L521.9,257.9 L524.0,258.0 L526.1,266.7 L528.2,266.7 L530.3,266.7 L532.4,266.7 L534.4,266.7 L536.5,266.5 L538.6,266.4 L540.7,266.4 L542.8,266.4 L544.9,266.2 L547.0,266.2 L549.1,265.9 L551.1,265.9 L553.2,265.7 L555.3,265.7 L557.4,265.7 L559.5,266.2 L561.6,265.7 L563.7,265.7 L565.8,265.7 L567.8,265.6 L569.9,265.3 L572.0,264.8 L574.1,264.8 L576.2,263.4 L578.3,262.8 L580.4,262.4 L582.5,262.3 L584.6,262.8 L586.6,263.2 L588.7,263.3 L590.8,263.9 L592.9,263.6 L595.0,263.6 L597.1,263.2 L599.2,262.9 L601.3,262.8 L603.3,262.9 L605.4,262.7 L607.5,262.6 L609.6,262.1 L611.7,261.1 L613.8,261.0 L615.9,260.9 L618.0,260.6 L620.0,259.6 L622.1,257.7 L624.2,256.0 L626.3,254.4 L628.4,255.7 L630.5,256.4 L632.6,255.2 L634.7,254.2 L636.7,254.5 L638.8,253.4 L640.9,250.8 L643.0,250.9 L645.1,251.0 L647.2,251.3 L649.3,249.6 L651.4,249.4 L653.4,249.5 L655.5,249.3 L657.6,249.7 L659.7,249.2 L661.8,249.8 L663.9,248.2 L666.0,247.5 L668.1,247.5 L670.1,246.6 L672.2,245.6 L674.3,245.0 L676.4,244.5 L678.5,243.6 L680.6,242.6 L682.7,242.9 L684.8,243.4 L686.8,243.3 L688.9,243.1 L691.0,243.6 L693.1,241.8 L695.2,241.7 L697.3,242.1 L699.4,243.8 L701.5,243.5 L703.5,243.6 L705.6,243.8 L707.7,243.2 L709.8,243.9 L711.9,243.3 L714.0,242.2 L716.1,241.7 L718.2,240.5 L720.3,240.4 L722.3,241.2 L724.4,239.7 L726.5,239.9 L728.6,239.2 L730.7,238.6 L732.8,238.0 L734.9,238.7 L737.0,238.4 L739.0,236.9 L741.1,236.0 L743.2,237.0 L745.3,236.0 L747.4,234.4 L749.5,233.5 L751.6,233.8 L753.7,234.3 L755.7,234.1 L757.8,232.1 L759.9,232.9 L762.0,231.5 L764.1,230.3 L766.2,230.8 L768.3,229.7 L770.4,230.5 L772.4,229.7 L774.5,229.2 L776.6,226.1 L778.7,222.7 L780.8,219.7 L782.9,217.4 L785.0,216.0 L787.1,214.9 L789.1,210.9 L791.2,208.5 L793.3,207.3 L795.4,203.2 L797.5,203.0 L799.6,202.3 L801.7,201.9 L803.8,203.3 L805.8,202.9 L807.9,202.4 L810.0,202.1 L812.1,203.4 L814.2,200.5 L816.3,201.3 L818.4,201.8 L820.5,199.3 L822.5,198.7 L824.6,199.1 L826.7,197.4 L828.8,196.9 L830.9,193.1 L833.0,190.1 L835.1,190.0 L837.2,189.4 L839.2,185.9 L841.3,187.0 L843.4,188.2 L845.5,185.7 L847.6,184.2 L849.7,178.8 L851.8,171.8 L853.9,171.9 L855.9,169.8 L858.0,170.7 L860.1,164.3 L862.2,165.7 L864.3,164.2 L866.4,164.6 L868.5,165.4 L870.6,166.3 L872.7,162.8 L874.7,164.0 L876.8,161.6 L878.9,162.2 L881.0,160.1 L883.1,171.8 L885.2,169.9 L887.3,168.2 L889.4,158.9 L891.4,147.8 L893.5,152.0 L895.6,149.3 L897.7,148.1 L899.8,143.6 L901.9,138.2 L904.0,133.7 L906.1,132.7 L908.1,127.2 L910.2,124.4 L912.3,118.3 L914.4,113.4 L916.5,111.0 L918.6,108.4 L920.7,109.0 L922.8,104.1 L924.8,103.2 L926.9,99.2 L929.0,94.3 L931.1,93.7 L933.2,89.8 L935.3,85.1 L937.4,87.7 L939.5,81.4 L941.5,77.7 L943.6,70.0 L945.7,68.0 L947.8,64.4 L949.9,59.2 L952.0,57.2 L954.1,55.2 L956.2,51.7 L958.2,46.3 L960.3,48.2 L962.4,44.9 L964.5,41.9 L966.6,38.0 L968.7,27.7 L970.8,27.2 L972.9,21.5 L974.9,15.5 L977.0,16.7 L979.1,16.9 L981.2,19.0 L983.3,16.4 L985.4,15.2 L987.5,16.2 L989.6,13.3 L991.6,9.9 L993.7,8.8 L995.8,7.1 L997.9,17.9 L1000.0,20.3"/>
+        </svg>
+<span class="gl" style="top:57.90%">4,000</span>
+<span class="gl" style="top:31.57%">6,000</span>
+<span class="gl" style="top:5.27%">8,000</span>
+        <span class="band-note" style="left:29.32%">2022 and 2023<br>+19 and +53 USD</span>
+        <span class="pt pt-start" style="top:97.37%">1,000 USD<small>January 2020</small></span>
+        <span class="pt pt-end" style="top:6.77%">7,886 USD<small>29 October 2026</small></span>
+      </div>
+      <div class="years" aria-hidden="true">
+<span class="yr" style="left:0.00%">2020</span>
+<span class="yr" style="left:14.68%">2021</span>
+<span class="yr" style="left:29.32%">2022</span>
+<span class="yr" style="left:43.96%">2023</span>
+<span class="yr" style="left:58.60%">2024</span>
+<span class="yr" style="left:73.29%">2025</span>
+<span class="yr" style="left:87.93%">2026</span>
+      </div>
+      <figcaption class="caption" id="chart-cap"><strong>Backtest, not live trading.</strong> Balance after each closed deal. XAUUSD M1, 1 January 2020 to 29 October 2026, every tick based on real ticks (history quality 99%), 1,000 USD deposit, leverage 1:100, default inputs with 0.01 lot per order.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main>
+  <section id="report">
+    <div class="wrap">
+      <h2>The full backtest report, bad numbers included</h2>
+      <p class="lede">The same Strategy Tester run as the chart above. Look at the drawdown and the losing streak before the profit.</p>
+
+      <div class="report-grid">
+        <dl class="figures">
+          <div class="bad"><dt>Largest equity drawdown</dt><dd>24.09% (407.83 USD)</dd></div>
+          <div class="bad"><dt>Longest losing streak</dt><dd>13 trades (−338.25 USD)</dd></div>
+          <div class="bad"><dt>Largest losing trade</dt><dd>−181.30 USD</dd></div>
+          <div><dt>Total net profit</dt><dd>6,886.03 USD</dd></div>
+          <div><dt>Gross profit / gross loss</dt><dd>16,575.70 / −9,689.67 USD</dd></div>
+          <div><dt>Profit factor</dt><dd>1.71</dd></div>
+          <div><dt>Recovery factor</dt><dd>16.88</dd></div>
+          <div><dt>Trades</dt><dd>5,598 (69.51% profitable)</dd></div>
+          <div><dt>History quality</dt><dd>99% (399 million ticks)</dd></div>
+        </dl>
+
+        <div class="years-bars">
+          <h3>Closed profit per year</h3>
+          <div class="yb"><span>2020</span><span class="track"><span class="fill" style="width:10.4%"></span><span class="val">+374 USD</span></span></div>
+          <div class="yb"><span>2021</span><span class="track"><span class="fill" style="width:8.2%"></span><span class="val">+296 USD</span></span></div>
+          <div class="yb flat"><span>2022</span><span class="track"><span class="fill" style="width:0.5%"></span><span class="val">+19 USD</span></span></div>
+          <div class="yb flat"><span>2023</span><span class="track"><span class="fill" style="width:1.5%"></span><span class="val">+53 USD</span></span></div>
+          <div class="yb"><span>2024</span><span class="track"><span class="fill" style="width:17.6%"></span><span class="val">+631 USD</span></span></div>
+          <div class="yb"><span>2025</span><span class="track"><span class="fill" style="width:53.4%"></span><span class="val">+1,920 USD</span></span></div>
+          <div class="yb"><span>2026*</span><span class="track"><span class="fill" style="width:85%"></span><span class="val">+3,594 USD</span></span></div>
+          <p class="note">* 2026 until 29 October. Swap and commission included. Calm, low-volatility years such as 2022 and 2023 earned almost nothing, and some 12-month periods in the test ended with a loss.</p>
+        </div>
+      </div>
+
+      <p class="note">Tested with version 1.01, the first Market release. The current version, 1.04, checks every order request more strictly before it is sent. An updated report will replace this one.</p>
+
+      <div class="shots">
+        <figure>
+          <a href="assets/mt5-backtest-graph.png" target="_blank" rel="noopener"><img src="assets/mt5-backtest-graph.png" width="1280" height="720" loading="lazy" alt="MetaTrader 5 Strategy Tester graph of the XAUrally backtest balance and equity, 2020 to 2026"></a>
+          <figcaption>Strategy Tester graph, balance and equity (opens full size)</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/mt5-backtest-report.png" target="_blank" rel="noopener"><img src="assets/mt5-backtest-report.png" width="1280" height="720" loading="lazy" alt="MetaTrader 5 Strategy Tester report of the XAUrally backtest with profit factor, drawdown and trade statistics"></a>
+          <figcaption>Strategy Tester report (opens full size)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="signal" id="signal">
+    <div class="wrap">
+      <div class="signal-box" id="signal-pending">
+        <h2>Live signal on a real account</h2>
+        <p>A real-money signal with the default settings is being set up on MQL5 in November 2026. This page will link to it as soon as it is published, losing days included.</p>
+        <span class="status">Status: being set up</span>
+      </div>
+      <div class="signal-box" id="signal-live" hidden>
+        <h2>Live signal on a real account</h2>
+        <p>XAUrally runs on a real-money account with the default settings, 0.01 lot per order. Follow every trade on MQL5, losing days included.</p>
+        <a class="btn btn-ink" id="signal-link" href="#" target="_blank" rel="noopener">View the live signal on MQL5</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="engines">
+    <div class="wrap">
+      <h2>Three engines, each with its own rules</h2>
+      <p class="lede">Each engine has its own entries, exits and magic number. They share one chart and one set of account guards.</p>
+      <div class="engines">
+        <div class="engine">
+          <h3>Basket, long only</h3>
+          <p>Buys gold at selected session hours, on short M1 pullbacks, on 6-minute rebounds and on strong 12-minute morning momentum. Layers have equal lots at fixed price steps, up to 10, never martingale. The whole basket closes at a profit target per ounce.</p>
+        </div>
+        <div class="engine">
+          <h3>Breakout</h3>
+          <p>Buy stop and sell stop orders at H1 swing levels and on the Asian session range, managed with a tight trailing stop. A regime switch keeps a shadow record of each module and sends real orders only while its recent results are positive.</p>
+        </div>
+        <div class="engine">
+          <h3>Level</h3>
+          <p>Stop orders at a ladder of recent daily highs and lows, with stop loss and take profit as a percentage of price and a trailing stop. One position at a time. A 30-day equity filter moves the engine to shadow mode while its recent results are negative.</p>
+        </div>
+      </div>
+
+      <h3 class="guards-title">How it protects the account</h3>
+      <ul class="guards">
+        <li><strong>Trade-idea guard.</strong> When the floating loss of one direction reaches 20% of the balance, that side is closed and new entries in that direction pause for 60 minutes.</li>
+        <li><strong>Daily guard.</strong> When equity falls 20% from the start of the trading day, all XAUrally positions and orders are closed until the next day.</li>
+        <li><strong>Basket limits.</strong> A basket brake in USD per 0.01 lot and a maximum basket age cap every grid basket.</li>
+        <li><strong>Order checks.</strong> Every request is checked against the broker's limits first: algo trading permission, session, volume, free margin, stop and freeze levels.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="try">
+    <div class="wrap">
+      <h2>Test it yourself in the Strategy Tester</h2>
+      <p class="lede">The free demo runs on your own computer with your broker's data. You need MetaTrader 5 on Windows or Mac and a free MQL5 account.</p>
+      <div class="try-grid">
+        <ol class="steps">
+          <li><p><strong>Open XAUrally on MQL5 and click Free Demo.</strong> You can also search for "XAUrally" in the Market tab of MetaTrader 5.</p></li>
+          <li><p><strong>Open the Strategy Tester in MetaTrader 5</strong> (Ctrl+R) and select XAUrally.</p></li>
+          <li><p><strong>Test XAUUSD on M1</strong> with "Every tick based on real ticks", a 1,000 USD deposit and the default inputs. Use a period of at least 6 to 12 months.</p></li>
+        </ol>
+        <div class="req">
+          <h3>What XAUrally needs</h3>
+          <dl>
+            <dt>Account</dt><dd>Hedging account. On a netting account only the Level engine trades.</dd>
+            <dt>Chart</dt><dd>XAUUSD on M1. Any symbol name with XAU or GOLD works.</dd>
+            <dt>Capital</dt><dd>1,000 USD for the default 0.01 lots (medium risk). 2,000 USD or more is lower risk.</dd>
+            <dt>Leverage</dt><dd>1:100 or higher.</dd>
+            <dt>Running time</dt><dd>A VPS that runs 24/5, such as the MetaTrader VPS.</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="price">
+        <a class="btn btn-ink" data-demo href="https://www.mql5.com/en/market/product/204969" target="_blank" rel="noopener">Try the free demo on MQL5</a>
+        <p>The demo works in the Strategy Tester only. To run XAUrally on your account, rent it for one month (69 USD) or buy the unlimited licence (499 USD) on MQL5.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="wrap">
+      <h2>XAUrally in 54 seconds</h2>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/OIsi4pIXN04" title="XAUrally – 3 gold trading engines on one MT5 chart" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="small">The video was made with AI tools.</p>
+    </div>
+  </section>
+
+  <section class="risk" id="risk">
+    <div class="wrap">
+      <h2>Risk warning</h2>
+      <div class="risk-text">
+        <p>The Basket engine uses a grid (averaging) method: it adds positions while the price moves against the basket, and a basket can be closed at a loss by the basket brake, the trade-idea guard or the daily guard. The guards cannot act while the market is closed, so a weekend gap can produce a larger loss than the set limits.</p>
+        <p>Results of backtests and past trading do not guarantee future results. In backtests over several years, results depended strongly on the starting month: some 12-month periods ended with a loss, and calm, low-volatility markets produced losing months.</p>
+        <p>Trading leveraged gold carries a high level of risk and can result in the loss of your deposit. Test XAUrally on a demo account first, start with the default settings, and only trade money you can afford to lose.</p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Can I change the strategy parameters?</summary>
+          <p>No. The inputs contain account settings only: which engines run, lots, broker server time, the account guards and the magic number. The strategy parameters are fixed, so every copy behaves like the tested version.</p>
+        </details>
+        <details>
+          <summary>Is XAUrally suitable for prop-firm challenges?</summary>
+          <p>It is not designed for them. Prop-firm daily loss limits are usually much tighter than the default guards, and tighter guards cut baskets early.</p>
+        </details>
+        <details>
+          <summary>Can I run it next to manual trades or other EAs?</summary>
+          <p>Use one chart per account and keep other activity away from the XAUUSD symbol. The daily guard measures the equity of the whole account.</p>
+        </details>
+        <details>
+          <summary>Where can I buy XAUrally?</summary>
+          <p>Only on the MQL5 Market. Installation and updates run through MetaTrader 5.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Muh Akbar Yusuf. XAUrally is sold only on the <a href="https://www.mql5.com/en/market/product/204969" target="_blank" rel="noopener">MQL5 Market</a>.</p>
+    <p>Privacy: this page uses Google Ads cookies to count clicks on the demo buttons and to show XAUrally ads to past visitors. You can turn off ad personalisation in your Google account at <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var cfg = window.XR || {};
+    document.querySelectorAll('[data-demo]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.gtag && cfg.adsId && cfg.demoLabel) {
+          window.gtag('event', 'conversion', { send_to: cfg.adsId + '/' + cfg.demoLabel });
+        }
+      });
+    });
+    if (cfg.signalUrl) {
+      document.getElementById('signal-pending').hidden = true;
+      document.getElementById('signal-live').hidden = false;
+      document.getElementById('signal-link').href = cfg.signalUrl;
+    }
+  })();
+</script>
+</body>
+</html>
