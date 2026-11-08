@@ -18,6 +18,7 @@ jobs:
           GUMROAD_TOKEN: ${{ secrets.GUMROAD_TOKEN }}
         run: |
           cd factory
+          python3 tools/gumroad/list_products.py
           if [ "${{ github.event.inputs.apply }}" = "true" ]; then
             python3 tools/gumroad/update_listings.py --site ../site --catalog catalog.json --apply
           else
