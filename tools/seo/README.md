@@ -14,3 +14,4 @@ Published guides (do not duplicate topics):
 - 52-week-savings-challenge-spreadsheet, rental-property-analysis-cash-flow-cap-rate, habit-tracker-spreadsheet,
   net-worth-tracker-spreadsheet (5 Nov 2026)
 - import-table-from-website-to-google-sheets (6 Nov 2026)
+- how-to-calculate-hours-worked-in-excel (10 Nov 2026)
