@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to calculate hours worked in Excel or Google Sheets (breaks, overnight shifts and overtime)</title><meta name="description" content="Timesheet formulas that work: hours between clock-in and clock-out, unpaid breaks, shifts past midnight, rounding to 15 minutes, weekly and daily overtime and gross pay – with a worked example week.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/how-to-calculate-hours-worked-in-excel.html">
+<meta property="og:title" content="How to calculate hours worked in Excel or Google Sheets (breaks, overnight shifts and overtime)"><meta property="og:description" content="Timesheet formulas that work: hours between clock-in and clock-out, unpaid breaks, shifts past midnight, rounding to 15 minutes, weekly and daily overtime and gross pay – with a worked example week."><meta property="og:image" content="https://abhesonic.github.io/templates/img/payroll-timesheet-calculator.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to calculate hours worked in Excel or Google Sheets (breaks, overnight shifts and overtime)", "description": "Timesheet formulas that work: hours between clock-in and clock-out, unpaid breaks, shifts past midnight, rounding to 15 minutes, weekly and daily overtime and gross pay \u2013 with a worked example week.", "datePublished": "2026-11-10", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul,ol{padding-left:20px}li{margin:4px 0}
+code{font-size:14px;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:1px 5px;word-break:break-word}
+table{border-collapse:collapse;margin:8px 0 16px;font-size:15px}td,th{border:1px solid var(--border);padding:6px 10px;text-align:left}th{background:var(--surface)}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>How to calculate hours worked in Excel or Google Sheets (breaks, overnight shifts and overtime)</h1><p class="meta">Updated 2026-11-10</p>
+<p class="lead">Subtracting a start time from an end time looks easy until a shift crosses midnight, a 30-minute lunch has to come off, or the weekly total passes 40 hours. Here are the formulas that handle all of it in Excel and Google Sheets, tested on a real example week.</p>
+
+<h2>First: how spreadsheets store time</h2>
+<p>Excel and Google Sheets store a time as a fraction of one day. 6:00 is 0.25, 12:00 is 0.5 and 18:00 is 0.75. That explains the two things that confuse most people:</p>
+<ul><li><b>End minus start gives a fraction of a day, not hours.</b> 17:30 − 9:00 = 0.354. Multiply by 24 to get 8.5 hours.</li>
+<li><b>Decimal hours and clock time are different.</b> 4 hours 20 minutes is <code>4:20</code> on a clock but <code>4.33</code> in decimal hours (20 ÷ 60 = 0.33). Pay is always calculated from decimal hours, so never type 4.20 when someone worked 4:20.</li></ul>
+
+<h2>The timesheet layout</h2>
+<p>Use one row per shift: <b>A</b> date, <b>B</b> clock in, <b>C</b> clock out, <b>D</b> unpaid break in minutes, <b>E</b> hours worked. Type times as <code>9:00</code> or <code>9:00 AM</code>; both are understood. Keep the break as a plain number of minutes – it is easier to type than a time.</p>
+
+<h2>Formula 1: hours between two times</h2>
+<p>For a day shift in row 2: <code>=(C2-B2)*24</code>. Format column E as a normal number with two decimals, not as time.</p>
+
+<h2>Formula 2: shifts that cross midnight</h2>
+<p>A night shift from 22:00 to 06:15 gives a negative result with the simple formula, because 06:15 is "smaller" than 22:00. Wrap the difference in <code>MOD</code>, which turns a negative fraction of a day into the right positive one:</p>
+<p><code>=MOD(C2-B2,1)*24</code></p>
+<p>This works for day shifts too, so you can use it everywhere. The longer equivalent is <code>=IF(C2&lt;B2,C2+1-B2,C2-B2)*24</code>. If shifts can be 24 hours or longer, store full date-and-time values in B and C instead and use <code>=(C2-B2)*24</code>.</p>
+
+<h2>Formula 3: subtract the unpaid break</h2>
+<p>With the break in minutes in column D: <code>=MOD(C2-B2,1)*24-D2/60</code>. This is the one formula most small timesheets need.</p>
+
+<h2>Formula 4: round to the nearest 15 minutes</h2>
+<p>If your policy rounds to quarter hours, wrap the result: <code>=MROUND(MOD(C2-B2,1)*24-D2/60,0.25)</code>. <code>=ROUND(x*4,0)/4</code> gives the same answer. Rounding must be neutral – it should not always favour the employer – so check the rules where you work before rounding at all.</p>
+
+<h2>Worked example week</h2>
+<table><tr><th>Day</th><th>In</th><th>Out</th><th>Break</th><th>Hours</th></tr>
+<tr><td>Mon</td><td>9:00</td><td>17:30</td><td>30</td><td>8.00</td></tr>
+<tr><td>Tue</td><td>8:45</td><td>17:15</td><td>30</td><td>8.00</td></tr>
+<tr><td>Wed</td><td>9:00</td><td>19:00</td><td>45</td><td>9.25</td></tr>
+<tr><td>Thu</td><td>22:00</td><td>6:15</td><td>30</td><td>7.75</td></tr>
+<tr><td>Fri</td><td>8:30</td><td>17:00</td><td>30</td><td>8.00</td></tr>
+<tr><td>Sat</td><td>10:00</td><td>14:20</td><td>0</td><td>4.33</td></tr>
+<tr><th>Total</th><td></td><td></td><td></td><th>45.33</th></tr></table>
+<p>Thursday is the overnight shift that <code>MOD</code> fixes. Saturday shows why decimal hours matter: 4:20 is 4.33 hours, not 4.20.</p>
+
+<h2>Formula 5: weekly overtime</h2>
+<p>With the week's hours in E2:E7:</p>
+<ul><li><b>Total hours</b>: <code>=SUM(E2:E7)</code> → 45.33</li>
+<li><b>Regular hours</b>: <code>=MIN(40,SUM(E2:E7))</code> → 40</li>
+<li><b>Overtime hours</b>: <code>=MAX(0,SUM(E2:E7)-40)</code> → 5.33</li>
+<li><b>Gross pay</b> at US$22 an hour with time-and-a-half overtime: <code>=B10*22+B11*22*1.5</code> (regular hours in B10, overtime hours in B11) → 880.00 + 176.00 = <b>US$1,056.00</b></li></ul>
+<p>Under the US federal rule (FLSA), non-exempt employees get at least 1.5× pay for hours over 40 in a workweek. Some states add <b>daily</b> overtime – California, for example, counts hours over 8 in a day. A per-day overtime column is <code>=MAX(0,E2-8)</code>; on the example week only Wednesday has any (1.25 hours). When both daily and weekly rules apply, the same hour must not be paid as overtime twice, so the calculation needs more care than a single formula. Check your own state or country's rules – this guide is not legal or tax advice.</p>
+
+<h2>Showing totals as hours and minutes</h2>
+<p>If you prefer to see 45:20 instead of 45.33, keep a total of the raw time differences and format the cell with the custom format <code>[h]:mm</code> in Excel (Google Sheets: Format → Number → Duration). The square brackets matter: plain <code>h:mm</code> resets after 24 hours and would show 21:20. For pay, still multiply by 24 and use the decimal.</p>
+
+<h2>Common mistakes</h2>
+<ol><li><b>Times typed as text.</b> A time pasted with an extra space or a dot (9.00) is text, and the formula returns <code>#VALUE!</code>. Retype it as 9:00.</li>
+<li><b>Hours column formatted as time.</b> 8.5 formatted as time shows 12:00. Set it back to Number.</li>
+<li><b>Forgetting the break.</b> A 9-to-5 day with a 30-minute unpaid lunch is 7.5 paid hours, not 8.</li>
+<li><b>Missing clock-outs.</b> An empty out-time gives a nonsense result. <code>=IF(OR(B2="",C2=""),"",MOD(C2-B2,1)*24-D2/60)</code> leaves the cell blank until both times are in.</li></ol>
+
+<h2>Ready-made option</h2>
+<p>If you run payroll for a small team, the <a href="../templates/payroll-timesheet-calculator.html">Payroll &amp; Timesheet Calculator</a> (US$19, Excel and Google Sheets) already does all of this for up to 30 employees: a bi-weekly timesheet that handles overnight shifts and breaks, weekly plus optional daily overtime, PTO, gross-to-net pay, a printable pay stub and a check column that flags missing clock-outs. Freelancers who bill clients by the hour may prefer the <a href="../templates/freelancer-time-tracker-invoice.html">Freelancer Time Tracker &amp; Invoice</a>, which turns logged hours into an invoice.</p>
+<a class="btn" href="../templates/payroll-timesheet-calculator.html">See the payroll template</a>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="./">More guides</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>
