@@ -345,11 +345,29 @@
    "gumroad_id": "qjogo",
    "gumroad_url": "https://abhesonic.gumroad.com/l/reading-log-book-tracker",
    "published_on": "2026-11-10"
+  },
+  {
+   "module": "sinking_funds_tracker",
+   "file_base": "Sinking-Funds-Tracker",
+   "price": 9,
+   "made": "2026-11-12",
+   "status": "published",
+   "gumroad_id": "zgczzk",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/sinking-funds-tracker",
+   "published_on": "2026-11-12"
+  },
+  {
+   "module": "cash_envelope_budget",
+   "file_base": "Cash-Envelope-Budget",
+   "price": 12,
+   "made": "2026-11-12",
+   "status": "published",
+   "gumroad_id": "tcvzqc",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/cash-envelope-budget",
+   "published_on": "2026-11-12"
   }
  ],
  "next": [
-  "Sinking funds tracker",
-  "Cash envelope budget system",
   "Small bakery / food business pricing & recipe cost calculator",
   "Restaurant food cost & inventory",
   "Photography business tracker (clients, shoots, income)",
@@ -394,7 +412,7 @@
   }
  },
  "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29).",
- "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots). 2026-11-09: same for ksdjdh and hirwhn (screenshots timed out). 2026-11-10: How-to text added for tlqpkt and qjogo (click content editor, ctrl+End, type – works without screenshots).",
+ "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots). 2026-11-09: same for ksdjdh and hirwhn (screenshots timed out). 2026-11-10: How-to text added for tlqpkt and qjogo (click content editor, ctrl+End, type – works without screenshots). 2026-11-12: How-to text added for zgczzk and tcvzqc.",
  "duplicate_note": "2026-11-03 ~01:40 UTC: an unpublished draft 'Mortgage Payoff Calculator (Extra Payments, Amortization Schedule, PMI, Refinance)' (gumroad id xbdaxo) appeared, made by a parallel run at the same time. Not ours: the published one is svgrmu. Akbar can delete xbdaxo. If a parallel run is active, check catalog.json on origin/factory before building.",
  "stray_drafts": [
   {
