@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to download all PDFs from a web page at once (5 ways)</title><meta name="description" content="Save every PDF linked on a page without clicking each one: stop Chrome opening PDFs, list PDF links with one console line, Google filetype search, the BatchGrab extension and wget.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/download-all-pdfs-from-a-webpage.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to download all PDFs from a web page at once (5 ways)", "description": "Save every PDF linked on a page without clicking each one: stop Chrome opening PDFs, list PDF links with one console line, Google filetype search, the BatchGrab extension and wget.", "datePublished": "2026-11-13", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+img.cover{width:100%;border-radius:14px;border:1px solid var(--border);margin:8px 0 22px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul{padding-left:20px}li{margin:4px 0}
+.faq p{margin:2px 0 12px}.faq b{display:block}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+pre{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:14px}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>How to download all PDFs from a web page at once (5 ways)</h1><p class="meta">Updated 2026-11-13</p>
+
+<p class="lead">A course page with 40 lecture notes, a council site with years of meeting minutes, a supplier page full of spec sheets: clicking each PDF, waiting for the viewer and pressing Save gets old fast. Here are five ways to get them all, from zero-install tricks to a one-click batch.</p>
+
+<h2>First: make Chrome download PDFs instead of opening them</h2>
+<p>By default Chrome opens a PDF in its built-in viewer, so every link becomes two extra clicks. Change it once:</p>
+<ol><li>Open <b>Settings → Privacy and security → Site settings</b>.</li><li>Scroll to <b>Additional content settings → PDF documents</b>.</li><li>Choose <b>Download PDFs</b>.</li></ol>
+<p>Also check <b>Settings → Downloads</b>. If <i>Ask where to save each file before downloading</i> is on, Chrome will pop up a Save dialog for every single file, which defeats the point of a bulk download. Turn it off while you work and switch it back later if you like it.</p>
+
+<h2>Method 1: Ctrl+click (or middle-click) each link</h2>
+<p>With the setting above, Ctrl+click (Cmd+click on a Mac) or middle-click starts a download without leaving the page. For 5–10 files this is honestly the quickest route and needs nothing installed. Beyond that it gets error-prone: it is easy to miss a link or grab the same file twice.</p>
+
+<h2>Method 2: list every PDF link with the browser console</h2>
+<p>When you want to see exactly which PDFs a page links to – or count them before downloading – the developer console can list them in a second.</p>
+<ol><li>Press <b>F12</b> (or Ctrl+Shift+J / Cmd+Option+J) and open the <b>Console</b> tab.</li><li>Paste this line and press Enter:</li></ol>
+<pre><code>copy([...new Set([...document.querySelectorAll('a[href]')].map(a =&gt; a.href).filter(h =&gt; /\.pdf($|[?#])/i.test(h)))].join('\n'))</code></pre>
+<p>It collects every link on the page whose address ends in <code>.pdf</code> (also when followed by <code>?…</code> or <code>#page=2</code>), removes duplicates and copies the list to your clipboard. <code>copy()</code> is a helper built into Chrome's console, so paste the result into a text file or a spreadsheet column. Two things it will not catch:</p>
+<ul><li>Links that do not end in .pdf, such as <code>/download?id=123</code> or <code>/file.pdf/view</code>. The server may still send a PDF, but the address does not say so.</li><li>Links that only appear after you scroll, open a tab or press <b>Load more</b>. Reveal them first, then run the line.</li></ul>
+<p>The console gives you the list, not the files. To download them in one go, feed the list to a downloader (method 4) or to wget (method 5).</p>
+
+<h2>Method 3: find PDFs across a whole site with Google</h2>
+<p>If the files are spread over many pages, search Google for <code>site:example.com filetype:pdf</code>, optionally with a keyword: <code>site:example.com filetype:pdf annual report</code>. This only shows what Google has indexed, so it can miss new or hidden files, but it is a good way to discover which pages hold the documents you need. Open those pages and use one of the other methods there.</p>
+
+<h2>Method 4: BatchGrab – pick and download in one batch</h2>
+<p><a href="../batchgrab/">BatchGrab</a> is a Chrome extension we make for exactly this job. It scans the page you are viewing and lists every downloadable file it finds – PDFs, documents, archives, images, audio and video links – so you can tick what you want and download it all at once.</p>
+<ol><li>Install BatchGrab from the <a href="https://chromewebstore.google.com/detail/dcojmdkdafgplmplpohefblbkciooidh">Chrome Web Store</a>.</li><li>Open the page with the PDFs. If it loads more items as you scroll, scroll to the bottom first, then click the BatchGrab icon (press <b>Rescan</b> if you scrolled after opening it).</li><li>Filter to PDFs with one click, or search by file name or link text (for example "2025" or "minutes") to narrow the list.</li><li>Select the files and press <b>Download</b>. You can pause, resume, cancel and retry failed files.</li></ol>
+<p>Already have a list of links – from the console line above, an email or a spreadsheet? Use <b>Paste a list of links</b> and BatchGrab downloads those instead of scanning the page.</p>
+<p>The free version handles up to 20 files per batch, which covers most single pages. <a href="../batchgrab/">BatchGrab Pro</a> (US$9.99 one-time, no subscription) removes the limit and adds saving everything as one ZIP, rename patterns (numbers, link text, domain, date), automatic folders by site and file type, and grabbing files from all open tabs at once – handy when the PDFs are split across several result pages. Everything runs in your browser: no account and no tracking.</p>
+
+<h2>Method 5: wget for whole folders (command line)</h2>
+<p>If you are comfortable with a terminal, <b>wget</b> can fetch every PDF linked from a page:</p>
+<pre><code>wget -r -l 1 -nd -A pdf https://example.com/reports/</code></pre>
+<ul><li><code>-r -l 1</code> follows the links on that one page, one level deep.</li><li><code>-nd</code> saves all files into the current folder instead of recreating the site's folder tree.</li><li><code>-A pdf</code> keeps only files ending in .pdf.</li></ul>
+<p>To download a saved list instead, put one URL per line in <code>links.txt</code> and run <code>wget -i links.txt</code>. By default wget stays on the same domain, so PDFs hosted on a different server (a CDN, for example) are skipped, and it cannot see links that a page builds with JavaScript or shows only after you log in. For those cases the browser methods above work better because they see the page exactly as you do.</p>
+
+<h2>Which method should you use?</h2>
+<ul><li><b>Under 10 PDFs:</b> Ctrl+click each link.</li><li><b>Need a list or a count:</b> the console line, pasted into a spreadsheet.</li><li><b>10–100 PDFs on one or a few pages, no coding:</b> BatchGrab.</li><li><b>A large public folder and you like the terminal:</b> wget.</li></ul>
+
+<h2>Troubleshooting</h2>
+<div class="faq">
+<p><b>The PDF opens in a new tab instead of downloading.</b>Set <i>PDF documents</i> to <i>Download PDFs</i> as shown at the top, or right-click the link and choose <i>Save link as…</i>.</p>
+<p><b>Some files are missing.</b>The page probably loads more items as you scroll or behind a "Load more" button. Reveal everything first, then scan again.</p>
+<p><b>The downloaded file is tiny or will not open.</b>You likely saved an HTML page (a login screen or a viewer page) rather than the PDF itself. Open the link in the browser, sign in if needed, and download from the page you are logged into.</p>
+<p><b>Files have random names like 8f3a2c.pdf.</b>That is the name the website gave them. BatchGrab Pro can rename files using the link text, a running number, the domain or the date.</p>
+</div>
+<p class="meta">Please only download files you have the right to save, and respect each site's terms. Downloading from YouTube and streaming sites is not supported.</p>
+<a class="btn" href="../batchgrab/">See BatchGrab</a>
+<p>Collecting tables rather than files? See <a href="extract-table-from-website-to-excel.html">how to extract a table from a website to Excel or Google Sheets</a>, or for images, <a href="download-all-images-from-a-webpage.html">how to download all images from a web page</a>.</p>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>
