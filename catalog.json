@@ -385,11 +385,29 @@
    "gumroad_id": "dwyoen",
    "gumroad_url": "https://abhesonic.gumroad.com/l/wedding-guest-list-rsvp-seating-planner",
    "published_on": "2026-11-13"
+  },
+  {
+   "module": "photography_business_tracker",
+   "file_base": "Photography-Business-Tracker",
+   "price": 19,
+   "made": "2026-11-14",
+   "status": "published",
+   "gumroad_id": "ihrxb",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/photography-business-tracker",
+   "published_on": "2026-11-14"
+  },
+  {
+   "module": "restaurant_menu_engineering",
+   "file_base": "Restaurant-Menu-Engineering-Food-Cost-Calculator",
+   "price": 24,
+   "made": "2026-11-14",
+   "status": "published",
+   "gumroad_id": "kuepg",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/restaurant-menu-engineering-food-cost-calculator",
+   "published_on": "2026-11-14"
   }
  ],
  "next": [
-  "Restaurant food cost & inventory",
-  "Photography business tracker (clients, shoots, income)",
   "Baby tracker (feeding, sleep, diapers)",
   "Pet care & expense tracker",
   "Vehicle maintenance & fuel log",
@@ -430,7 +448,7 @@
   }
  },
  "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29).",
- "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots). 2026-11-09: same for ksdjdh and hirwhn (screenshots timed out). 2026-11-10: How-to text added for tlqpkt and qjogo (click content editor, ctrl+End, type – works without screenshots). 2026-11-12: How-to text added for zgczzk and tcvzqc. 2026-11-13: How-to text added for ckmhh and dwyoen.",
+ "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots). 2026-11-09: same for ksdjdh and hirwhn (screenshots timed out). 2026-11-10: How-to text added for tlqpkt and qjogo (click content editor, ctrl+End, type – works without screenshots). 2026-11-12: How-to text added for zgczzk and tcvzqc. 2026-11-13: How-to text added for ckmhh and dwyoen. 2026-11-14: How-to text added for ihrxb and kuepg.",
  "duplicate_note": "2026-11-03 ~01:40 UTC: an unpublished draft 'Mortgage Payoff Calculator (Extra Payments, Amortization Schedule, PMI, Refinance)' (gumroad id xbdaxo) appeared, made by a parallel run at the same time. Not ours: the published one is svgrmu. Akbar can delete xbdaxo. If a parallel run is active, check catalog.json on origin/factory before building.",
  "stray_drafts": [
   {
@@ -440,5 +458,5 @@
   }
  ],
  "run_note": "Before uploading, check catalog.json on origin/factory again and gumroad.com/products for a product with the same name – another run of the task may be working at the same time.",
- "next_note": "2026-11-13: Restaurant food cost & inventory overlaps the new bakery costing template – consider reshaping it (e.g. menu engineering / food truck) when its turn comes."
+ "next_note": "2026-11-14: 'Restaurant food cost & inventory' was reshaped into Restaurant Menu Engineering & Food Cost Calculator (no overlap with the bakery costing template)."
 }
