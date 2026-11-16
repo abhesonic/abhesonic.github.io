@@ -425,11 +425,25 @@
    "gumroad_id": "pzpgyv",
    "gumroad_url": "https://abhesonic.gumroad.com/l/pet-care-expense-tracker",
    "published_on": "2026-11-15"
+  },
+  {
+   "module": "vehicle_maintenance_log",
+   "file_base": "Vehicle-Maintenance-Fuel-Log",
+   "price": 14,
+   "made": "2026-11-16",
+   "status": "not uploaded",
+   "note": "2026-11-16: Chrome extension offline during the run; upload on the next run."
+  },
+  {
+   "module": "home_maintenance_renovation",
+   "file_base": "Home-Maintenance-Renovation-Budget-Planner",
+   "price": 17,
+   "made": "2026-11-16",
+   "status": "not uploaded",
+   "note": "2026-11-16: Chrome extension offline during the run; upload on the next run."
   }
  ],
  "next": [
-  "Vehicle maintenance & fuel log",
-  "Home maintenance & renovation budget",
   "Garden planner & planting calendar",
   "Goal planner / OKR tracker",
   "Weekly & daily planner (to-do, priorities)",
