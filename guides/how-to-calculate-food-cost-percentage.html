@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to calculate food cost percentage (with Excel and Google Sheets formulas)</title><meta name="description" content="Food cost % for a month and for a single plate: the formulas, yield % for trim and cooking loss, the price for your target food cost, contribution margin and the menu-engineering matrix – with worked examples.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/how-to-calculate-food-cost-percentage.html">
+<meta property="og:title" content="How to calculate food cost percentage (with Excel and Google Sheets formulas)"><meta property="og:description" content="Food cost % for a month and for a single plate: the formulas, yield % for trim and cooking loss, the price for your target food cost, contribution margin and the menu-engineering matrix – with worked examples."><meta property="og:image" content="https://abhesonic.github.io/templates/img/restaurant-menu-engineering-food-cost-calculator.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to calculate food cost percentage (with Excel and Google Sheets formulas)", "description": "Food cost % for a month and for a single plate: the formulas, yield % for trim and cooking loss, the price for your target food cost, contribution margin and the menu-engineering matrix – with worked examples.", "datePublished": "2026-11-17", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul,ol{padding-left:20px}li{margin:4px 0}
+code{font-size:14px;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:1px 5px;word-break:break-word}
+table{border-collapse:collapse;margin:8px 0 16px;font-size:15px}td,th{border:1px solid var(--border);padding:6px 10px;text-align:left}th{background:var(--surface)}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>How to calculate food cost percentage (with Excel and Google Sheets formulas)</h1><p class="meta">Updated 2026-11-17</p>
+<p class="lead">Food cost percentage tells you how much of every dollar a guest pays goes back out on ingredients. There are two versions – one for the whole kitchen over a month and one for a single plate – and you need both. Here are the formulas, a worked example for each, and the spreadsheet layout that keeps them up to date.</p>
+<p class="meta">General information for menu costing, not financial or accounting advice.</p>
+
+<h2>1. Food cost % for a period (the whole kitchen)</h2>
+<p>This is the number your accountant or P&amp;L shows. It uses inventory counts, so it catches waste, theft, over-portioning and spoilage as well as what was actually sold.</p>
+<p><code>Food cost % = (Beginning inventory + Purchases − Ending inventory) ÷ Food sales</code></p>
+<p>The part in brackets is the cost of food used (cost of goods sold). Example for one month:</p>
+<table><tr><th>Item</th><th>Amount</th></tr>
+<tr><td>Beginning inventory (count on the 1st)</td><td>$8,400</td></tr>
+<tr><td>Food purchases during the month</td><td>$21,600</td></tr>
+<tr><td>Ending inventory (count on the last day)</td><td>$7,900</td></tr>
+<tr><td>Cost of food used</td><td>$22,100</td></tr>
+<tr><td>Food sales</td><td>$72,000</td></tr>
+<tr><td><b>Food cost %</b></td><td><b>30.7%</b></td></tr></table>
+<p>In a sheet with those values in B2:B5 (beginning, purchases, ending, sales): <code>=(B2+B3-B4)/B5</code>, formatted as a percentage. Two rules keep it honest: count inventory on the same day and at the same time every period, and use food sales only (keep drinks and their cost in a separate beverage cost %).</p>
+
+<h2>2. Food cost % for one dish (plate cost)</h2>
+<p>The period number tells you <i>that</i> something is wrong; the plate cost tells you <i>which dish</i>. For each dish you add up what every ingredient in one portion costs and divide by the menu price:</p>
+<p><code>Plate food cost % = Plate cost ÷ Selling price</code></p>
+<p>The trap is ingredient cost. You pay for the whole fish or the whole sack of potatoes, but trimming, peeling and cooking lose part of it. That is the <b>yield %</b>, and it belongs in the formula:</p>
+<p><code>Cost of an ingredient in the dish = Pack price ÷ (Pack size × Yield %) × Quantity used</code></p>
+<p>Worked example – a grilled salmon plate selling for $26:</p>
+<table><tr><th>Ingredient</th><th>Pack</th><th>Pack price</th><th>Yield</th><th>Used</th><th>Cost</th></tr>
+<tr><td>Salmon fillet</td><td>2,000 g</td><td>$46.00</td><td>85%</td><td>180 g</td><td>$4.87</td></tr>
+<tr><td>Potatoes</td><td>10,000 g</td><td>$12.50</td><td>80%</td><td>200 g</td><td>$0.31</td></tr>
+<tr><td>Asparagus</td><td>1,000 g</td><td>$8.80</td><td>70%</td><td>100 g</td><td>$1.26</td></tr>
+<tr><td>Butter</td><td>454 g</td><td>$4.50</td><td>100%</td><td>15 g</td><td>$0.15</td></tr>
+<tr><td>Lemon</td><td>1 each</td><td>$0.40</td><td>100%</td><td>¼</td><td>$0.10</td></tr>
+<tr><td>Garnish, oil, salt</td><td colspan="4">fixed allowance</td><td>$0.15</td></tr>
+<tr><td colspan="5"><b>Plate cost</b></td><td><b>$6.84</b></td></tr></table>
+<p>Food cost % = 6.84 ÷ 26 = <b>26.3%</b>, and the plate leaves <b>$19.16</b> towards labour, rent and profit. Without the yield column the salmon would cost $4.14 instead of $4.87 and the dish would look cheaper than it is.</p>
+<p>Spreadsheet layout: one row per recipe line with pack price in C, pack size in D, yield in E and quantity used in F. The line cost is <code>=C2/(D2*E2)*F2</code>; the plate cost is <code>=SUM(G2:G7)</code> plus the garnish allowance. Keep pack prices on a separate <i>Ingredients</i> sheet and look them up (<code>XLOOKUP</code> in Excel 365 and Google Sheets, or <code>INDEX/MATCH</code> in older Excel), so a price change from your supplier updates every dish at once.</p>
+
+<h2>3. The price that hits your target food cost</h2>
+<p>Turn the formula around: <code>Menu price = Plate cost ÷ Target food cost %</code>. For the salmon at a 30% target: 6.84 ÷ 0.30 = $22.80. Round it to a menu-friendly step with <code>=CEILING(G8/0.3,0.5)</code>, which gives $23.00 (29.7% food cost). Many full-service restaurants land somewhere around the high 20s to mid 30s percent, but the right target depends on your concept, so use your own numbers rather than an industry average.</p>
+
+<h2>4. Why the lowest food cost % is not always the best dish</h2>
+<p>You pay rent with dollars, not percentages. Compare <b>contribution margin</b> (price − plate cost) as well:</p>
+<table><tr><th>Dish</th><th>Price</th><th>Plate cost</th><th>Food cost %</th><th>Margin per plate</th></tr>
+<tr><td>Chicken Pasta</td><td>$18</td><td>$3.60</td><td>20.0%</td><td>$14.40</td></tr>
+<tr><td>Ribeye Steak</td><td>$34</td><td>$13.60</td><td>40.0%</td><td>$20.40</td></tr></table>
+<p>The steak has double the food cost % but earns $6 more on every plate. Cutting it because "40% is too high" could lower your profit.</p>
+
+<h2>5. Put cost and popularity together: the menu-engineering matrix</h2>
+<p>The classic method (Kasavana &amp; Smith) sorts each dish by two questions: is it popular, and is its margin above average? Using one month of sales for five mains (960 plates in total):</p>
+<table><tr><th>Dish</th><th>Units sold</th><th>Menu mix</th><th>Margin</th><th>Class</th></tr>
+<tr><td>Classic Burger</td><td>420</td><td>43.8%</td><td>$11.20</td><td>Plowhorse</td></tr>
+<tr><td>Chicken Pasta</td><td>260</td><td>27.1%</td><td>$14.40</td><td>Star</td></tr>
+<tr><td>Grilled Salmon</td><td>150</td><td>15.6%</td><td>$19.16</td><td>Star</td></tr>
+<tr><td>Ribeye Steak</td><td>70</td><td>7.3%</td><td>$20.40</td><td>Puzzle</td></tr>
+<tr><td>Caesar Salad</td><td>60</td><td>6.2%</td><td>$10.10</td><td>Dog</td></tr></table>
+<ul><li><b>Popular</b> means a menu mix of at least 70% of a fair share: 0.7 × (1 ÷ 5 dishes) = 14%. With units in D2:D6: <code>=IF(D2/SUM($D$2:$D$6)&gt;=0.7/COUNT($D$2:$D$6),"High","Low")</code></li>
+<li><b>High margin</b> means at or above the weighted average margin, here $13,356 ÷ 960 = $13.91. With margins in E2:E6: <code>=IF(E2&gt;=SUMPRODUCT($E$2:$E$6,$D$2:$D$6)/SUM($D$2:$D$6),"High","Low")</code></li>
+<li><b>Class</b>: <code>=IF(G2="High",IF(H2="High","Star","Plowhorse"),IF(H2="High","Puzzle","Dog"))</code></li></ul>
+<p>What to do with each: keep and feature <b>Stars</b>; nudge the price of <b>Plowhorses</b> up or trim their plate cost (the burger sells well but earns the least per plate); promote, rename or reposition <b>Puzzles</b>; rework or remove <b>Dogs</b>. Compare dishes within the same category – starters against starters – or the averages get skewed.</p>
+
+<h2>Common mistakes</h2>
+<ol><li>Using last year's ingredient prices. Update pack prices whenever an invoice changes.</li>
+<li>Forgetting yield, sauces, oil and garnish. Small items add up across hundreds of plates.</li>
+<li>Comparing plate cost % with the period food cost %. A gap between them is useful: it points to waste or portions that are bigger than the recipe.</li>
+<li>Judging dishes only by percentage instead of margin and sales.</li></ol>
+
+<h2>Ready-made option</h2>
+<p>If you would rather not build it, the <a href="../templates/restaurant-menu-engineering-food-cost-calculator.html">Restaurant Menu Engineering &amp; Food Cost Calculator</a> (US$24, Excel and Google Sheets) does everything above: an ingredient list with yield %, recipe costing, food cost % and margin for up to 150 menu items, the Star/Plowhorse/Puzzle/Dog matrix, a suggested price for your target food cost and a price tester. Home and cottage bakers who price per piece can use the <a href="../templates/bakery-recipe-cost-pricing-calculator.html">Bakery Recipe Cost &amp; Pricing Calculator</a>, which converts cups and spoons into cost.</p>
+<a class="btn" href="../templates/restaurant-menu-engineering-food-cost-calculator.html">See the template</a>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="./">More guides</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>
