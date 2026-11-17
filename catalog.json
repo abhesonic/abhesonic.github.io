@@ -441,11 +441,23 @@
    "made": "2026-11-16",
    "status": "not uploaded",
    "note": "2026-11-16: Chrome extension offline during the run; upload on the next run."
+  },
+  {
+   "module": "garden_planner",
+   "file_base": "Garden-Planner-Planting-Calendar",
+   "price": 14,
+   "made": "2026-11-17",
+   "status": "not uploaded"
+  },
+  {
+   "module": "okr_goal_tracker",
+   "file_base": "Goal-Planner-OKR-Tracker",
+   "price": 15,
+   "made": "2026-11-17",
+   "status": "not uploaded"
   }
  ],
  "next": [
-  "Garden planner & planting calendar",
-  "Goal planner / OKR tracker",
   "Weekly & daily planner (to-do, priorities)",
   "Fundraising / nonprofit donor tracker",
   "Crypto portfolio & profit/loss tracker"
