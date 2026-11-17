@@ -431,30 +431,40 @@
    "file_base": "Vehicle-Maintenance-Fuel-Log",
    "price": 14,
    "made": "2026-11-16",
-   "status": "not uploaded",
-   "note": "2026-11-16: Chrome extension offline during the run; upload on the next run."
+   "status": "published",
+   "gumroad_id": "mrxjbk",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/vehicle-maintenance-fuel-log",
+   "published_on": "2026-11-17"
   },
   {
    "module": "home_maintenance_renovation",
    "file_base": "Home-Maintenance-Renovation-Budget-Planner",
    "price": 17,
    "made": "2026-11-16",
-   "status": "not uploaded",
-   "note": "2026-11-16: Chrome extension offline during the run; upload on the next run."
+   "status": "published",
+   "gumroad_id": "trsvt",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/home-maintenance-renovation-budget-planner",
+   "published_on": "2026-11-17"
   },
   {
    "module": "garden_planner",
    "file_base": "Garden-Planner-Planting-Calendar",
    "price": 14,
    "made": "2026-11-17",
-   "status": "not uploaded"
+   "status": "published",
+   "gumroad_id": "kzqisq",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/garden-planner-planting-calendar",
+   "published_on": "2026-11-17"
   },
   {
    "module": "okr_goal_tracker",
    "file_base": "Goal-Planner-OKR-Tracker",
    "price": 15,
    "made": "2026-11-17",
-   "status": "not uploaded"
+   "status": "published",
+   "gumroad_id": "smuhda",
+   "gumroad_url": "https://abhesonic.gumroad.com/l/goal-planner-okr-tracker",
+   "published_on": "2026-11-17"
   }
  ],
  "next": [
@@ -492,7 +502,7 @@
   }
  },
  "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29).",
- "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots). 2026-11-09: same for ksdjdh and hirwhn (screenshots timed out). 2026-11-10: How-to text added for tlqpkt and qjogo (click content editor, ctrl+End, type – works without screenshots). 2026-11-12: How-to text added for zgczzk and tcvzqc. 2026-11-13: How-to text added for ckmhh and dwyoen. 2026-11-14: How-to text added for ihrxb and kuepg. 2026-11-15: How-to text added for yjxfle and pzpgyv.",
+ "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots). 2026-11-09: same for ksdjdh and hirwhn (screenshots timed out). 2026-11-10: How-to text added for tlqpkt and qjogo (click content editor, ctrl+End, type – works without screenshots). 2026-11-12: How-to text added for zgczzk and tcvzqc. 2026-11-13: How-to text added for ckmhh and dwyoen. 2026-11-14: How-to text added for ihrxb and kuepg. 2026-11-15: How-to text added for yjxfle and pzpgyv. 2026-11-17: How-to text added for mrxjbk, trsvt, kzqisq and smuhda.",
  "duplicate_note": "2026-11-03 ~01:40 UTC: an unpublished draft 'Mortgage Payoff Calculator (Extra Payments, Amortization Schedule, PMI, Refinance)' (gumroad id xbdaxo) appeared, made by a parallel run at the same time. Not ours: the published one is svgrmu. Akbar can delete xbdaxo. If a parallel run is active, check catalog.json on origin/factory before building.",
  "stray_drafts": [
   {
