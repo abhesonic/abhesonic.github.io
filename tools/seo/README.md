@@ -17,3 +17,4 @@ Published guides (do not duplicate topics):
 - how-to-calculate-hours-worked-in-excel (10 Nov 2026)
 - download-all-pdfs-from-a-webpage (13 Nov 2026)
 - how-to-calculate-food-cost-percentage (17 Nov 2026)
+- extract-all-links-from-webpage-to-excel (20 Nov 2026)
