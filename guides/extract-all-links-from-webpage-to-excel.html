@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to extract all links from a web page into Excel or Google Sheets (4 ways)</title><meta name="description" content="Get every link and its text from a web page into a spreadsheet: a one-line console trick, Google Sheets IMPORTXML with a formula to fix relative URLs, an Excel GetURL function, and the TableGrab extension for lists over many pages.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/extract-all-links-from-webpage-to-excel.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to extract all links from a web page into Excel or Google Sheets (4 ways)", "description": "Get every link and its text from a web page into a spreadsheet: a one-line console trick, Google Sheets IMPORTXML with a formula to fix relative URLs, an Excel GetURL function, and the TableGrab extension for lists over many pages.", "datePublished": "2026-11-20", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+img.cover{width:100%;border-radius:14px;border:1px solid var(--border);margin:8px 0 22px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul{padding-left:20px}li{margin:4px 0}
+.faq p{margin:2px 0 12px}.faq b{display:block}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+pre{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:14px}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>How to extract all links from a web page into Excel or Google Sheets (4 ways)</h1><p class="meta">Updated 2026-11-20</p>
+
+<p class="lead">A supplier's product list, a directory of members, a page of event listings, the links on your own site you want to audit: copying URLs one by one with right-click → <i>Copy link address</i> is slow and error-prone. Here are four ways to get every link, with its text, into rows and columns.</p>
+
+<h2>Method 1: one line in the browser console (any page, any spreadsheet)</h2>
+<p>This works on whatever page you have open, including pages that need a login, because it reads the page exactly as your browser shows it.</p>
+<ol><li>Open the page and scroll down until everything you need has loaded.</li><li>Press <b>F12</b> (or Ctrl+Shift+J / Cmd+Option+J on a Mac) and open the <b>Console</b> tab.</li><li>Paste this line and press Enter:</li></ol>
+<pre><code>copy('Text\tURL\n' + [...new Map([...document.querySelectorAll('a[href]')].map(a =&gt; [a.href, a.innerText.trim().replace(/\s+/g, ' ')])).entries()].map(([u, t]) =&gt; t + '\t' + u).join('\n'))</code></pre>
+<p>It collects every link, removes duplicate addresses, and copies a two-column list (link text, then URL) to your clipboard. Click cell A1 in Excel or Google Sheets and paste: the tab between the two values puts them in separate columns. URLs come out complete (<code>https://…</code>) even when the page uses short relative links like <code>/about</code>.</p>
+<p>If Chrome refuses to paste and shows a warning, type <code>allow pasting</code>, press Enter, and paste again. That warning exists to stop people from running code a stranger sent them, so only paste code you understand. This line only reads links and copies text; it changes nothing on the page.</p>
+
+<h2>Method 2: Google Sheets IMPORTXML (public pages, refreshes by itself)</h2>
+<p>For a public page that you want to re-check now and then, Google Sheets can fetch the links itself. Put the page address in <b>B1</b> and use:</p>
+<pre><code>=IMPORTXML(B1, "//a/@href")</code></pre>
+<p>This lists the <code>href</code> of every link. <code>=IMPORTXML(B1, "//a")</code> gives the link texts, but the two lists do not always line up row for row (image links have no text, for example), so use Method 1 or 4 when you need text and URL paired.</p>
+<p>IMPORTXML returns addresses as written in the page's HTML, so many will be relative (<code>/pricing</code>, <code>//cdn.example.net/file.js</code>). With the raw links in column A starting at A2, and the site's base address (for example <code>https://example.com</code>, no trailing slash) in <b>E1</b>, this turns them into full URLs:</p>
+<pre><code>=ARRAYFORMULA(IF(A2:A="", "", IF(REGEXMATCH(A2:A, "^https?://"), A2:A, IF(LEFT(A2:A, 2)="//", "https:"&amp;A2:A, IF(LEFT(A2:A, 1)="/", $E$1&amp;A2:A, "")))))</code></pre>
+<p>Anything else – <code>#top</code> anchors, <code>mailto:</code> and <code>tel:</code> links, and the less common paths without a leading slash – is left blank so you can check it by hand.</p>
+<p>Limits: IMPORTXML only sees the HTML the server sends, so links that a page adds with JavaScript, behind a login or after scrolling are missing. Some sites block Google's fetcher entirely, which shows up as an error or "Imported content is empty".</p>
+
+<h2>Method 3: Excel – paste, then pull the URL out of each hyperlink</h2>
+<p>Select the links on the page, copy, and paste into Excel. The cells keep their link text and stay clickable, but Excel has no built-in formula that returns a cell's hyperlink address. A tiny custom function does it:</p>
+<ol><li>Press <b>Alt+F11</b> (on a Mac: <i>Tools → Macro → Visual Basic Editor</i>), choose <b>Insert → Module</b>, and paste:</li></ol>
+<pre><code>Function GetURL(c As Range) As String
+    If c.Hyperlinks.Count &gt; 0 Then GetURL = c.Hyperlinks(1).Address
+End Function</code></pre>
+<ol start="2"><li>Back in the sheet, if the pasted link is in A2, enter <code>=GetURL(A2)</code> in B2 and fill down.</li><li>Save as <b>.xlsm</b> (macro-enabled), or copy column B and <i>Paste Special → Values</i> before saving as .xlsx.</li></ol>
+<p>This works in Excel for Windows and Mac desktop, not in Excel for the web. Copy-paste also brings along whatever else you selected, so expect some tidying.</p>
+
+<h2>Method 4: TableGrab – links from lists, cards and results pages</h2>
+<p>Often you do not want every link on the page (menus, footers, social icons) but the links inside the actual content: each product, each listing, each search result, together with its name, price or date. <a href="../tablegrab/">TableGrab</a> is a Chrome extension we make for that. It finds the tables and repeating lists on the page and turns them into rows, with text, links and image addresses in separate columns.</p>
+<ol><li>Install TableGrab from its <a href="../tablegrab/">page</a> and open the page with the list.</li><li>Click the TableGrab icon. A panel opens beside the page with the data already in rows and columns.</li><li>Untick the columns you do not need, then press <b>CSV</b> to download or <b>Copy</b> to paste into your spreadsheet.</li><li>Results split over several pages? Press <b>Find it</b>, point at the page's Next button, then <b>Start</b>. "Load more" buttons and pages that keep loading as you scroll work too.</li></ol>
+<p>The free version collects up to 3 pages per run. <a href="../tablegrab/">TableGrab Pro</a> (US$19 one-time, no subscription) goes up to 500 pages and adds Excel and JSON files and a saved setup per website. It runs in your browser with no account and no tracking.</p>
+
+<h2>Cleaning the list once it is in your sheet</h2>
+<ul>
+<li><b>Remove duplicates:</b> <code>=UNIQUE(B2:B500)</code> in Excel 365 or Google Sheets, or <i>Data → Remove duplicates</i>.</li>
+<li><b>Only links to your own site</b> (Google Sheets): <code>=FILTER(B2:B500, REGEXMATCH(B2:B500, "^https?://(www\.)?example\.com(/|$)"))</code>. Wrap it in <code>NOT(…)</code> to get only outside links.</li>
+<li><b>Get the domain of each URL:</b> in Excel 365 <code>=TEXTBEFORE(TEXTAFTER(B2, "//") &amp; "/", "/")</code>, in Google Sheets <code>=REGEXEXTRACT(B2, "^https?://([^/?#]+)")</code>. Both turn <code>https://shop.example.com/a?b=1</code> into <code>shop.example.com</code>. Then a pivot table or <code>=COUNTIF</code> shows which sites you link to most.</li>
+</ul>
+
+<h2>Which method should you use?</h2>
+<ul><li><b>Every link on one page, right now:</b> the console line.</li><li><b>A public page you want to re-check later:</b> IMPORTXML in Google Sheets.</li><li><b>Links you already pasted into Excel:</b> the GetURL function.</li><li><b>Links inside product lists, directories or results, especially over several pages:</b> TableGrab.</li></ul>
+
+<h2>Troubleshooting</h2>
+<div class="faq">
+<p><b>Some links are missing.</b>The page loads more as you scroll or after a click. Scroll to the end or press "Load more" first, then run the console line or rescan.</p>
+<p><b>I get javascript:void(0) or # instead of a URL.</b>That link is a button that runs code instead of going to an address. There is no URL to copy; the real address only appears after the click.</p>
+<p><b>The URLs have long tracking codes.</b>Strip everything after the question mark with <code>=TEXTBEFORE(B2&amp;"?", "?")</code> in Excel 365 or <code>=REGEXEXTRACT(B2, "^[^?]*")</code> in Google Sheets, but check first that the page still opens without it.</p>
+</div>
+<p class="meta">Please collect only data you have the right to use, and respect each site's terms.</p>
+<a class="btn" href="../tablegrab/">See TableGrab</a>
+<p>Need the whole table, not just the links? See <a href="extract-table-from-website-to-excel.html">how to extract a table from a website to Excel or Google Sheets</a>. Want the files behind the links? See <a href="download-all-pdfs-from-a-webpage.html">how to download all PDFs from a web page</a>.</p>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>
