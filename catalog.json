@@ -1,7 +1,7 @@
 {
  "goal": 50,
  "per_run": 2,
- "store": "Gumroad – https://abhesonic.gumroad.com (Lemon Squeezy rejected the store on 2026-10-29 – never upload there again)",
+ "store": "Gumroad \u2013 https://abhesonic.gumroad.com (Lemon Squeezy rejected the store on 2026-10-29 \u2013 never upload there again)",
  "made": [
   {
    "module": "rental_property_manager",
@@ -11,7 +11,9 @@
    "lemonsqueezy_test_id": 1473441,
    "gumroad_url": "https://abhesonic.gumroad.com/l/rental-property-manager",
    "status": "published",
-   "gumroad_id": "thlxdu"
+   "gumroad_id": "thlxdu",
+   "etsy_url": "https://www.etsy.com/listing/4622916938/rental-property-manager-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "budget_expense_planner",
@@ -21,7 +23,9 @@
    "lemonsqueezy_test_id": 1474978,
    "gumroad_url": "https://abhesonic.gumroad.com/l/budget-expense-planner",
    "status": "published",
-   "gumroad_id": "engfxh"
+   "gumroad_id": "engfxh",
+   "etsy_url": "https://www.etsy.com/listing/4622912698/budget-and-expense-planner-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "small_business_bookkeeping",
@@ -31,7 +35,9 @@
    "lemonsqueezy_test_id": 1475010,
    "gumroad_url": "https://abhesonic.gumroad.com/l/small-business-bookkeeping",
    "status": "published",
-   "gumroad_id": "ifywem"
+   "gumroad_id": "ifywem",
+   "etsy_url": "https://www.etsy.com/listing/4622914480/small-business-bookkeeping-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "airbnb_host_tracker",
@@ -41,7 +47,9 @@
    "lemonsqueezy_test_id": 1475972,
    "gumroad_url": "https://abhesonic.gumroad.com/l/airbnb-host-tracker",
    "status": "published",
-   "gumroad_id": "mntysm"
+   "gumroad_id": "mntysm",
+   "etsy_url": "https://www.etsy.com/listing/4622923590/airbnb-and-short-term-rental-host",
+   "etsy_status": "published"
   },
   {
    "module": "wedding_planner_budget",
@@ -51,7 +59,9 @@
    "lemonsqueezy_test_id": 1475983,
    "gumroad_url": "https://abhesonic.gumroad.com/l/wedding-planner-budget",
    "status": "published",
-   "gumroad_id": "nzwehi"
+   "gumroad_id": "nzwehi",
+   "etsy_url": "https://www.etsy.com/listing/4622920162/wedding-planner-and-budget-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "debt_payoff_planner",
@@ -60,7 +70,9 @@
    "made": "2026-10-29",
    "gumroad_url": "https://abhesonic.gumroad.com/l/debt-payoff-planner",
    "status": "published",
-   "gumroad_id": "ribgen"
+   "gumroad_id": "ribgen",
+   "etsy_url": "https://www.etsy.com/listing/4622915846/debt-snowball-and-avalanche-planner",
+   "etsy_status": "published"
   },
   {
    "module": "content_calendar_planner",
@@ -69,7 +81,9 @@
    "made": "2026-10-29",
    "gumroad_url": "https://abhesonic.gumroad.com/l/content-calendar-planner",
    "status": "published",
-   "gumroad_id": "nhexjg"
+   "gumroad_id": "nhexjg",
+   "etsy_url": "https://www.etsy.com/listing/4622917229/content-calendar-and-social-media",
+   "etsy_status": "published"
   },
   {
    "module": "simple_crm_pipeline",
@@ -78,7 +92,9 @@
    "made": "2026-10-29",
    "gumroad_url": "https://abhesonic.gumroad.com/l/simple-crm-sales-pipeline",
    "status": "published",
-   "gumroad_id": "ltmefy"
+   "gumroad_id": "ltmefy",
+   "etsy_url": "https://www.etsy.com/listing/4622915439/simple-crm-and-sales-pipeline-tracker",
+   "etsy_status": "published"
   },
   {
    "module": "project_planner_gantt",
@@ -88,7 +104,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/project-planner-gantt-chart",
    "status": "published",
    "gumroad_id": "ifeza",
-   "published_on": "2026-10-30"
+   "published_on": "2026-10-30",
+   "etsy_url": "https://www.etsy.com/listing/4622930684/project-planner-with-gantt-chart",
+   "etsy_status": "published"
   },
   {
    "module": "habit_tracker",
@@ -97,7 +115,9 @@
    "made": "2026-10-30",
    "gumroad_url": "https://abhesonic.gumroad.com/l/habit-tracker-heatmap",
    "status": "published",
-   "gumroad_id": "gnbtg"
+   "gumroad_id": "gnbtg",
+   "etsy_url": "https://www.etsy.com/listing/4622912315/habit-tracker-and-heat-map-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "workout_log",
@@ -106,7 +126,9 @@
    "made": "2026-10-30",
    "gumroad_url": "https://abhesonic.gumroad.com/l/workout-log-progress-tracker",
    "status": "published",
-   "gumroad_id": "hrqxua"
+   "gumroad_id": "hrqxua",
+   "etsy_url": "https://www.etsy.com/listing/4622921167/workout-log-and-progress-tracker",
+   "etsy_status": "published"
   },
   {
    "module": "meal_planner",
@@ -115,7 +137,9 @@
    "made": "2026-10-31",
    "gumroad_url": "https://abhesonic.gumroad.com/l/meal-planner-grocery-list",
    "status": "published",
-   "gumroad_id": "towijd"
+   "gumroad_id": "towijd",
+   "etsy_url": "https://www.etsy.com/listing/4622929214/meal-planner-and-grocery-list",
+   "etsy_status": "published"
   },
   {
    "module": "inventory_tracker",
@@ -124,7 +148,9 @@
    "made": "2026-10-31",
    "gumroad_url": "https://abhesonic.gumroad.com/l/inventory-stock-tracker",
    "status": "published",
-   "gumroad_id": "gcgagv"
+   "gumroad_id": "gcgagv",
+   "etsy_url": "https://www.etsy.com/listing/4622909581/inventory-and-stock-tracker-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "etsy_profit_calculator",
@@ -134,7 +160,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/etsy-seller-profit-calculator",
    "status": "published",
    "gumroad_id": "agyjeu",
-   "published_on": "2026-10-31"
+   "published_on": "2026-10-31",
+   "etsy_url": "https://www.etsy.com/listing/4622906507/etsy-seller-profit-calculator",
+   "etsy_status": "published"
   },
   {
    "module": "freelancer_time_invoice",
@@ -144,7 +172,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/freelancer-time-tracker-invoice",
    "status": "published",
    "gumroad_id": "nxssfii",
-   "published_on": "2026-10-31"
+   "published_on": "2026-10-31",
+   "etsy_url": "https://www.etsy.com/listing/4622925256/freelancer-time-tracker-and-invoice",
+   "etsy_status": "published"
   },
   {
    "module": "paycheck_budget_planner",
@@ -154,7 +184,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/paycheck-budget-planner",
    "status": "published",
    "gumroad_id": "kgiwzu",
-   "published_on": "2026-11-01"
+   "published_on": "2026-11-01",
+   "etsy_url": "https://www.etsy.com/listing/4622919080/paycheck-budget-planner-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "savings_challenge_tracker",
@@ -164,7 +196,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/savings-challenge-tracker",
    "status": "published",
    "gumroad_id": "rkcrn",
-   "published_on": "2026-11-01"
+   "published_on": "2026-11-01",
+   "etsy_url": "https://www.etsy.com/listing/4622913867/savings-challenge-tracker-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "net_worth_tracker",
@@ -174,7 +208,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/net-worth-tracker",
    "status": "published",
    "gumroad_id": "jpjann",
-   "published_on": "2026-11-02"
+   "published_on": "2026-11-02",
+   "etsy_url": "https://www.etsy.com/listing/4622928394/net-worth-tracker-spreadsheet-excel",
+   "etsy_status": "published"
   },
   {
    "module": "dividend_portfolio_tracker",
@@ -184,7 +220,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/dividend-income-portfolio-tracker",
    "status": "published",
    "gumroad_id": "ewhjjd",
-   "published_on": "2026-11-02"
+   "published_on": "2026-11-02",
+   "etsy_url": "https://www.etsy.com/listing/4622935364/dividend-income-tracker-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "rental_property_analyzer",
@@ -194,7 +232,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/rental-property-investment-analyzer",
    "status": "published",
    "gumroad_id": "iqpmsn",
-   "published_on": "2026-11-03"
+   "published_on": "2026-11-03",
+   "etsy_url": "https://www.etsy.com/listing/4622966748/rental-property-analyzer-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "house_flip_calculator",
@@ -204,7 +244,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/house-flipping-calculator",
    "status": "published",
    "gumroad_id": "ogmnoa",
-   "published_on": "2026-11-03"
+   "published_on": "2026-11-03",
+   "etsy_url": "https://www.etsy.com/listing/4622958275/house-flipping-calculator-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "mortgage_payoff_calculator",
@@ -214,7 +256,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/mortgage-payoff-calculator",
    "status": "published",
    "gumroad_id": "svgrmu",
-   "published_on": "2026-11-03"
+   "published_on": "2026-11-03",
+   "etsy_url": "https://www.etsy.com/listing/4622934644/mortgage-payoff-calculator-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "event_planner_budget",
@@ -224,7 +268,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/event-planner-budget",
    "status": "published",
    "gumroad_id": "ccnicq",
-   "published_on": "2026-11-03"
+   "published_on": "2026-11-03",
+   "etsy_url": "https://www.etsy.com/listing/4622971002/event-planner-and-budget-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "travel_planner_budget",
@@ -234,7 +280,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/travel-planner-trip-budget",
    "status": "published",
    "gumroad_id": "bximtb",
-   "published_on": "2026-11-04"
+   "published_on": "2026-11-04",
+   "etsy_url": "https://www.etsy.com/listing/4622962623/travel-planner-and-trip-budget",
+   "etsy_status": "published"
   },
   {
    "module": "employee_shift_planner",
@@ -244,7 +292,9 @@
    "gumroad_url": "https://abhesonic.gumroad.com/l/employee-shift-schedule-planner",
    "status": "published",
    "gumroad_id": "hwqoqh",
-   "published_on": "2026-11-04"
+   "published_on": "2026-11-04",
+   "etsy_url": "https://www.etsy.com/listing/4622967802/employee-shift-schedule-planner",
+   "etsy_status": "published"
   },
   {
    "module": "payroll_timesheet_calculator",
@@ -254,7 +304,9 @@
    "status": "published",
    "gumroad_id": "myiljm",
    "gumroad_url": "https://abhesonic.gumroad.com/l/payroll-timesheet-calculator",
-   "published_on": "2026-11-07"
+   "published_on": "2026-11-07",
+   "etsy_url": "https://www.etsy.com/listing/4622959417/payroll-and-timesheet-calculator",
+   "etsy_status": "published"
   },
   {
    "module": "cleaning_business_tracker",
@@ -264,7 +316,9 @@
    "status": "published",
    "gumroad_id": "mcyqn",
    "gumroad_url": "https://abhesonic.gumroad.com/l/cleaning-business-client-job-tracker",
-   "published_on": "2026-11-07"
+   "published_on": "2026-11-07",
+   "etsy_url": "https://www.etsy.com/listing/4622932188/cleaning-business-tracker-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "real_estate_commission_tracker",
@@ -274,7 +328,9 @@
    "status": "published",
    "gumroad_id": "gackcx",
    "gumroad_url": "https://abhesonic.gumroad.com/l/real-estate-agent-commission-tracker",
-   "published_on": "2026-11-07"
+   "published_on": "2026-11-07",
+   "etsy_url": "https://www.etsy.com/listing/4622969226/real-estate-commission-tracker",
+   "etsy_status": "published"
   },
   {
    "module": "teacher_gradebook",
@@ -284,7 +340,9 @@
    "status": "published",
    "gumroad_id": "hxfufi",
    "gumroad_url": "https://abhesonic.gumroad.com/l/teacher-gradebook-attendance-tracker",
-   "published_on": "2026-11-07"
+   "published_on": "2026-11-07",
+   "etsy_url": "https://www.etsy.com/listing/4622963263/teacher-gradebook-and-attendance",
+   "etsy_status": "published"
   },
   {
    "module": "job_application_tracker",
@@ -294,7 +352,9 @@
    "status": "published",
    "gumroad_id": "nlfbg",
    "gumroad_url": "https://abhesonic.gumroad.com/l/job-application-tracker",
-   "published_on": "2026-11-07"
+   "published_on": "2026-11-07",
+   "etsy_url": "https://www.etsy.com/listing/4622973044/job-application-tracker-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "subscription_tracker",
@@ -304,7 +364,9 @@
    "status": "published",
    "gumroad_id": "pqthzs",
    "gumroad_url": "https://abhesonic.gumroad.com/l/subscription-tracker",
-   "published_on": "2026-11-07"
+   "published_on": "2026-11-07",
+   "etsy_url": "https://www.etsy.com/listing/4622925103/subscription-tracker-spreadsheet-excel",
+   "etsy_status": "published"
   },
   {
    "module": "homeschool_planner",
@@ -314,7 +376,9 @@
    "status": "published",
    "gumroad_id": "ksdjdh",
    "gumroad_url": "https://abhesonic.gumroad.com/l/homeschool-planner-lesson-tracker",
-   "published_on": "2026-11-09"
+   "published_on": "2026-11-09",
+   "etsy_url": "https://www.etsy.com/listing/4622973524/homeschool-planner-spreadsheet-excel",
+   "etsy_status": "published"
   },
   {
    "module": "bill_payment_tracker",
@@ -324,7 +388,9 @@
    "status": "published",
    "gumroad_id": "hirwhn",
    "gumroad_url": "https://abhesonic.gumroad.com/l/bill-payment-tracker-calendar",
-   "published_on": "2026-11-09"
+   "published_on": "2026-11-09",
+   "etsy_url": "https://www.etsy.com/listing/4622918015/bill-payment-tracker-spreadsheet-excel",
+   "etsy_status": "published"
   },
   {
    "module": "student_assignment_planner",
@@ -334,7 +400,9 @@
    "status": "published",
    "gumroad_id": "tlqpkt",
    "gumroad_url": "https://abhesonic.gumroad.com/l/student-assignment-exam-planner",
-   "published_on": "2026-11-10"
+   "published_on": "2026-11-10",
+   "etsy_url": "https://www.etsy.com/listing/4622965095/student-assignment-and-exam-planner",
+   "etsy_status": "published"
   },
   {
    "module": "reading_tracker",
@@ -344,7 +412,9 @@
    "status": "published",
    "gumroad_id": "qjogo",
    "gumroad_url": "https://abhesonic.gumroad.com/l/reading-log-book-tracker",
-   "published_on": "2026-11-10"
+   "published_on": "2026-11-10",
+   "etsy_url": "https://www.etsy.com/listing/4622974902/reading-log-and-book-tracker-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "sinking_funds_tracker",
@@ -354,7 +424,9 @@
    "status": "published",
    "gumroad_id": "zgczzk",
    "gumroad_url": "https://abhesonic.gumroad.com/l/sinking-funds-tracker",
-   "published_on": "2026-11-12"
+   "published_on": "2026-11-12",
+   "etsy_url": "https://www.etsy.com/listing/4622927700/sinking-funds-tracker-spreadsheet-excel",
+   "etsy_status": "published"
   },
   {
    "module": "cash_envelope_budget",
@@ -364,7 +436,9 @@
    "status": "published",
    "gumroad_id": "tcvzqc",
    "gumroad_url": "https://abhesonic.gumroad.com/l/cash-envelope-budget",
-   "published_on": "2026-11-12"
+   "published_on": "2026-11-12",
+   "etsy_url": "https://www.etsy.com/listing/4622913035/cash-envelope-budget-spreadsheet-excel",
+   "etsy_status": "published"
   },
   {
    "module": "bakery_recipe_costing",
@@ -374,7 +448,9 @@
    "status": "published",
    "gumroad_id": "ckmhh",
    "gumroad_url": "https://abhesonic.gumroad.com/l/bakery-recipe-cost-pricing-calculator",
-   "published_on": "2026-11-13"
+   "published_on": "2026-11-13",
+   "etsy_url": "https://www.etsy.com/listing/4622931352/bakery-recipe-cost-and-pricing",
+   "etsy_status": "published"
   },
   {
    "module": "wedding_guest_seating",
@@ -384,7 +460,9 @@
    "status": "published",
    "gumroad_id": "dwyoen",
    "gumroad_url": "https://abhesonic.gumroad.com/l/wedding-guest-list-rsvp-seating-planner",
-   "published_on": "2026-11-13"
+   "published_on": "2026-11-13",
+   "etsy_url": "https://www.etsy.com/listing/4622933096/wedding-guest-list-and-seating",
+   "etsy_status": "published"
   },
   {
    "module": "photography_business_tracker",
@@ -394,7 +472,9 @@
    "status": "published",
    "gumroad_id": "ihrxb",
    "gumroad_url": "https://abhesonic.gumroad.com/l/photography-business-tracker",
-   "published_on": "2026-11-14"
+   "published_on": "2026-11-14",
+   "etsy_url": "https://www.etsy.com/listing/4622960739/photography-business-tracker-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "restaurant_menu_engineering",
@@ -404,7 +484,9 @@
    "status": "published",
    "gumroad_id": "kuepg",
    "gumroad_url": "https://abhesonic.gumroad.com/l/restaurant-menu-engineering-food-cost-calculator",
-   "published_on": "2026-11-14"
+   "published_on": "2026-11-14",
+   "etsy_url": "https://www.etsy.com/listing/4622961355/menu-engineering-and-food-cost",
+   "etsy_status": "published"
   },
   {
    "module": "baby_tracker",
@@ -414,7 +496,9 @@
    "status": "published",
    "gumroad_id": "yjxfle",
    "gumroad_url": "https://abhesonic.gumroad.com/l/baby-tracker",
-   "published_on": "2026-11-15"
+   "published_on": "2026-11-15",
+   "etsy_url": "https://www.etsy.com/listing/4622966629/baby-tracker-spreadsheet-excel-google",
+   "etsy_status": "published"
   },
   {
    "module": "pet_care_tracker",
@@ -424,7 +508,9 @@
    "status": "published",
    "gumroad_id": "pzpgyv",
    "gumroad_url": "https://abhesonic.gumroad.com/l/pet-care-expense-tracker",
-   "published_on": "2026-11-15"
+   "published_on": "2026-11-15",
+   "etsy_url": "https://www.etsy.com/listing/4622967379/pet-care-and-expense-tracker-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "vehicle_maintenance_log",
@@ -434,7 +520,9 @@
    "status": "published",
    "gumroad_id": "mrxjbk",
    "gumroad_url": "https://abhesonic.gumroad.com/l/vehicle-maintenance-fuel-log",
-   "published_on": "2026-11-17"
+   "published_on": "2026-11-17",
+   "etsy_url": "https://www.etsy.com/listing/4622967981/vehicle-maintenance-and-fuel-log",
+   "etsy_status": "published"
   },
   {
    "module": "home_maintenance_renovation",
@@ -444,7 +532,9 @@
    "status": "published",
    "gumroad_id": "trsvt",
    "gumroad_url": "https://abhesonic.gumroad.com/l/home-maintenance-renovation-budget-planner",
-   "published_on": "2026-11-17"
+   "published_on": "2026-11-17",
+   "etsy_url": "https://www.etsy.com/listing/4622977690/home-maintenance-and-renovation-planner",
+   "etsy_status": "published"
   },
   {
    "module": "garden_planner",
@@ -454,7 +544,9 @@
    "status": "published",
    "gumroad_id": "kzqisq",
    "gumroad_url": "https://abhesonic.gumroad.com/l/garden-planner-planting-calendar",
-   "published_on": "2026-11-17"
+   "published_on": "2026-11-17",
+   "etsy_url": "https://www.etsy.com/listing/4622969379/garden-planner-and-planting-calendar",
+   "etsy_status": "published"
   },
   {
    "module": "okr_goal_tracker",
@@ -464,7 +556,9 @@
    "status": "published",
    "gumroad_id": "smuhda",
    "gumroad_url": "https://abhesonic.gumroad.com/l/goal-planner-okr-tracker",
-   "published_on": "2026-11-17"
+   "published_on": "2026-11-17",
+   "etsy_url": "https://www.etsy.com/listing/4622969931/goal-planner-and-okr-tracker-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "weekly_daily_planner",
@@ -474,7 +568,9 @@
    "status": "published",
    "gumroad_id": "hmgso",
    "gumroad_url": "https://abhesonic.gumroad.com/l/weekly-daily-planner",
-   "published_on": "2026-11-18"
+   "published_on": "2026-11-18",
+   "etsy_url": "https://www.etsy.com/listing/4622979600/weekly-and-daily-planner-spreadsheet",
+   "etsy_status": "published"
   },
   {
    "module": "nonprofit_donor_tracker",
@@ -518,7 +614,7 @@
   }
  },
  "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29).",
- "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots). 2026-11-09: same for ksdjdh and hirwhn (screenshots timed out). 2026-11-10: How-to text added for tlqpkt and qjogo (click content editor, ctrl+End, type – works without screenshots). 2026-11-12: How-to text added for zgczzk and tcvzqc. 2026-11-13: How-to text added for ckmhh and dwyoen. 2026-11-14: How-to text added for ihrxb and kuepg. 2026-11-15: How-to text added for yjxfle and pzpgyv. 2026-11-17: How-to text added for mrxjbk, trsvt, kzqisq and smuhda. 2026-11-18: How-to text added for hmgso (slug had to be set again after publishing: ctrl+a typed an 'a' – use Home+Delete or click into the empty field).",
+ "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots). 2026-11-09: same for ksdjdh and hirwhn (screenshots timed out). 2026-11-10: How-to text added for tlqpkt and qjogo (click content editor, ctrl+End, type \u2013 works without screenshots). 2026-11-12: How-to text added for zgczzk and tcvzqc. 2026-11-13: How-to text added for ckmhh and dwyoen. 2026-11-14: How-to text added for ihrxb and kuepg. 2026-11-15: How-to text added for yjxfle and pzpgyv. 2026-11-17: How-to text added for mrxjbk, trsvt, kzqisq and smuhda. 2026-11-18: How-to text added for hmgso (slug had to be set again after publishing: ctrl+a typed an 'a' \u2013 use Home+Delete or click into the empty field).",
  "duplicate_note": "2026-11-03 ~01:40 UTC: an unpublished draft 'Mortgage Payoff Calculator (Extra Payments, Amortization Schedule, PMI, Refinance)' (gumroad id xbdaxo) appeared, made by a parallel run at the same time. Not ours: the published one is svgrmu. Akbar can delete xbdaxo. If a parallel run is active, check catalog.json on origin/factory before building.",
  "stray_drafts": [
   {
@@ -527,6 +623,7 @@
    "note": "Unpublished duplicate 'Mortgage Payoff Calculator' draft made by a second run of the daily task that started while another run was uploading the same template (published one is svgrmu). Never publish it; Akbar can delete it in Gumroad > Products."
   }
  ],
- "run_note": "Before uploading, check catalog.json on origin/factory again and gumroad.com/products for a product with the same name – another run of the task may be working at the same time.",
- "next_note": "2026-11-14: 'Restaurant food cost & inventory' was reshaped into Restaurant Menu Engineering & Food Cost Calculator (no overlap with the bakery costing template)."
+ "run_note": "Before uploading, check catalog.json on origin/factory again and gumroad.com/products for a product with the same name \u2013 another run of the task may be working at the same time.",
+ "next_note": "2026-11-14: 'Restaurant food cost & inventory' was reshaped into Restaurant Menu Engineering & Food Cost Calculator (no overlap with the bakery costing template).",
+ "etsy_shop": "https://abhesonictemplates.etsy.com (dibuka 22 Nov 2026, 48 listing aktif)"
 }
