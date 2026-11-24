@@ -18,3 +18,4 @@ Published guides (do not duplicate topics):
 - download-all-pdfs-from-a-webpage (13 Nov 2026)
 - how-to-calculate-food-cost-percentage (17 Nov 2026)
 - extract-all-links-from-webpage-to-excel (20 Nov 2026)
+- how-to-calculate-weighted-grades-in-excel (24 Nov 2026)
