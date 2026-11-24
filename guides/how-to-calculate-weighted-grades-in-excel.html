@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to calculate weighted grades in Excel and Google Sheets (with category weights, missing work and letter grades)</title><meta name="description" content="Weighted grade formulas that work: SUMPRODUCT with category weights, what to do when a category has no grades yet, dropping the lowest quiz, the score you need on the final, letter grades with VLOOKUP and a GPA formula – with a worked example.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/how-to-calculate-weighted-grades-in-excel.html">
+<meta property="og:title" content="How to calculate weighted grades in Excel and Google Sheets (with category weights, missing work and letter grades)"><meta property="og:description" content="Weighted grade formulas that work: SUMPRODUCT with category weights, what to do when a category has no grades yet, dropping the lowest quiz, the score you need on the final, letter grades with VLOOKUP and a GPA formula – with a worked example."><meta property="og:image" content="https://abhesonic.github.io/templates/img/teacher-gradebook-attendance-tracker.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to calculate weighted grades in Excel and Google Sheets (with category weights, missing work and letter grades)", "description": "Weighted grade formulas that work: SUMPRODUCT with category weights, what to do when a category has no grades yet, dropping the lowest quiz, the score you need on the final, letter grades with VLOOKUP and a GPA formula – with a worked example.", "datePublished": "2026-11-24", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul,ol{padding-left:20px}li{margin:4px 0}
+code{font-size:14px;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:1px 5px;word-break:break-word}
+table{border-collapse:collapse;margin:8px 0 16px;font-size:15px}td,th{border:1px solid var(--border);padding:6px 10px;text-align:left}th{background:var(--surface)}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>How to calculate weighted grades in Excel and Google Sheets (with category weights, missing work and letter grades)</h1><p class="meta">Updated 2026-11-24</p>
+<p class="lead">A weighted grade counts some work more than other work – tests might be 40% of the grade and homework only 20%. A plain <code>AVERAGE</code> gets this wrong. Below are the formulas that get it right in Excel and Google Sheets, including the cases that trip people up: a category with no grades yet, dropped quizzes and "what do I need on the final?"</p>
+
+<h2>1. The basic weighted grade: SUMPRODUCT</h2>
+<p>A weighted grade is each category score multiplied by its weight, added up. If the weights add up to 100%, that sum is the grade:</p>
+<p><code>Weighted grade = Score₁ × Weight₁ + Score₂ × Weight₂ + …</code></p>
+<p>Example syllabus and one student's category averages:</p>
+<table><tr><th></th><th>A: Category</th><th>B: Score</th><th>C: Weight</th></tr>
+<tr><td>2</td><td>Homework</td><td>92%</td><td>20%</td></tr>
+<tr><td>3</td><td>Quizzes</td><td>85%</td><td>20%</td></tr>
+<tr><td>4</td><td>Tests</td><td>78%</td><td>40%</td></tr>
+<tr><td>5</td><td>Final exam</td><td>88%</td><td>20%</td></tr></table>
+<p><code>=SUMPRODUCT(B2:B5,C2:C5)</code> returns <b>84.2%</b> (18.4 + 17 + 31.2 + 17.6). A simple <code>=AVERAGE(B2:B5)</code> would say 85.75%, because it treats the homework average the same as the tests.</p>
+<p>Enter scores and weights as percentages (type <code>92%</code>, or 0.92 and format as %). If your weights do not add up to 100% – say you wrote 2, 2, 4, 2 – divide by their total: <code>=SUMPRODUCT(B2:B5,C2:C5)/SUM(C2:C5)</code>. That version is safe either way.</p>
+
+<h2>2. Getting each category score from individual assignments</h2>
+<p>Most gradebooks keep one row per assignment, not one row per category. With the category in column A, points earned in B and points possible in C:</p>
+<p><code>=SUMIFS(B:B,A:A,"Homework")/SUMIFS(C:C,A:A,"Homework",B:B,"&lt;&gt;")</code></p>
+<p>The last condition, <code>B:B,"&lt;&gt;"</code>, only counts the points possible for work that has a score. So three homeworks scored 9, 10 and 8 out of 10, plus a fourth that has not been graded yet, give 27 ÷ 30 = <b>90%</b> instead of 27 ÷ 40 = 67.5%. That is why you leave ungraded work <b>empty</b> and type <b>0</b> only for work that is missing and counts as zero.</p>
+
+<h2>3. When a whole category has no grades yet</h2>
+<p>Early in the term there is no final exam score. <code>SUMPRODUCT</code> treats the empty cell as 0%, so the student's grade drops to 66.6% – which is wrong and alarming. The fix is to divide by the weights that actually have a score:</p>
+<p><code>=SUMPRODUCT(B2:B5,C2:C5)/SUMPRODUCT(C2:C5*ISNUMBER(B2:B5))</code></p>
+<p>With the final blank this gives 66.6 ÷ 80 = <b>83.25%</b>, the student's real standing so far. Once the final is entered the bottom of the fraction becomes 100% and you get the normal grade. Check your school's policy: some teachers prefer to show the "zero for missing" version, and the two numbers answer different questions.</p>
+
+<h2>4. Dropping the lowest quiz</h2>
+<p>If quizzes all have the same maximum (here 10 points, scores in B2:E2 of 8, 9, 6 and 10):</p>
+<p><code>=(SUM(B2:E2)-MIN(B2:E2))/((COUNT(B2:E2)-1)*10)</code></p>
+<p>That is 27 ÷ 30 = <b>90%</b> instead of 33 ÷ 40 = 82.5%. To drop the two lowest, subtract <code>SMALL(B2:E2,2)</code> as well and use <code>COUNT(B2:E2)-2</code>. If quizzes have different maximums, convert each to a percentage first and drop the lowest percentage, or the biggest quiz will always decide what gets dropped.</p>
+
+<h2>5. What score do you need on the final?</h2>
+<p>Turn the formula around. Using the table above with the final still blank:</p>
+<p><code>Needed on final = (Target grade − Current weighted points) ÷ Final weight</code></p>
+<p>In the sheet: <code>=(0.85-SUMPRODUCT(B2:B4,C2:C4))/C5</code>. For an 85% overall the student needs (85 − 66.6) ÷ 20 = <b>92%</b> on the final. For 90% overall the answer is 117% – more than the maximum, so that target is out of reach. Wrap it in <code>=IF(result&gt;1,"Not possible",result)</code> if students will read the sheet.</p>
+
+<h2>6. Turning the percentage into a letter grade</h2>
+<p>Put the cut-offs in a small table, lowest first, and look the grade up with an approximate match:</p>
+<table><tr><th>H: Minimum</th><th>I: Letter</th></tr><tr><td>0%</td><td>F</td></tr><tr><td>60%</td><td>D</td></tr><tr><td>70%</td><td>C</td></tr><tr><td>80%</td><td>B</td></tr><tr><td>90%</td><td>A</td></tr></table>
+<p><code>=VLOOKUP(F2,$H$2:$I$6,2,TRUE)</code> returns <b>B</b> for 84.2%. In Excel 365 and Google Sheets you can also write <code>=XLOOKUP(F2,$H$2:$H$6,$I$2:$I$6,,-1)</code>. Keeping the scale in cells beats a long nested <code>IF</code>: when you add plus and minus grades (B+ at 87%, say), you only add rows. Watch rounding: if your policy rounds 89.5% up to an A, look up <code>ROUND(F2,3)</code> with a 0.895 cut-off, or round the displayed grade the same way you report it.</p>
+
+<h2>7. Bonus: GPA from letter grades and credits</h2>
+<p>GPA is a weighted average too, with credits as the weights. With grade points (A = 4, B = 3, C = 2…) in B2:B5 and credits in C2:C5:</p>
+<p><code>=SUMPRODUCT(B2:B5,C2:C5)/SUM(C2:C5)</code></p>
+<p>Example: A in a 3-credit class, B in a 4-credit class, A in a 3-credit class and C in a 2-credit class = 40 grade points ÷ 12 credits = <b>3.33</b>. Your school's scale may differ (for example A− = 3.7), so use its official table.</p>
+
+<h2>Common mistakes</h2>
+<ol><li>Averaging the category percentages with <code>AVERAGE</code> instead of weighting them.</li>
+<li>Typing 0 for work that has not been graded yet – it pulls the grade down until you fix it.</li>
+<li>Weights that add up to 90% or 110% without dividing by their sum.</li>
+<li>Mixing 92 and 92% in the same column; one is 100 times bigger than the other.</li>
+<li>Relative references in the grade-scale lookup – lock the table with <code>$</code> before copying the formula down.</li></ol>
+
+<h2>Ready-made option</h2>
+<p>Teachers who would rather type scores than build formulas can use the <a href="../templates/teacher-gradebook-attendance-tracker.html">Teacher Gradebook &amp; Attendance Tracker</a> (US$14, Excel and Google Sheets): weighted categories, letter grades, missing-work counts, attendance codes and an at-risk list per student. Students tracking their own classes can use the <a href="../templates/student-assignment-exam-planner.html">Student Assignment &amp; Exam Planner</a>, which includes a weighted grade and GPA calculator next to due dates and exam countdowns.</p>
+<a class="btn" href="../templates/teacher-gradebook-attendance-tracker.html">See the gradebook template</a>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="./">More guides</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>

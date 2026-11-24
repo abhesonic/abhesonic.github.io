@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://abhesonic.github.io/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/</loc><lastmod>2026-10-29</lastmod></url>
-<url><loc>https://abhesonic.github.io/guides/</loc><lastmod>2026-11-20</lastmod></url>
+<url><loc>https://abhesonic.github.io/guides/</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://abhesonic.github.io/tablegrab/</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://abhesonic.github.io/tablegrab/buy.html</loc><lastmod>2026-10-29</lastmod></url>
 <url><loc>https://abhesonic.github.io/batchgrab/</loc><lastmod>2026-10-29</lastmod></url>
@@ -45,13 +45,13 @@
 <url><loc>https://abhesonic.github.io/templates/payroll-timesheet-calculator.html</loc><lastmod>2026-11-10</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/cleaning-business-client-job-tracker.html</loc><lastmod>2026-11-10</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/real-estate-agent-commission-tracker.html</loc><lastmod>2026-11-10</lastmod></url>
-<url><loc>https://abhesonic.github.io/templates/teacher-gradebook-attendance-tracker.html</loc><lastmod>2026-11-10</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/teacher-gradebook-attendance-tracker.html</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/job-application-tracker.html</loc><lastmod>2026-11-10</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/subscription-tracker.html</loc><lastmod>2026-11-10</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/homeschool-planner-lesson-tracker.html</loc><lastmod>2026-11-10</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/bill-payment-tracker-calendar.html</loc><lastmod>2026-11-10</lastmod></url>
 <url><loc>https://abhesonic.github.io/guides/how-to-calculate-hours-worked-in-excel.html</loc><lastmod>2026-11-10</lastmod></url>
-<url><loc>https://abhesonic.github.io/templates/student-assignment-exam-planner.html</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://abhesonic.github.io/templates/student-assignment-exam-planner.html</loc><lastmod>2026-11-24</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/reading-log-book-tracker.html</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/sinking-funds-tracker.html</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/cash-envelope-budget.html</loc><lastmod>2026-11-13</lastmod></url>
@@ -69,4 +69,5 @@
 <url><loc>https://abhesonic.github.io/templates/goal-planner-okr-tracker.html</loc><lastmod>2026-11-20</lastmod></url>
 <url><loc>https://abhesonic.github.io/templates/weekly-daily-planner.html</loc><lastmod>2026-11-20</lastmod></url>
 <url><loc>https://abhesonic.github.io/guides/extract-all-links-from-webpage-to-excel.html</loc><lastmod>2026-11-20</lastmod></url>
+<url><loc>https://abhesonic.github.io/guides/how-to-calculate-weighted-grades-in-excel.html</loc><lastmod>2026-11-24</lastmod></url>
 </urlset>
