@@ -1,0 +1,109 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to scrape data from multiple pages into Excel (pagination without coding)</title><meta name="description" content="Collect a list that is split over many pages into one spreadsheet: work out how many pages there are, build the page URLs with SEQUENCE, loop over them with an Excel Power Query function, handle Next buttons and endless scroll, and remove duplicate rows.">
+<link rel="canonical" href="https://abhesonic.github.io/guides/scrape-multiple-pages-into-excel.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to scrape data from multiple pages into Excel (pagination without coding)", "description": "Collect a list that is split over many pages into one spreadsheet: work out how many pages there are, build the page URLs with SEQUENCE, loop over them with an Excel Power Query function, handle Next buttons and endless scroll, and remove duplicate rows.", "datePublished": "2026-11-27", "author": {"@type": "Person", "name": "Akbar (abhesonic)"}, "publisher": {"@type": "Organization", "name": "abhesonic"}}</script><style>
+:root{color-scheme:light dark;--bg:#f6f5f2;--surface:#fff;--border:#e3e0d8;--text:#1c1b19;--muted:#6e6a61;--accent:#15803d;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1d1c1a;--border:#34322e;--text:#edebe6;--muted:#a29e94;--accent:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+main{max-width:860px;margin:0 auto;padding:40px 16px 60px}
+nav{font-size:14px;margin-bottom:18px}nav a{color:var(--muted)}
+h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+img.cover{width:100%;border-radius:14px;border:1px solid var(--border);margin:8px 0 22px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px;margin:6px 0 18px}
+h2{font-size:21px;margin:28px 0 8px}ul{padding-left:20px}li{margin:4px 0}
+.faq p{margin:2px 0 12px}.faq b{display:block}
+.meta{color:var(--muted);font-size:14px}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}footer a{color:inherit}
+pre{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:14px}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em}
+</style></head><body><main>
+<nav><a href="../">abhesonic</a> · <a href="./">Guides</a></nav>
+<h1>How to scrape data from multiple pages into Excel (pagination without coding)</h1><p class="meta">Updated 2026-11-27</p>
+
+<p class="lead">A directory with 40 pages of members, search results that show 25 items at a time, a product category that keeps loading as you scroll: copying one page is easy, collecting all of them into one sheet is where most people give up. This guide shows how to get every page into Excel or Google Sheets, which method fits which kind of page, and how to clean up the result.</p>
+
+<h2>Step 1: find out what kind of pagination the site uses</h2>
+<p>Go to page 2 of the list and look at the address bar. Almost every site falls into one of three groups:</p>
+<ul>
+<li><b>Page number in the URL</b>, for example <code>…/members?page=2</code> or <code>…/results/page/2/</code>. The easiest case: you can build every page address yourself.</li>
+<li><b>Offset in the URL</b>, for example <code>…?start=25</code> or <code>…?offset=50</code>. The number is the position of the first row, not the page number.</li>
+<li><b>The URL does not change.</b> You click <i>Next</i> or <i>Load more</i>, or new rows appear as you scroll. The data is loaded by JavaScript, so formula-based methods usually cannot see it.</li>
+</ul>
+
+<h2>Step 2: work out how many pages there are</h2>
+<p>Most lists say something like "487 results" and show a fixed number per page. The number of pages is the total divided by the page size, rounded up:</p>
+<pre><code>=ROUNDUP(487/25, 0)</code></pre>
+<p>That gives <b>20</b> pages. The last one is not full: 19 full pages hold 475 rows, so page 20 has the remaining 12. Keep this in mind when you check your result: 487 rows in the sheet means nothing was lost.</p>
+
+<h2>Step 3: build the list of page URLs</h2>
+<p>In Excel 365 or Google Sheets, one formula writes all the addresses. For a page number in the URL:</p>
+<pre><code>="https://example.com/members?page=" &amp; SEQUENCE(20)</code></pre>
+<p>For an offset URL with 25 rows per page, the first page starts at 0, the second at 25, and so on:</p>
+<pre><code>="https://example.com/search?start=" &amp; (SEQUENCE(20)-1)*25</code></pre>
+<p>The last address ends in <code>start=475</code>. Open the first and last URL in your browser to check they show the right rows before you import anything.</p>
+
+<h2>Method 1: Excel Power Query, one function for every page</h2>
+<p>Excel's <i>Get Data from Web</i> imports one page. To import all of them, you turn that import into a small function and run it once per page number. This works in Excel for Windows (2016 and later, including Microsoft 365). Power Query in Excel for Mac supports fewer data sources, so the web import may not be available there; use Method 2 or 3 on a Mac.</p>
+<ol>
+<li>Go to <b>Data → Get Data → From Other Sources → Blank Query</b>. The Power Query editor opens.</li>
+<li>Click <b>Advanced Editor</b>, delete what is there and paste the code below. Change the address and the number of pages.</li>
+<li>Click <b>Done</b>, check the preview, then <b>Close &amp; Load</b>.</li>
+</ol>
+<pre><code>let
+    GetPage = (n as number) =&gt;
+        let
+            Source = Web.Page(Web.Contents("https://example.com/members?page=" &amp; Number.ToText(n))),
+            Data = Source{0}[Data]
+        in
+            Data,
+    Pages = {1..20},
+    Tables = List.Transform(Pages, each GetPage(_)),
+    Combined = Table.Combine(Tables),
+    NoDuplicates = Table.Distinct(Combined)
+in
+    NoDuplicates</code></pre>
+<p><code>Source{0}</code> is the first table on the page. If your data is the second table, use <code>Source{1}</code>; import a single page with <i>From Web</i> first to see which number the Navigator gives it. For an offset URL, replace <code>Number.ToText(n)</code> with <code>Number.ToText((n-1)*25)</code>. Later, <b>Data → Refresh All</b> fetches every page again.</p>
+<p>Limits: Power Query reads the HTML the server sends. If the rows only appear after JavaScript runs, after a login, or the URL never changes, the preview will be empty or show the wrong table. Some sites also block automated requests; then there is nothing a formula can do.</p>
+
+<h2>Method 2: Google Sheets, one IMPORTHTML per page</h2>
+<p>Put the page URLs from Step 3 in column A (A2:A21). In B2, import the first page:</p>
+<pre><code>=IMPORTHTML(A2, "table", 1)</code></pre>
+<p>Because each import spills several rows, you cannot simply fill this formula down. For a handful of pages, stack them with <code>VSTACK</code> and drop the repeated header rows by removing duplicates:</p>
+<pre><code>=UNIQUE(VSTACK(IMPORTHTML(A2,"table",1), IMPORTHTML(A3,"table",1), IMPORTHTML(A4,"table",1)))</code></pre>
+<p>Use <code>"list"</code> instead of <code>"table"</code> when the data is a bulleted list. This is fine for 3 to 10 pages; beyond that the formula gets long and Google may slow down or refuse some fetches. The same JavaScript and login limits apply as in Method 1. Our <a href="import-table-from-website-to-google-sheets.html">IMPORTHTML guide</a> covers errors like "Imported content is empty".</p>
+
+<h2>Method 3: Next buttons, Load more and endless scroll (TableGrab)</h2>
+<p>When the URL does not change, you need a tool that works inside your browser and clicks through the pages the way you would. <a href="../tablegrab/">TableGrab</a> is a Chrome extension we make for exactly this:</p>
+<ol>
+<li>Open the first page of the list and click the TableGrab icon. A panel opens with the rows already in columns.</li>
+<li>Untick or rename the columns you do not need.</li>
+<li>Press <b>Find it</b> and point at the page's <i>Next</i> button, then press <b>Start</b>. "Load more" buttons and pages that keep loading as you scroll work too; only new rows are added.</li>
+<li>Press <b>CSV</b> to download, or <b>Copy</b> and paste into Excel or Google Sheets.</li>
+</ol>
+<p>Because it reads the page as you see it, it also works on lists behind your own login. The free version collects up to 3 pages per run. <a href="../tablegrab/">TableGrab Pro</a> (US$19 one-time, no subscription) goes up to 500 pages, saves real Excel and JSON files and remembers your setup for each website. No account and no tracking; the data stays in your browser.</p>
+
+<h2>Cleaning the combined data</h2>
+<ul>
+<li><b>Repeated header rows:</b> filter the first column for the header text (for example "Name") and delete those rows, or use <code>=FILTER(A2:D1000, A2:A1000&lt;&gt;"Name")</code>.</li>
+<li><b>Duplicates</b> (sites often repeat an item at the edge of two pages): <i>Data → Remove Duplicates</i>, or <code>=UNIQUE(A2:D1000)</code> in Excel 365 and Google Sheets. To see them first, put <code>=COUNTIF(A:A, A2)&gt;1</code> next to each row: TRUE means the value appears more than once.</li>
+<li><b>Count check:</b> <code>=COUNTA(A2:A1000)</code> should match the total the site shows (487 in the example). Fewer rows usually means a page failed to load or the last page was skipped.</li>
+<li><b>Numbers stored as text</b> ("$1,299" or "4.5 stars"): <code>=VALUE(SUBSTITUTE(SUBSTITUTE(B2,"$",""),",",""))</code> turns a price into a number you can sort and sum.</li>
+</ul>
+
+<h2>Which method should you use?</h2>
+<ul>
+<li><b>Page number or offset in the URL, public page, Excel:</b> Power Query (Method 1). It refreshes with one click.</li>
+<li><b>A few public pages, Google Sheets:</b> IMPORTHTML with VSTACK (Method 2).</li>
+<li><b>Next button, Load more, endless scroll or a page behind your login:</b> TableGrab (Method 3).</li>
+</ul>
+
+<h2>Troubleshooting</h2>
+<div class="faq">
+<p><b>Every page returns the same rows.</b>The site ignores the page number in the URL and loads the next rows with JavaScript. Use a browser-based method like Method 3.</p>
+<p><b>Power Query says the table cannot be found.</b>The page has a different number of tables than page 1, or the data is not an HTML table. Check with <i>From Web</i> on one page and change <code>Source{0}</code>.</p>
+<p><b>The import stops halfway or shows errors.</b>The site limits how fast you can request pages. Import fewer pages at a time, or collect them in the browser instead.</p>
+</div>
+<p class="meta">Please collect only data you have the right to use, and respect each site's terms.</p>
+<a class="btn" href="../tablegrab/">See TableGrab</a>
+<p>Only need one page? See <a href="extract-table-from-website-to-excel.html">how to extract a table from a website to Excel or Google Sheets</a>. Need the links rather than the text? See <a href="extract-all-links-from-webpage-to-excel.html">how to extract all links from a web page</a>.</p>
+</main><footer><a href="../templates/">Spreadsheet templates</a> · <a href="../tablegrab/">TableGrab</a> · <a href="../batchgrab/">BatchGrab</a> · <a href="mailto:muhakbaryusuf.ppp@gmail.com">support</a></footer></body></html>
