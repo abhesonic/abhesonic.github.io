@@ -1,7 +1,7 @@
 {
  "goal": 50,
  "per_run": 2,
- "store": "Gumroad \u2013 https://abhesonic.gumroad.com (Lemon Squeezy rejected the store on 2026-10-29 \u2013 never upload there again)",
+ "store": "Gumroad – https://abhesonic.gumroad.com (Lemon Squeezy rejected the store on 2026-10-29 – never upload there again)",
  "made": [
   {
    "module": "rental_property_manager",
@@ -578,12 +578,18 @@
    "price": 19,
    "made": "2026-11-18",
    "status": "not uploaded",
-   "note": "Chrome went offline mid-run (2026-11-18 ~02:45 UTC) before the product was created. Before retrying, check gumroad.com/products for an unfinished 'Nonprofit Donor & Donation Tracker' draft and reuse it."
+   "note": "Chrome went offline mid-run (2026-11-18 ~02:45 UTC) before the product was created. Before retrying, check gumroad.com/products for an unfinished 'Nonprofit Donor & Donation Tracker' draft and reuse it. 2026-11-27: still not uploaded – Chrome offline again."
+  },
+  {
+   "module": "crypto_portfolio_tracker",
+   "file_base": "Crypto-Portfolio-Profit-Loss-Tracker",
+   "price": 17,
+   "made": "2026-11-27",
+   "status": "not uploaded",
+   "note": "Chrome (Claude in Chrome) was offline on 2026-11-27 13:15 UTC – upload on the next run when Chrome is online."
   }
  ],
- "next": [
-  "Crypto portfolio & profit/loss tracker"
- ],
+ "next": [],
  "store_ready": true,
  "store_note": "Payout method connected on 2026-10-29; products publish immediately.",
  "lemonsqueezy_leftovers": {
@@ -614,7 +620,7 @@
   }
  },
  "gumroad_limit": "Gumroad allows creating at most 10 products per day per account (hit on 2026-10-29).",
- "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots). 2026-11-09: same for ksdjdh and hirwhn (screenshots timed out). 2026-11-10: How-to text added for tlqpkt and qjogo (click content editor, ctrl+End, type \u2013 works without screenshots). 2026-11-12: How-to text added for zgczzk and tcvzqc. 2026-11-13: How-to text added for ckmhh and dwyoen. 2026-11-14: How-to text added for ihrxb and kuepg. 2026-11-15: How-to text added for yjxfle and pzpgyv. 2026-11-17: How-to text added for mrxjbk, trsvt, kzqisq and smuhda. 2026-11-18: How-to text added for hmgso (slug had to be set again after publishing: ctrl+a typed an 'a' \u2013 use Home+Delete or click into the empty field).",
+ "content_note": "2026-10-30: screenshots timed out in Chrome, so the \"How to start\" text under the file on the Content tab was skipped for ifeza, gnbtg, hrqxua, towijd, gcgagv (the zip has a Start Here tab). Can be added later. 2026-11-02: same for jpjann and ewhjjd (screenshots timed out). 2026-11-03: same for iqpmsn and ogmnoa (screenshots timed out). 2026-11-04: same for bximtb and hwqoqh (content editor paragraph not reachable without screenshots). 2026-11-09: same for ksdjdh and hirwhn (screenshots timed out). 2026-11-10: How-to text added for tlqpkt and qjogo (click content editor, ctrl+End, type – works without screenshots). 2026-11-12: How-to text added for zgczzk and tcvzqc. 2026-11-13: How-to text added for ckmhh and dwyoen. 2026-11-14: How-to text added for ihrxb and kuepg. 2026-11-15: How-to text added for yjxfle and pzpgyv. 2026-11-17: How-to text added for mrxjbk, trsvt, kzqisq and smuhda. 2026-11-18: How-to text added for hmgso (slug had to be set again after publishing: ctrl+a typed an 'a' – use Home+Delete or click into the empty field).",
  "duplicate_note": "2026-11-03 ~01:40 UTC: an unpublished draft 'Mortgage Payoff Calculator (Extra Payments, Amortization Schedule, PMI, Refinance)' (gumroad id xbdaxo) appeared, made by a parallel run at the same time. Not ours: the published one is svgrmu. Akbar can delete xbdaxo. If a parallel run is active, check catalog.json on origin/factory before building.",
  "stray_drafts": [
   {
@@ -623,7 +629,7 @@
    "note": "Unpublished duplicate 'Mortgage Payoff Calculator' draft made by a second run of the daily task that started while another run was uploading the same template (published one is svgrmu). Never publish it; Akbar can delete it in Gumroad > Products."
   }
  ],
- "run_note": "Before uploading, check catalog.json on origin/factory again and gumroad.com/products for a product with the same name \u2013 another run of the task may be working at the same time.",
+ "run_note": "Before uploading, check catalog.json on origin/factory again and gumroad.com/products for a product with the same name – another run of the task may be working at the same time.",
  "next_note": "2026-11-14: 'Restaurant food cost & inventory' was reshaped into Restaurant Menu Engineering & Food Cost Calculator (no overlap with the bakery costing template).",
  "etsy_shop": "https://abhesonictemplates.etsy.com (dibuka 22 Nov 2026, 48 listing aktif)"
 }
